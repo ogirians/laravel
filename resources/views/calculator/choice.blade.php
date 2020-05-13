@@ -91,7 +91,12 @@
         <td>{{ $q -> job }}</td>
         
         @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
-        <td style="text-align: center;"><a href="#" class="btn btn-xs btn-primary">Buat penilaian</a></td>
+          @if (Auth::user()->isHRD())
+          <td class="warning">Belum buat penilaian</td>
+          @endif
+          @if (Auth::user()->isOutlet())
+          <td style="text-align: center;"><a href="#" class="btn btn-xs btn-primary">Buat penilaian</a></td>
+          @endif
         @else
         <td class="success">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
         @endif
