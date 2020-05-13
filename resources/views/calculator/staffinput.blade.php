@@ -43,7 +43,6 @@
     <div class="col col-lg-3" style="min-width: 250px;">
        <div class="form-group">
             <select class="form-control" id="exampleFormControlSelect1" name="name" required="required" value="{{ old('nama') }}">
-              <option>-</option>
                @foreach ($human as $h)
                   <option>{{ $h -> name }}</option>
                @endforeach  

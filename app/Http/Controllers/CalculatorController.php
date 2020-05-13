@@ -67,12 +67,28 @@ class CalculatorController extends Controller
         return view('calculator.driverinput', ['human'=>$human]);
     }
 
-    public function inputstaff($location){
-        $human = DB::table('humans')
-        ->select('id','name')
-        ->where('location',$location)
-        ->get();
+    public function inputstaff($location, $name = null){
+     $now = Carbon::now()->format('m');
 
+     if ($name != null) {
+    
+        $human = DB::table('humans')
+        ->select('name')
+        ->where('name',$name)
+        ->get();
+     }
+     
+     else {
+
+        $human = DB::table('humans')
+        ->leftjoin('calc', 'humans.id', '=', 'calc.humans_id')
+        ->select('humans.id','humans.name','calc.pdate','humans.location')
+        ->whereMonth('calc.pdate','!=', $now)
+        ->orWhereNull('calc.pdate')
+        ->where('humans.location', $location)
+        ->get(); 
+     }
+     
         $job = DB::table('humans')
         ->select('job')
         ->groupBY('job')
@@ -290,7 +306,7 @@ class CalculatorController extends Controller
         $loyalty = $request->loyalty;
         $hasil15 = $loyalty*5/$b;
         $hasil21 = $hasil1+$hasil2+$hasil3+$hasil4+$hasil5+$hasil6+$hasil7+$hasil8+$hasil9+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
-
+        $total =number_format($hasil21, 2);
         $calc = DB::table('calc')->insert([
             'humans_id'=> $inhuman,
             'position'=>$request->position,
@@ -311,7 +327,7 @@ class CalculatorController extends Controller
             'honestly' => $hasil13,
             'obedience' =>$hasil14,
             'loyalty' => $hasil15,
-            'total' => $hasil21,
+            'total' => $total,
         ]);
 
         if ($role == '3'){

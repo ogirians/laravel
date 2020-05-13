@@ -216,7 +216,7 @@ function kualitas(angka) {
                                 <ul class="nav child_menu">                                 
                                     <li><a href="{{route('outlet.humans.show', Auth::user()->name)}}"">All Employees</a></li>
                                     <li><a href="{{ route('outlet.humans.create') }}">Add Employee</a></li>
-                                    <li><a href="{{ route('outlet.leaves.index') }}">Leave</a>
+                                    <li><a href="{{ route('outlet.leaves.index') }}">Resign</a>
                                     <li><a href="/outlet/choice/{{ Auth::user()->name }}">Performance</a>      
                                     </li>
                                 </ul>

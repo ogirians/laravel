@@ -92,13 +92,13 @@
         
         @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
           @if (Auth::user()->isHRD())
-          <td class="warning">Belum buat penilaian</td>
+          <td class="warning">Belum ada penilaian</td>
           @endif
           @if (Auth::user()->isOutlet())
-          <td style="text-align: center;"><a href="#" class="btn btn-xs btn-primary">Buat penilaian</a></td>
+          <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>
           @endif
         @else
-        <td class="success">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
+        <td class="success" style="text-align: center;">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
         @endif
 
  
