@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\calc;
 use App\Human;
+use Carbon\Carbon;
 
 class CalculatorController extends Controller
 {
@@ -16,12 +17,6 @@ class CalculatorController extends Controller
         //$date = $users->addSelect('pdate')->get();
         if ($location != null) {
 
-            $karyawan2 = DB::table('calc')
-                   ->select('humans_id', DB::raw('MAX(pdate) as last_test'),DB::raw('AVG(total) as skore'),'position','location')
-                   ->groupBy('humans_id','position','location')
-                   ->where('location', $location)
-                   ->where('position','not like',"%".$e."%")
-                   ->get();
 
             $karyawan3 = DB::table('humans')
                     ->leftjoin('calc','humans.id','=','calc.humans_id')
@@ -34,14 +29,19 @@ class CalculatorController extends Controller
 
         else {
 
-                $karyawan2 = DB::table('calc')
-                       ->select('humans_id', DB::raw('MAX(pdate) as last_test'),DB::raw('AVG(total) as skore'),'position','location' )
-                       ->groupBy('humans_id', 'position','location')
-                       ->get();
+                $karyawan3 = DB::table('humans')
+                      ->leftjoin('calc','humans.id','=','calc.humans_id')
+                      ->select('humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('AVG(calc.total) as skore'),'humans.job','humans.location')
+                      ->groupBy('humans.name','humans.job','humans.location')
+                      ->get();
         }
+
+        $now = Carbon::now()->format('M');
+
 
         return view('calculator.choice', array(
         'karyawan3' => $karyawan3,
+        'now' => $now,
         //'dll' => $dll,
         // 'detail' => $detail,    
         ));

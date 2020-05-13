@@ -52,8 +52,8 @@
         <tr>
           <th>Name</th>
           <th>Jabatan</th>
-          <th>penilaian terakhir</th>
-          <th>nilai rata-rata</th>
+          <th>Penilaian bulan ini</th>
+          <th>nilai total rata-rata</th>
           <th>Kualitas</th>
           @if (Auth::user()->isHRD())
           <th>lokasi</th>
@@ -66,8 +66,8 @@
         <tr>
           <th>Name</th>
           <th>Jabatan</th>
-          <th>penilaian terakhir</th>
-          <th>total skore</th>
+          <th>Penilaian bulan ini</th>
+          <th>nilai total rata-rata</th>
           <th>Kualitas</th>
           @if (Auth::user()->isHRD())
           <th>lokasi</th>
@@ -81,15 +81,23 @@
 
 <!-- update 04 mei,,, gausahh panjang2 diinisialisasi dulu-->
 
-
-
+  
+    {{ $now }}
     
     @foreach($karyawan3 as $q)
       
         <tr>
         <td>{{ $q -> name }}</td>
         <td>{{ $q -> job }}</td>
-        <td>{{ $q -> last_test }}</td>
+        
+        @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
+        <td style="text-align: center;"><a href="#" class="btn btn-xs btn-primary">Buat penilaian</a></td>
+        @else
+        <td class="success">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
+        @endif
+
+ 
+        
         <td><p id="Ntotal_{{ $loop->index }}">{{ $q -> skore }}</p></td>
         <td><p id="Kualitaschoice_{{ $loop->index }}"></p></td>
         <script>

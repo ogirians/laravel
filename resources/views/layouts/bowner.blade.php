@@ -18,18 +18,21 @@
     <script src="/vendor/jquery/jquery.min.js"></script>
 
     @yield('styles')
-
+ 
 <?php
 $p = 0;
 ?>
 
 <?
 $i = 1;
+
 ?>
 
  <?
     $location = "Tritan";
  ?>
+
+
 
 <script type="text/javascript">
 
