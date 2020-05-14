@@ -10,7 +10,7 @@
 		<table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	    <thead>
 	      <tr>
-	        
+	        <th>foto</th>
 	        <th>Name</th>
 	        <th>Job Title</th>
 	        <th>Start Day</th>
@@ -23,7 +23,7 @@
 	    </thead>
 	     <tfoot>
 	      <tr>
-	      
+	      	<th>foto</th>
 	        <th>Name</th>
 	        <th>Job Title</th>
 	        <th>Start Day</th>
@@ -39,6 +39,7 @@
 		@if($humans)
 			@foreach($humans as $human)
 			  <tr>
+			  	<td><img width="75px" src="{{ url('images/'.$human->photo) }}"></td>
 				@if (Auth::user()->isHRD())
 				<td><a href="{{route('HRD.humans.edit', $human->id)}}">{{$human->name}}</a></td>
 				@endif

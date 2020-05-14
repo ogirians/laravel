@@ -126,7 +126,7 @@
         <td style="text-align: center;">
           
             <div class="dropdown mb-4">
-                  <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-info btn-xs dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Action
                   </button>
                           <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">

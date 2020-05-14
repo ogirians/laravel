@@ -132,7 +132,7 @@ class BownerHumansController extends Controller
 
         $nilai = DB::Table('humans')
                 ->join('calc','humans.id','=','calc.humans_id')
-                ->select('humans.name','calc.total','calc.pdate',)
+                ->select('humans.name','calc.total','calc.pdate')
                 ->where('humans.id', $id)
                 ->get();
 		
