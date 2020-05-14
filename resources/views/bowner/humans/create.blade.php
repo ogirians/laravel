@@ -27,7 +27,13 @@
 		 {!! Form::label('job', 'Job:') !!}
 		 
 		 <select class="form-control" id="exampleFormControlSelect1" name="job" required="required" value="{{ old('job') }}">  
-              @if (Auth::user()->isOutlet())
+              
+		 	  <option>Choose Option</option>
+              @if (Auth::user()->isHRD())
+              <option>Kepala outlet</option>
+              <option>Kepala divisi</option>
+              <option>Kepala / manajer</option>
+              @endif
               <option>Staff Purchasing</option>
               <option>Staff Admin Purchasing</option>
               <option>Staff Finance</option>
@@ -37,8 +43,11 @@
               <option>Staff Accounting & Tax</option>
               <option>Staff Digital Marketing</option>
               <option>Staff HRD</option>
-              <option>Staff IT</option>          
-              @endif
+              <option>Staff IT</option>
+              <option>Driver</option>
+              <option>Helper</option>
+              <option>Produksi</option>
+             
               </select>
 		</div>
 

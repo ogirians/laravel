@@ -1,7 +1,16 @@
 @extends('layouts.bowner')
 
 @section('content')
-	<h1>Edit Employee</h1>
+
+ <ul class="nav nav-tabs" role="tablist">
+		<li role="presenstation" class="active"><a href="#view" aria-controls="view" role="tab" data-toggle="tab"><strong>Biodata</strong></a></li>
+		<li role="presenstation"><a href="#create" aria-controls="create" role="tab" data-toggle="tab"><strong>history penilaian</strong></a></li>
+</ul>
+
+<div class="tab-content">
+ <div role="tabpanel1" class="tab-pane fade in active" id="view">
+
+	<h1>{{ $human-> name }}</h1>
 	
 	<div class="row">
 		<div class="col-sm-3">
@@ -88,6 +97,56 @@
 	<hr>
 	@include('includes.form_error')
 
+</div>
+
+<div role="tabpanel2" class="tab-pane fade" id="create" style="padding: 20px;">
+	<div class="table-responsive">
+		<table class="table table-hover table-bordered table-striped">
+	    <thead>
+	      <tr>
+	        <th>name</th>
+	        <th>tanggal</th>
+	        <th>nilai</th>
+	        <th>kualitas</th>
+	        <th>opsi</th>
+	      </tr>
+	    </thead>
+	    <tfoot>
+	       <tr>
+	 	    <th>name</th>
+	        <th>tanggal</th>
+	        <th>nilai</th>
+	        <th>kualitas</th>
+	        <th>opsi</th>
+	      </tr>
+	  </tfoot>
+	  <tbody>
+	  	@foreach ( $nilai as $h)
+	  	   <tr>
+	  		<td>{{ $h -> name}}</td>
+	  		<td>{{ Carbon\Carbon::parse($h -> pdate)->format('d-M-Y') }}</td>
+	  		<td><p id="Ntotal_{{ $loop->index }}">{{ $h -> total}}</p></td>
+	  		<td><p id="Kualitaschoice_{{ $loop->index }}"></p></td>
+			        <script>
+			        var p = document.getElementById('Ntotal_{{ $loop->index }}');
+			        var text = p.textContent;
+			        var number = Number(text);
+			        var relnumber = Math.ceil(number);
+			        var kua = kualitas(relnumber);
+
+			        document.getElementById("Kualitaschoice_{{ $loop->index }}").innerHTML = kua;
+			        </script>
+	  		<td></td>
+	  	   </tr>
+	  	@endforeach
+	  </tbody>
+	 </table>
+
+	</div>
+</div>
+
+
+</div>
 @stop
 
 @section('scripts')

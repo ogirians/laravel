@@ -11,7 +11,7 @@
  @endif
 
  @if (Auth::user()->isOutlet())
-<a class="btn btn-success" href="/outlet/tampstaff">Kembali</a>
+<a class="btn btn-success" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
 <form action="/outlet/storestaff" method="post" >
  @endif
 
@@ -87,6 +87,10 @@
 
    <div class="form-group">          
       <input type="hidden" class="form-control" name="user" required="required" value="{{ Auth::user()-> role_id }}">
+  </div>
+
+  <div class="form-group">          
+      <input type="hidden" class="form-control" name="location" required="required" value="{{ Auth::user()-> name }}">
   </div>
 
 

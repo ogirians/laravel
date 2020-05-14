@@ -20,20 +20,23 @@ class CalculatorController extends Controller
 
             $karyawan3 = DB::table('humans')
                     ->leftjoin('calc','humans.id','=','calc.humans_id')
-                    ->select('humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('AVG(calc.total) as skore'),'humans.job','humans.location')
-                    ->groupBy('humans.name','humans.job','humans.location')
+                    ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location')
+                    ->groupBy('humans.id','humans.name','humans.job','humans.location')
                     ->where('humans.location',$location)
                     ->where('humans.job','not like',"%".$e."%")
                     ->get();
+
+
         }
 
         else {
 
                 $karyawan3 = DB::table('humans')
                       ->leftjoin('calc','humans.id','=','calc.humans_id')
-                      ->select('humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('AVG(calc.total) as skore'),'humans.job','humans.location')
-                      ->groupBy('humans.name','humans.job','humans.location')
+                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location')
+                      ->groupBy('humans.id','humans.name','humans.job','humans.location')
                       ->get();
+               // $total =number_format($hasil21, 2);
         }
 
         $now = Carbon::now()->format('M');
@@ -265,8 +268,8 @@ class CalculatorController extends Controller
         $a = 10;
         $b = 100;
         $name = $request->name;
-
         $role = $request->user;
+        $location = $request->location;
 
         $human = DB::table('humans')
                 ->select('id')
@@ -335,7 +338,7 @@ class CalculatorController extends Controller
         }
 
         else {
-            return redirect('outlet/tampstaff');       
+            return redirect('outlet/choice/'.$location);       
         }
 
         //return view('/calculator/tamp', compact('knowledge','wspeed','wsoul','wqual','wpress','teamwork','communicate','responbility','learning','dicipline','initiative','creativity','honestly','obedience','loyalty','organate','coaching','controling','planing','delegate','total'));

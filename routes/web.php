@@ -251,7 +251,7 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::resource('/outlet/leaves', 'LeavesController');
 
 	Route::get('/outlet/calculator', 'CalculatorController@index');
-	Route::get('/outlet/inputdriver', 'CalculatorController@inputdriver');
+	Route::get('/outlet/inputdriver/{location}/{name?}', 'CalculatorController@inputdriver');
 	Route::get('/outlet/inputstaff/{location}/{name?}', 'CalculatorController@inputstaff');
 	Route::post('/calculator/store', 'CalculatorController@calculator');
 	Route::post('/calculator/storedrive', 'CalculatorController@calculatordriver');

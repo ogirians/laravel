@@ -4,12 +4,13 @@
 
 	@include('includes.message')
 
-	<h1>Employees</h1>
+
+	<h1>Employees Data</h1>
 	<div class="table-responsive">
-		<table class="table table-hover table-bordered table-striped">
+		<table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	    <thead>
 	      <tr>
-	        <th>Id</th>
+	        
 	        <th>Name</th>
 	        <th>Job Title</th>
 	        <th>Start Day</th>
@@ -20,20 +21,32 @@
 	        <th>ID#</th>
 	      </tr>
 	    </thead>
+	     <tfoot>
+	      <tr>
+	      
+	        <th>Name</th>
+	        <th>Job Title</th>
+	        <th>Start Day</th>
+	        <th>Date of Birth</th>
+	        <th>Gender</th>
+	        <th>Address</th>
+	        <th>Phone</th>
+	        <th>ID#</th>
+	      </tr>
+	    </tfoot>
 	    <tbody>
 		
 		@if($humans)
 			@foreach($humans as $human)
 			  <tr>
-				<td>{{$human->id}}</td>
 				@if (Auth::user()->isHRD())
-				<td><a href="{{route('HRD.humans.edit', $human->id)}}">{{$human->name}}</td>
+				<td><a href="{{route('HRD.humans.edit', $human->id)}}">{{$human->name}}</a></td>
 				@endif
 				@if (Auth::user()->isBowner())
-				<td><a href="{{route('bowner.humans.edit', $human->id)}}">{{$human->name}}</td>
+				<td><a href="{{route('bowner.humans.edit', $human->id)}}">{{$human->name}}</a></td>
 				@endif
 				@if (Auth::user()->isOutlet())
-				<td><a href="{{route('outlet.humans.edit', $human->id)}}">{{$human->name}}</td>
+				<td><a href="{{route('outlet.humans.edit', $human->id)}}">{{$human->name}}</a></td>
 				@endif
 				<td>{{$human->job}}</td>
 				<td>{{date("d-m-Y", strtotime($human->start_day))}}</td>
@@ -61,8 +74,19 @@
 	 @if (Auth::user()->isOutlet())
 	 <a class="btn btn-info" href="{{ url('/outlet/humans/create') }}">Add Employee</a>
 	 @endif
+</div>
+
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('#dataTable').DataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
+</script>
 
 @stop
+
+
 
 @section('scripts')
 <script>

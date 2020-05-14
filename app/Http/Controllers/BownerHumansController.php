@@ -128,8 +128,15 @@ class BownerHumansController extends Controller
 		$human = Human::findOrFail($id);
 		$day = date("d-m-Y", strtotime($human->start_day));
         $day_birth = date("d-m-Y", strtotime($human->birth));
+
+
+        $nilai = DB::Table('humans')
+                ->join('calc','humans.id','=','calc.humans_id')
+                ->select('humans.name','calc.total','calc.pdate',)
+                ->where('humans.id', $id)
+                ->get();
 		
-		return view('bowner.humans.edit', compact('human', 'day', 'day_birth'));
+		return view('bowner.humans.edit', compact('human', 'day', 'day_birth','nilai'));
     }
 
     /**

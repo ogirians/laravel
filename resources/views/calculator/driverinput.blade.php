@@ -4,7 +4,7 @@
 
 <body class="align-content-center">
 @if (Auth::user()->isBowner ())
-<button> <a href="/calculator/tampdrive">Kembali</a></button>
+<button> <a href="/calculator/choice/{{ Auth::user()->name }}">Kembali</a></button>
 <form action="/calculator/storedrive" method="post" >
 
 <h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN</h2>
@@ -486,7 +486,7 @@
 @endif
 
 @if (Auth::user()->isOutlet ())
-<button> <a href="/outlet/tampdrive">Kembali</a></button>
+<a class="btn btn-primary" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
 <form action="/outlet/storedrive" method="post" >
 
 <h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN</h2>

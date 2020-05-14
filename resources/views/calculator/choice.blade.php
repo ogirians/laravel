@@ -8,12 +8,12 @@
     <font size="4">Select One:</font>
     <ul class="list-inline">
     <li>
-    <form action="/outlet/tampstaff" method=" " class=" "> 
+    <form action="/outlet/inputstaff/{{ Auth::user()->name }}" method=" " class=" "> 
     <button type="submit" class="btn btn-primary btn-lg" name="multiplication" value="*">Input Staff Performance</button>
     </form>
     </li>
     <li>
-    <form action="/outlet/tampdrive" method=" " class=" ">
+    <form action="/outlet/inputdriver" method=" " class=" ">
     <button type="submit" class="btn btn-primary btn-lg" name="multiplication" value="*">Input Driver/Helper Performance</button>
     </form>
     </li>
@@ -82,24 +82,29 @@
 <!-- update 04 mei,,, gausahh panjang2 diinisialisasi dulu-->
 
   
-    {{ $now }}
-    
     @foreach($karyawan3 as $q)
       
         <tr>
         <td>{{ $q -> name }}</td>
         <td>{{ $q -> job }}</td>
         
-        @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
+      @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
           @if (Auth::user()->isHRD())
           <td class="warning">Belum ada penilaian</td>
           @endif
+
           @if (Auth::user()->isOutlet())
-          <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>
+
+                @if($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
+                   <td style="text-align: center;"><a href="/outlet/inputdriver/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>        
+                    @else
+                    <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a> </td>                
+                @endif
+                  
           @endif
-        @else
+      @else
         <td class="success" style="text-align: center;">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
-        @endif
+      @endif
 
  
         
@@ -117,7 +122,30 @@
          @if (Auth::user()->isHRD())
         <td>{{ $q-> location }}</td>
          @endif
-        <td></td>
+        
+        <td style="text-align: center;">
+          
+            <div class="dropdown mb-4">
+                  <button class="btn btn-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                  </button>
+                          <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                              @if (Auth::user()->isOutlet())
+                              <a href="{{route('outlet.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              @endif
+                              @if (Auth::user()->isHRD())
+                              <a href="{{route('HRD.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              @endif
+                              @if (Auth::user()->isBowner())
+                              <a href="{{route('bowner.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              @endif
+
+                              @if (Auth::user()->isOutlet())
+                              <a onclick="return confirm('Yakin ingin menghapus data pelamar ?')" href="#" class="dropdown-item">Ubah penilaian terakhir</a>
+                              @endif
+                          </div>
+            </div>
+        </td>
         </tr>
         
      @endforeach
