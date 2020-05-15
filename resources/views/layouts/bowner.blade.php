@@ -38,23 +38,33 @@ $i = 1;
 
 function kualitas(angka) {
         if (angka >= 90 && angka <= 100 ) {
-            return "A";
+            var str = "A" ;
+            var clr = str.fontcolor("green");
+            return clr
         }
 
         if (angka >= 70 && angka <= 89 ) {
-            return "B";
+            var str = "B" ;
+            var clr = str.fontcolor("#0066ff");
+            return clr
         }
 
         if (angka >= 50  && angka <= 69 ) {
-            return "C";
+            var str = "C" ;
+            var clr = str.fontcolor("#ffcc00");
+            return clr
         }
 
         if (angka >= 30  && angka <= 49 ) {
-            return "D";
+             var str = "D" ;
+            var clr = str.fontcolor("#ff3300");
+            return clr;
         }
 
         if (angka >= 20  && angka <= 29 ) {
-            return "E";
+            var str = "D" ;
+            var clr = str.fontcolor("#660000");
+            return clr;
         }
 
 

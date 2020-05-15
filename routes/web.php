@@ -236,6 +236,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
 Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet', function(){
 			return view('bowner.index');
@@ -245,22 +246,42 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
     //'as' => 'humans.outlet',
     //'uses' => 'BownerHumansController@index'
 	//]);
+
+	//humans route
 	Route::resource('/outlet/humans', 'BownerHumansController');
-
-
 	Route::resource('/outlet/leaves', 'LeavesController');
 
+	//calculator route
+	//input
 	Route::get('/outlet/calculator', 'CalculatorController@index');
 	Route::get('/outlet/inputdriver/{location}/{name?}', 'CalculatorController@inputdriver');
 	Route::get('/outlet/inputstaff/{location}/{name?}', 'CalculatorController@inputstaff');
-	Route::post('/calculator/store', 'CalculatorController@calculator');
-	Route::post('/calculator/storedrive', 'CalculatorController@calculatordriver');
+	//store
+	Route::post('/outlet/store', 'CalculatorController@calculator');
+	Route::post('/outlet/storedrive', 'CalculatorController@calculatordriver');
+	Route::post('/outlet/storestaff', 'CalculatorController@calculatorstaff');
+	
+
+	//edit
+	Route::get('/outlet/editstaff/{id}', 'CalculatorController@updatestaff');
+	Route::get('/outlet/editdriver/{id}', 'CalculatorController@updatetstaff');
+	Route::get('/outlet/editm/{id}', 'CalculatorController@updatestaff');
+	//update
+	Route::post('/outlet/storeedit', 'CalculatorController@upd');
+	Route::post('/outlet/storeeditdrive', 'CalculatorController@upddrive');
+	Route::post('/outlet/storeeditstaff/{id}', 'CalculatorController@updstaff');
+
+
 	//Route::get('calculator.store', 'CalculatorController@store');
 	Route::get('/outlet/tamp', 'CalculatorController@tamp');
 	Route::get('/outlet/tampdrive', 'CalculatorController@tampdrive');
 	Route::get('/outlet/tampstaff', 'CalculatorController@tampstaff');
-	Route::post('/outlet/storestaff', 'CalculatorController@calculatorstaff');
+
+	
+	//perfomanc
 	Route::get('/outlet/choice/{location?}', 'CalculatorController@choice');
+	
+
 	Route::get('/calculator/cari', 'CalculatorController@cari');
 	Route::get('/calculator/caristaff', 'CalculatorController@caristaff');
 	Route::get('/calculator/caridriver', 'CalculatorController@caridriver');

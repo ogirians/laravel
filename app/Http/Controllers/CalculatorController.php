@@ -85,10 +85,13 @@ class CalculatorController extends Controller
 
         $human = DB::table('humans')
         ->leftjoin('calc', 'humans.id', '=', 'calc.humans_id')
-        ->select('humans.id','humans.name','calc.pdate','humans.location')
+        ->select('humans.id','humans.name', 'calc.pdate' ,'humans.location')
         ->whereMonth('calc.pdate','!=', $now)
         ->orWhereNull('calc.pdate')
+
         ->where('humans.location', $location)
+
+        ->whereMonth('calc.pdate','=', $now)
         ->get(); 
      }
      
@@ -105,11 +108,104 @@ class CalculatorController extends Controller
         ));
     }
 
+
+     public function updatestaff($id) {
+
+     $now = Carbon::now()->format('m');
+
+     $human = DB::Table('humans')
+            ->where('id', $id)
+            ->get();
+
+        //return view('calculator.staffinput', ['human'=>$human]);
+         return view('calculator.editstaff', array(
+        'human' => $human,
+       // 'job' => $job,
+        'now' => $now
+        ));
+    }
+
+    public function updstaff(request $request, $id) {
+    $a = 10;
+    $b = 100;
+    $name = $request->name;
+    $role = $request->user;
+    $location = $request->location;
+
+     $knowledge = $request->knowledge;
+        $hasil1 = $knowledge*15/$b;
+        $wspeed = $request->wspeed;
+        $hasil2 = $wspeed*10/$b;
+        $wsoul = $request->wsoul;
+        $hasil3 = $wsoul*10/$b; 
+        $wqual = $request->wqual;
+        $hasil4 = $wqual*10/$b;
+        $wpress = $request->wpress;
+        $hasil5 = $wpress*5/$b;
+        $teamwork = $request->teamwork;
+        $hasil6 = $teamwork*5/$b;
+        $communicate = $request->communicate;
+        $hasil7 = $communicate*5/$b;
+        $responbility = $request->responbility;
+        $hasil8 = $responbility*5/$b;
+        $learning = $request->learning;
+        $hasil9 = $learning*5/$b;
+        $dicipline = $request->dicipline;
+        $hasil10 = $dicipline*5/$b;
+        $initiative = $request->initiative;
+        $hasil11 = $initiative*5/$b;   
+        $creativity = $request->creativity;
+        $hasil12 = $creativity*5/$b;     
+        $honestly = $request->honestly;
+        $hasil13 = $honestly*5/$b;
+        $obedience = $request->obedience;
+        $hasil14 = $obedience*5/$b;
+        $loyalty = $request->loyalty;
+        $hasil15 = $loyalty*5/$b;
+        $hasil21 = $hasil1+$hasil2+$hasil3+$hasil4+$hasil5+$hasil6+$hasil7+$hasil8+$hasil9+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
+        $total =number_format($hasil21, 2);
+
+        $calc = DB::table('calc')
+            ->where('humans_id',$id)
+            ->update([
+            'knowledge'=> $hasil1,
+            'wspeed'=> $hasil2,
+            'wsoul'=> $hasil3,
+            'wqual'=> $hasil4,
+            'wpress'=> $hasil5,
+            'teamwork'=> $hasil6,
+            'communicate'=> $hasil7,
+            'responbility'=> $hasil8,
+            'learning' => $hasil9,
+            'dicipline' => $hasil10,
+            'initiative' => $hasil11,
+            'creativity' => $hasil12,
+            'honestly' => $hasil13,
+            'obedience' =>$hasil14,
+            'loyalty' => $hasil15,
+            'total' => $total,
+        ]);
+
+        if ($role == '3'){
+            return redirect('calculator/tampstaff'); 
+        }
+
+        else {
+            return redirect('outlet/choice/'.$location);       
+        }
+
+    }
+
+
+
     public function store(request $request){
         $calc = DB::table('calc')->insert([
           'hasil1'=> $request -> $hasil1,
     ]);
     }
+
+
+
 
     public function calculator(request $request){
         $a = 10;

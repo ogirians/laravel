@@ -102,6 +102,7 @@
                 @endif
                   
           @endif
+
       @else
         <td class="success" style="text-align: center;">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
       @endif
@@ -140,8 +141,8 @@
                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
                               @endif
 
-                              @if (Auth::user()->isOutlet())
-                              <a onclick="return confirm('Yakin ingin menghapus data pelamar ?')" href="#" class="dropdown-item">Ubah penilaian terakhir</a>
+                              @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M'))
+                              <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
                               @endif
                           </div>
             </div>
