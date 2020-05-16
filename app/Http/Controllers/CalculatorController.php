@@ -63,48 +63,29 @@ class CalculatorController extends Controller
         return view('calculator.index', ['calc'=>$calc]);
     }
 
-     public function inputdriver(){
+
+     public function inputdriver($location, $id = null){
+
         $human = DB::table('humans')
-        ->select('id','name')
+        ->select('id','name','job')
+        ->where('id',$id)
         ->get();
+
         return view('calculator.driverinput', ['human'=>$human]);
+
     }
 
-    public function inputstaff($location, $name = null){
-     $now = Carbon::now()->format('m');
-
-     if ($name != null) {
+    public function inputstaff($location, $id = null){
     
         $human = DB::table('humans')
-        ->select('name')
-        ->where('name',$name)
+        ->select('id','name','job')
+        ->where('id',$id)
         ->get();
-     }
+    
      
-     else {
-
-        $human = DB::table('humans')
-        ->leftjoin('calc', 'humans.id', '=', 'calc.humans_id')
-        ->select('humans.id','humans.name', 'calc.pdate' ,'humans.location')
-        ->whereMonth('calc.pdate','!=', $now)
-        ->orWhereNull('calc.pdate')
-
-        ->where('humans.location', $location)
-
-        ->whereMonth('calc.pdate','=', $now)
-        ->get(); 
-     }
-     
-        $job = DB::table('humans')
-        ->select('job')
-        ->groupBY('job')
-        ->get();
-
-
         //return view('calculator.staffinput', ['human'=>$human]);
          return view('calculator.staffinput', array(
         'human' => $human,
-        'job' => $job,
         ));
     }
 
@@ -195,6 +176,84 @@ class CalculatorController extends Controller
         }
 
     }
+
+
+public function updatedriver($id) {
+
+     $now = Carbon::now()->format('m');
+
+     $human = DB::Table('humans')
+            ->where('id', $id)
+            ->get();
+
+        //return view('calculator.staffinput', ['human'=>$human]);
+         return view('calculator.editdriver', array(
+        'human' => $human,
+       // 'job' => $job,
+        'now' => $now
+        ));
+    }
+
+public function upddriver(request $request, $id){
+        $a = 10;
+        $b = 100;
+
+        $role = $request->user;
+        $location = $request->location;
+
+        $inhuman = $request->id;     
+
+        $knowledge = $request->knowledge;
+        $hasil1 = $knowledge*15/$b; 
+        $wqual = $request->wqual;
+        $hasil4 = $wqual*5/$b;
+        $teamwork = $request->teamwork;
+        $hasil6 = $teamwork*15/$b;
+        $communicate = $request->communicate;
+        $hasil7 = $communicate*10/$b;
+        $dicipline = $request->dicipline;
+        $hasil10 = $dicipline*10/$b;
+        $initiative = $request->initiative;
+        $hasil11 = $initiative*5/$b;
+        $creativity = $request->creativity;
+        $hasil12 = $creativity*10/$b;        
+        $honestly = $request->honestly;
+        $hasil13 = $honestly*10/$b;
+        $obedience = $request->obedience;
+        $hasil14 = $obedience*15/$b;
+        $loyalty = $request->loyalty;
+        $hasil15 = $loyalty*5/$b;
+        
+        $hasil21 = $hasil1+$hasil4+$hasil6+$hasil7+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
+        $total =number_format($hasil21, 2);
+
+        $calc = DB::table('calc')
+        ->where('humans_id', $id)
+        ->update([
+            'knowledge'=> $hasil1,
+            'wqual'=> $hasil4,
+            'teamwork'=> $hasil6,
+            'communicate'=> $hasil7,
+            'dicipline' => $hasil10,
+            'initiative' => $hasil11,
+            'creativity' => $hasil12,
+            'honestly' => $hasil13,
+            'obedience' =>$hasil14,
+            'loyalty' => $hasil15,
+            'total' => $total,
+        ]);
+
+        if ($role == '3'){
+            return redirect('calculator/choice'); 
+        }
+
+        else {
+            return redirect('outlet/choice/'.$location);       
+        }
+
+    }
+
+
 
 
 
@@ -305,6 +364,11 @@ class CalculatorController extends Controller
      public function calculatordriver(request $request){
         $a = 10;
         $b = 100;
+      
+        $role = $request->user;
+        $location = $request->location;
+
+        $inhuman = $request->id;     
 
         $knowledge = $request->knowledge;
         $hasil1 = $knowledge*15/$b; 
@@ -328,9 +392,10 @@ class CalculatorController extends Controller
         $hasil15 = $loyalty*5/$b;
         
         $hasil21 = $hasil1+$hasil4+$hasil6+$hasil7+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
+        $total =number_format($hasil21, 2);
 
         $calc = DB::table('calc')->insert([
-            'name'=> $request->name,
+            'humans_id'=> $inhuman,
             'position'=>$request->position,
             'location'=>$request->location,
             'pdate'=>$request->pdate,
@@ -344,9 +409,17 @@ class CalculatorController extends Controller
             'honestly' => $hasil13,
             'obedience' =>$hasil14,
             'loyalty' => $hasil15,
-            'total' => $hasil21,
+            'total' => $total,
         ]);
-         return view('calculator.choice', ['calc' => $calc]);
+
+        if ($role == '3'){
+            return redirect('calculator/choice'); 
+        }
+
+        else {
+            return redirect('outlet/choice/'.$location);       
+        }
+
     }
 
      public function tampdrive(){
@@ -363,16 +436,10 @@ class CalculatorController extends Controller
     public function calculatorstaff(request $request){
         $a = 10;
         $b = 100;
-        $name = $request->name;
+        
         $role = $request->user;
         $location = $request->location;
-
-        $human = DB::table('humans')
-                ->select('id')
-                ->where('name',$name)
-                ->first();
-
-        $inhuman = $human->id;        
+        $inhuman = $request->id;        
 
         $knowledge = $request->knowledge;
         $hasil1 = $knowledge*15/$b;
@@ -430,7 +497,7 @@ class CalculatorController extends Controller
         ]);
 
         if ($role == '3'){
-            return redirect('calculator/tampstaff'); 
+            return redirect('calculator/choice'); 
         }
 
         else {

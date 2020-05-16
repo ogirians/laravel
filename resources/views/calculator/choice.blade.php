@@ -2,8 +2,9 @@
 
 @section('content')
 <body class="align-content-center">
+<!--
 <h2 class="font-weight-bold"><font size="7">Menu Input Performances</font></h2>
-    
+  
     @if (Auth::user()->isOutlet()) 
     <font size="4">Select One:</font>
     <ul class="list-inline">
@@ -34,9 +35,9 @@
     
 <br>
 <br>
+-->
 
-
-<h1> List karyawan </h1>
+<h1> Perfomance Board </h1>
 
 
 <div class="table-responsive">
@@ -47,7 +48,7 @@
                <input type="submit" value="CARI">
            </form>-->
 
-  <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  <table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0" >
       <thead>
         <tr>
           <th>Name</th>
@@ -96,9 +97,9 @@
           @if (Auth::user()->isOutlet())
 
                 @if($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
-                   <td style="text-align: center;"><a href="/outlet/inputdriver/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>        
+                   <td style="text-align: center;"><a href="/outlet/inputdriver/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>        
                     @else
-                    <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> name }}" class="btn btn-xs btn-primary">Buat penilaian</a> </td>                
+                    <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a> </td>                
                 @endif
                   
           @endif
@@ -141,8 +142,13 @@
                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
                               @endif
 
-                              @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M'))
-                              <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
+                              @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') )
+                                @if ($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
+                                    <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
+                                @else 
+
+                                    <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>   
+                                @endif
                               @endif
                           </div>
             </div>

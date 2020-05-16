@@ -254,8 +254,8 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	//calculator route
 	//input
 	Route::get('/outlet/calculator', 'CalculatorController@index');
-	Route::get('/outlet/inputdriver/{location}/{name?}', 'CalculatorController@inputdriver');
-	Route::get('/outlet/inputstaff/{location}/{name?}', 'CalculatorController@inputstaff');
+	Route::get('/outlet/inputdriver/{location}/{id?}', 'CalculatorController@inputdriver');
+	Route::get('/outlet/inputstaff/{location}/{id?}', 'CalculatorController@inputstaff');
 	//store
 	Route::post('/outlet/store', 'CalculatorController@calculator');
 	Route::post('/outlet/storedrive', 'CalculatorController@calculatordriver');
@@ -264,11 +264,11 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 
 	//edit
 	Route::get('/outlet/editstaff/{id}', 'CalculatorController@updatestaff');
-	Route::get('/outlet/editdriver/{id}', 'CalculatorController@updatetstaff');
-	Route::get('/outlet/editm/{id}', 'CalculatorController@updatestaff');
+	Route::get('/outlet/editdriver/{id}', 'CalculatorController@updatedriver');
+	Route::get('/outlet/editm/{id}', 'CalculatorController@updatebowner');
 	//update
 	Route::post('/outlet/storeedit', 'CalculatorController@upd');
-	Route::post('/outlet/storeeditdrive', 'CalculatorController@upddrive');
+	Route::post('/outlet/storeeditdriver/{id}', 'CalculatorController@upddriver');
 	Route::post('/outlet/storeeditstaff/{id}', 'CalculatorController@updstaff');
 
 

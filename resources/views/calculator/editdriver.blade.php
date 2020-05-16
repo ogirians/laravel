@@ -3,7 +3,7 @@
 @section('content')
 
 <body class="align-content-center">
-
+@foreach ($human as $h)
 @if (Auth::user()->isHRD())
 <a class="btn btn-success" href="/HRD/calculator/tampstaff/">Kembali</a>
 <form action="/HRD/calculator/storestaff" method="post" >
@@ -11,9 +11,9 @@
 
  @if (Auth::user()->isOutlet())
 <a class="btn btn-success" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
-<form action="/outlet/storedrive" method="post" >
+<form action="/outlet/storeeditdriver/{{ $h -> id}}" method="post" >
  @endif
-
+@endforeach
 <h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN</h2>
 
 <br>
@@ -21,16 +21,7 @@
 <div class="container">
 
 {{ csrf_field() }}
-  <div class="row">
-    <div class="col col-lg-2" style="min-width: 100px;">  
-        <label for="PERIODE" style="margin-top: 5px;">PERIODE</label>
-    </div>
-    <div class="col col-lg-3" style="min-width: 250px;">
-        <div class="form-group">          
-            <input type="date" class="form-control" name="pdate" required="required">
-        </div>
-    </div>
-  </div>
+
  
  <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">

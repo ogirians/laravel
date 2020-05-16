@@ -51,28 +51,24 @@
     </div>
         </div>
     </div>
-  
 
-  
 
- <!-- <div class="row">
+  <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
        <label for="exampleFormControlSelect1" style="margin-top: 5px;">JABATAN</label>
     </div>
     <div class="col col-lg-3" style="min-width: 250px;">
        <select class="form-control" id="exampleFormControlSelect1" name="position" required="required" value="{{ old('jabatan') }}">
-              <option>-</option>
-               @foreach ($job as $j)
-                  <option>{{ $j -> job }}</option>
-               @endforeach  
-
+              @foreach ($human as $h)
+                  <option>{{ $h -> job }}</option>
+               @endforeach           
         </select><br/>
     </div>
-  </div>-->
+  </div>
+
   
-
    
-
+ @if (Auth::user()->isBowner())
   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
        <label for="exampleFormControlSelect1" style="margin-top: 5px;">LOKASI</label>
@@ -84,6 +80,13 @@
               <br>
     </div>
   </div>
+@endif
+
+ @foreach ($human as $h)
+  <div class="form-group">          
+      <input type="hidden" class="form-control" name="id" required="required" value="{{ $h -> id }}">
+  </div>
+ @endforeach
 
    <div class="form-group">          
       <input type="hidden" class="form-control" name="user" required="required" value="{{ Auth::user()-> role_id }}">
@@ -384,16 +387,15 @@
          
          
     </table>
+
+    <center>
+    <a class="btn btn-success" id="Cek" onclick="showstaff()">cek</a>
+    <button onclick="return confirm('Simpan penilaian?')" type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
+    </center>
 </div> 
 </div>
 
 
-
-
-<center>
-    <a class="btn btn-success" id="Cek" onclick="show()">cek</a>
-    <button type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
-</center>
 
 </form>
 

@@ -45,21 +45,20 @@
     </div>
   
 
-  
-
-   
-
-  <div class="row">
+   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
-       <label for="exampleFormControlSelect1" style="margin-top: 5px;">LOKASI</label>
+       <label for="exampleFormControlSelect1" style="margin-top: 5px;">JABATAN</label>
     </div>
-    <div class="col col-lg-3  " style="min-width: 250px;">
-      <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
-              <option>{{ $h -> location}}</option>
-              </select>
-              <br>
+    <div class="col col-lg-3" style="min-width: 250px;">
+       <select class="form-control" id="exampleFormControlSelect1" name="position" required="required" value="{{ old('jabatan') }}">
+              @foreach ($human as $h)
+                  <option>{{ $h -> job }}</option>
+               @endforeach           
+        </select><br/>
     </div>
   </div>
+
+   
 @endforeach
 
 
