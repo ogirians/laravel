@@ -5,6 +5,7 @@
 	@include('includes.message')
 
 	<h1>Customers</h1>
+	
 	<div class="table-responsive">
 		<table class="table table-hover table-bordered table-striped">
 	    <thead>

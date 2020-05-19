@@ -24,9 +24,8 @@ class CalculatorController extends Controller
                     ->groupBy('humans.id','humans.name','humans.job','humans.location')
                     ->where('humans.location',$location)
                     ->where('humans.job','not like',"%".$e."%")
+                    ->where('humans.humans_status','1')
                     ->get();
-
-
         }
 
         else {
@@ -35,6 +34,7 @@ class CalculatorController extends Controller
                       ->leftjoin('calc','humans.id','=','calc.humans_id')
                       ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location')
                       ->groupBy('humans.id','humans.name','humans.job','humans.location')
+                      ->where('humans.humans_status','1')
                       ->get();
                // $total =number_format($hasil21, 2);
         }

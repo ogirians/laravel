@@ -7,25 +7,43 @@
 	<h1>Leaves</h1>
 	<!-- Start .nav nav-tabs -->
 		<div class="table-responsive">
-		<table class="table table-responsive table-bordered table-striped">
+		<table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 		    <thead>
 		      <tr>
 		        <th>Id</th>
+		        <th>foto</th>
 		        <th>Name</th>
-		        <th>Total Paid Leaves</th>
-		        <th>Remaining Paid Leaves</th>
-		        <th>Date</th>
+		        <th>posisi terakhir</th>
+		        <th>Tgl Masuk</th>
+		        <th>Tgl Resign</th>
+		        <th>lama berkerja</th>
+		        <th>lokasi</th>
 		      </tr>
 		    </thead>
+		    <tfoot>
+		      <tr>
+		   		<th>Id</th>
+		        <th>foto</th>
+		        <th>Name</th>
+		        <th>posisi terakhir</th>
+		        <th>Tgl Masuk</th>
+		        <th>Tgl Resign</th>
+		        <th>lama berkerja</th>
+		        <th>lokasi</th>
+		    </tfoot>
 		    <tbody>
-			@if($leaves)
-				@foreach($leaves as $leave)
+			@if($humanres)
+				@foreach($humanres as $hl)
 				  <tr>
-					<td>{{$leave->id}}</td>
-					<td><a href="{{route('bowner.leaves.edit', $leave->id)}}">{{$leave->human->name}}</a></td>
-					<td>{{$leave->annual_leave}}</td>
-					<td>{{$leave->avai_annual_leave}}</td>
-					<td>{{date("m-Y")}}</td>
+					<td>{{$hl->id}}</td>
+					<td><img width="75px" src="{{ url('images/'.$hl->photo) }}"></td>
+					<!--<td><a href="{{route('outlet.leaves.edit', $hl->id)}}">{{$hl->name}}</a></td>-->
+					<td>{{ $hl->name }}</td>
+					<td>{{$hl -> job}}</td>
+					<td>{{ Carbon\Carbon::parse($hl -> start_day)->format('d-M-Y') }}</td>
+					<td>{{ Carbon\Carbon::parse($hl -> leave_date)->format('d-M-Y') }}</td>
+					<td>{{ $hl -> days}}</td>
+					<td>{{ $hl -> location}}</td>
 				  </tr>
 				@endforeach
 			@endif  
@@ -34,7 +52,18 @@
 	  	</div>
 	  	<!-- End .table-responsive -->
 
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#dataTable').DataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
+</script>
 @stop
+
+
+
 
 @section('scripts')
 <script>

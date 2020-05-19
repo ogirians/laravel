@@ -9,8 +9,8 @@ class Human extends Model
 {
     //
 	protected $fillable = [
-		'name', 'salary', 'start_day', 'birth', 'gender', 'address1', 'address2', 'phone', 'photo', 'job', 'idnum',
-	'location'];
+	'name', 'salary', 'start_day', 'birth', 'gender', 'address1', 'address2', 'phone', 'photo', 'job', 'idnum',
+	'location','humans_status'];
 
 	public function salary()
 	{

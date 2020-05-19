@@ -11,6 +11,8 @@ use App\Human;
 use App\Leave;
 use App\Hques;
 use DB;
+use Carbon\Carbon;
+use DateTime;
 
 class BownerHumansController extends Controller
 {
@@ -22,16 +24,8 @@ class BownerHumansController extends Controller
     public function index($location = null)
     {
         //
-		if ($location != null){
-            $humans = DB::table('humans')
-            ->where('location',$location)
-            ->get();
-        }
 
-        else {
-        $humans = Human::all();
-
-        }
+        $humans = Human::where('humans_Status', 1)->get();
 
         return view('bowner.humans.index', compact('humans'));
 
@@ -58,18 +52,8 @@ class BownerHumansController extends Controller
     {
         //
 		$input = $request->all();
-
-        
-        /*$this->validate($request, [
-            'name' => 'required',
-            'start_day' => 'required',
-            'birth' => 'required',
-            'gender' => 'required',
-            'address1' => 'required',
-            'phone' => 'required|min:9|max:11|unique:humans',
-            'idnum' => 'required|min:9|max:12|unique:humans',
-            'job' => 'required',
-        ]);*/
+        $role = $request->role;
+        $location = $request->outlet;
         
 
         $input['start_day'] = date("Y-m-d", strtotime($input['start_day']));
@@ -85,12 +69,17 @@ class BownerHumansController extends Controller
         $human = Human::create($input);
         
         // Create salary for new employee
-        Salary::create(['human_id' => $human->id]);
-        Leave::create(['human_id' => $human->id]);
+        //Salary::create(['human_id' => $human->id]);
+        //Leave::create(['human_id' => $human->id]);
 
         Session::flash('created_message', 'The employee has been added');
 
-		return redirect('/bowner/humans');
+		 if ($role == 6 ) {
+        return redirect('HRD/humans');
+        }
+        else {
+        return redirect('outlet/humans/'.$location);    
+        }
 		
     }
 
@@ -102,19 +91,15 @@ class BownerHumansController extends Controller
      */
     public function show($location)
     {
-        if ($location != null){
+         
             $humans = DB::table('humans')
             ->where('location',$location)
+            ->where('humans_Status', 1)
             ->get();
-        }
-
-        else {
-        $humans = Human::all();
-
-        }
+       
 
         return view('bowner.humans.index', compact('humans'));
-    }
+     }
 
     /**
      * Show the form for editing the specified resource.
@@ -146,24 +131,14 @@ class BownerHumansController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HumanRequest $request, $id)
+
+    public function update(request $request, $id)
     {
         //
 		$human = Human::findOrFail($id);
 		$input = $request->all();
-
-        
-        /*$this->validate($request, [
-            'name' => 'required',
-            'start_day' => 'required',
-            'birth' => 'required',
-            'gender' => 'required',
-            'address1' => 'required',
-            'phone' => 'required|min:9|max:11|unique:humans,phone,'.$human->id,
-            'idnum' => 'required|min:9|max:12|unique:humans,idnum,'.$human->id,
-            'job' => 'required',
-        ]);*/
-        
+        $role = $request->role;
+        $location = $request->outlet;
 
 		$input['start_day'] = date("Y-m-d", strtotime($input['start_day']));
         $input['birth'] = date("Y-m-d", strtotime($input['birth']));
@@ -178,8 +153,16 @@ class BownerHumansController extends Controller
 
         Session::flash('updated_message', 'The employee has been updated');
 		
-		return redirect('bowner/humans');
-    }
+        if ($role == 6 ) {
+		return redirect('HRD/humans');
+        }
+        else {
+        return redirect('outlet/humans/'.$location);    
+        }
+
+    }   
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -198,9 +181,42 @@ class BownerHumansController extends Controller
 		$human->delete();
 		
 		Session::flash('deleted_message', 'The user has been deleted');
-		
-		return redirect('/bowner/humans');
+
+        return redirect('HRD/humans');
+        
     }
 
+
+     
+    public function resign($id)
+    {   
+        $start = DB::Table('humans')
+        ->select('start_day')
+        ->where('id', $id)
+        ->first();
+
+        $end = Carbon::now();
+
+ 
+        $datetime1 = new DateTime($start->start_day);
+        $datetime2 = new DateTime($end);
+        $interval = $datetime1->diff($datetime2);
+        //$interval->format('%Y-%m-%d %H:%i:%s');
+       
+        leave::create([
+            'human_id' => $id,
+            'leave_date' => $end,
+            'days' =>  $interval->format('%D days, %m months, %Y years'),          
+        ]);
+
+        Human::where('id',$id)
+            ->update(['humans_Status' => 0]);
+
+
+        Session::flash('deleted_message', 'The employee was resigned');
+
+        return redirect('HRD/humans');
+        
+    }
 
 }

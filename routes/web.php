@@ -16,33 +16,7 @@ Route::get('/', function () {
 
 });
 
-// HRD middleware
-Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
-	Route::get('/HRD', function(){
-			return view('bowner.index');
-		});	
 
-	Route::resource('/HRD/humans', 'BownerHumansController');
-
-	Route::resource('/HRD/leaves', 'LeavesController');
-
-	Route::get('/HRD/choice', 'CalculatorController@choice');
-	Route::get('/HRD/calculator/inputhead', 'CalculatorController@index');
-	Route::get('/HRD/calculator/inputdriver', 'CalculatorController@inputdriver');
-	Route::get('/HRD/calculator/inputstaff', 'CalculatorController@inputstaff');
-	Route::post('/HRD/calculator/store', 'CalculatorController@calculator');
-	Route::post('/HRD/calculator/storedrive', 'CalculatorController@calculatordriver');
-	//Route::get('calculator.store', 'CalculatorController@store');
-	Route::get('/HRD/calculator/tamp', 'CalculatorController@tamp');
-	Route::get('/HRD/calculator/tampdrive', 'CalculatorController@tampdrive');
-	Route::get('/HRD/calculator/tampstaff', 'CalculatorController@tampstaff');
-	Route::post('/HRD/calculator/storestaff', 'CalculatorController@calculatorstaff');
-	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
-	Route::get('/HRD/calculator/cari', 'CalculatorController@cari');
-	Route::get('/caristaff', 'CalculatorController@caristaff');
-	Route::get('/HRD/calculator/caridriver', 'CalculatorController@caridriver');
-	
-});
 //Route::auth();
 
 // Admin middleware
@@ -151,12 +125,15 @@ Route::group(['middleware'=>'auth'], function(){
 	]);
 */
 // BusinessOwner_Manager middleware
-Route::group(['middleware' => 'bowner_manager', 'as' => 'bowner.'], function() {
+
+
+	Route::group(['middleware' => 'bowner_manager', 'as' => 'bowner.'], function() {
 
 	Route::get('manager', function(){
 		return view('bowner.index');
 	});
-Route::resource('bowner/customer', 'CustomerController', ['except'=>['store']]);
+
+	Route::resource('bowner/customer', 'CustomerController', ['except'=>['store']]);
 	// Production route
 	Route::resource('bowner/production', 'ProductionController');
 	Route::get('bowner/complete_production/{o_qty}/{p_id}/{p_qty}',[
@@ -231,25 +208,36 @@ Route::resource('bowner/customer', 'CustomerController', ['except'=>['store']]);
 	]);
 
 
-Auth::routes();
+	Auth::routes();
 
 
-Route::get('/home', 'HomeController@index');
+	Route::get('/home', 'HomeController@index');
 
 
-Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
+
+
+	Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet', function(){
 			return view('bowner.index');
 		});
 
-	//Route::get('/outlet/humans/{location?}', [
-    //'as' => 'humans.outlet',
-    //'uses' => 'BownerHumansController@index'
-	//]);
 
 	//humans route
-	Route::resource('/outlet/humans', 'BownerHumansController');
+	Route::resource('/outlet/humans', 'BownerHumansController', ['except' =>['resign','destroy']]);
+	Route::patch('outlet/humans/update/{id}', [
+		'uses' => 'BownerHumansController@update',
+		'as' => 'humans.update'
+	]);
+	Route::get('outlet/humans/{id}/edit', [
+		'uses' => 'BownerHumansController@edit',
+		'as' => 'humans.edit'
+	]);
+
+
+
+
 	Route::resource('/outlet/leaves', 'LeavesController');
+
 
 	//calculator route
 	//input
@@ -278,7 +266,7 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet/tampstaff', 'CalculatorController@tampstaff');
 
 	
-	//perfomanc
+	//perfomance
 	Route::get('/outlet/choice/{location?}', 'CalculatorController@choice');
 	
 
@@ -286,4 +274,46 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/calculator/caristaff', 'CalculatorController@caristaff');
 	Route::get('/calculator/caridriver', 'CalculatorController@caridriver');
 
+	Route::post('/import_excel/import', 'CustomerController@import');
+
 });
+
+
+// HRD middleware
+Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
+	Route::get('/HRD', function(){
+			return view('bowner.index');
+		});	
+
+	Route::get('/HRD/humans/resign/{id}', 'BownerHumansController@resign');
+	Route::resource('/HRD/humans', 'BownerHumansController');
+	Route::resource('/HRD/leaves', 'LeavesController');
+
+	
+	Route::get('/HRD/calculator/inputhead', 'CalculatorController@index');
+	Route::get('/HRD/calculator/inputdriver', 'CalculatorController@inputdriver');
+	Route::get('/HRD/calculator/inputstaff', 'CalculatorController@inputstaff');
+	
+
+	Route::post('/HRD/calculator/storestaff', 'CalculatorController@calculatorstaff');
+	Route::post('/HRD/calculator/store', 'CalculatorController@calculator');
+	Route::post('/HRD/calculator/storedrive', 'CalculatorController@calculatordriver');
+	//Route::get('calculator.store', 'CalculatorController@store');
+
+	Route::get('/HRD/calculator/tamp', 'CalculatorController@tamp');
+	Route::get('/HRD/calculator/tampdrive', 'CalculatorController@tampdrive');
+	Route::get('/HRD/calculator/tampstaff', 'CalculatorController@tampstaff');
+	
+	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
+
+	
+	Route::get('/HRD/calculator/cari', 'CalculatorController@cari');
+	Route::get('/caristaff', 'CalculatorController@caristaff');
+	Route::get('/HRD/calculator/caridriver', 'CalculatorController@caridriver');
+	
+});
+
+Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
+Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
+Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+

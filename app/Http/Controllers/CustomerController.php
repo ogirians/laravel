@@ -56,9 +56,14 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->address1 = $request->address1;
         $customer->address2 = $request->address2;
+        $customer->age = $request->age; //update by trison
+        $customer->gender = $request->gender; //update by trison
+        $customer->job = $request->job; //update by trison
         $customer->phone = $request->phone;
-        $customer->city = $request->city;
-        $customer->province = $request->province;
+        $customer->status = $request->status; //update by trison
+        $customer->buy = $request->buy; //update by trison
+        $customer->city = $request->city; //update by trison
+        $customer->province = $request->province; //update by trison
         $customer->tax_num = $request->tax_num;
 
         $customer->save();
@@ -115,9 +120,14 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->address1 = $request->address1;
         $customer->address2 = $request->address2;
-        $customer->phone = $request->phone;
-        $customer->city = $request->city;
-        $customer->province = $request->province;
+        $customer->age = $request->age; //update by trison
+        $customer->gender = $request->gender; //update by trison
+        $customer->job = $request->job; //update by trison
+        $customer->phone = $request->phone; 
+        $customer->status = $request->status; //update by trison
+        $customer->buy = $request->buy; //update by trison
+        $customer->city = $request->city; //update by trison
+        $customer->province = $request->province; //update by trison
         $customer->tax_num = $request->tax_num;
 
         $customer->save();

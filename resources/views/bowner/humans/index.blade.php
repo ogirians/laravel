@@ -18,6 +18,9 @@
 	        <th>Gender</th>
 	        <th>Address</th>
 	        <th>Phone</th>
+	       	@if (Auth::user()->isHRD())
+	        <th>Location</th>
+	        @endif
 	        <th>ID#</th>
 	      </tr>
 	    </thead>
@@ -31,6 +34,9 @@
 	        <th>Gender</th>
 	        <th>Address</th>
 	        <th>Phone</th>
+	        @if (Auth::user()->isHRD())
+	        <th>Location</th>
+	        @endif
 	        <th>ID#</th>
 	      </tr>
 	    </tfoot>
@@ -55,6 +61,9 @@
 				<td>{{$human->gender}}</td>
 				<td>{{$human->address1 .','. $human->address2}}</td>
 				<td>{{$human->phone}}</td>
+				 @if (Auth::user()->isHRD())
+	        	<td>{{$human->location}}</td>
+	        	@endif
 				<td>{{$human->idnum}}</td>
 			  </tr>
 			@endforeach

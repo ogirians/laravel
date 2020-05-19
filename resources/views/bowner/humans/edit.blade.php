@@ -18,7 +18,12 @@
 		</div>
 		
 		<div class="col-sm-9">
+			@if(auth::user() -> isHRD())
 			{!! Form::model($human, ['method'=>'PATCH', 'action'=>['BownerHumansController@update', $human->id], 'files'=>true]) !!}
+			@endif
+			@if(auth::user() -> isOutlet())
+			{!! Form::model($human, ['method'=>'PATCH', 'route'=>['outlet.humans.update', $human->id], 'files'=>true]) !!}
+			@endif
 			<div class="row">
 				<div class="form-group col-sm-6">
 					{!! Form::label('name', 'Name (*):') !!}
@@ -27,7 +32,28 @@
 
 				<div class="form-group col-sm-6">
 					{!! Form::label('job', 'Job Title (*):') !!}
-					{!! Form::text('job', null, ['class'=>'form-control', 'required']) !!}
+					<select class="form-control" id="exampleFormControlSelect1" name="job" required="required" value="{{ old('job') }}">             
+				 	  <option>{{ $human -> job}}</option>
+		              @if (Auth::user()->isHRD())
+		              <option>Kepala outlet</option>
+		              <option>Kepala divisi</option>
+		              <option>Kepala / manajer</option>
+		              @endif
+		              <option>Staff Purchasing</option>
+		              <option>Staff Admin Purchasing</option>
+		              <option>Staff Finance</option>
+		              <option>Staff Marketing</option>
+		              <option>Staff Expedition</option>
+		              <option>Staff Production</option>
+		              <option>Staff Accounting & Tax</option>
+		              <option>Staff Digital Marketing</option>
+		              <option>Staff HRD</option>
+		              <option>Staff IT</option>
+		              <option>Driver</option>
+		              <option>Helper</option>
+		              <option>Produksi</option>
+		             
+		              </select>
 				</div>
 			</div>
 			
@@ -68,6 +94,7 @@
 					{!! Form::text('address1', null, ['class'=>'form-control', 'required']) !!}
 				</div>
 			</div>
+
 			
 			<div class="row">
 				<div class="form-group col-sm-6">
@@ -80,18 +107,66 @@
 					{!! Form::file('photo', null, ['class'=>'form-control']) !!}
 				</div>
 			</div>
+
+
+			<div class="row">
+
+					<div class="form-group col-sm-6">
+					 {!! Form::label('location', 'location:') !!}
+					 
+					 <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
+					 	  @if (Auth::user()->isOutlet())
+					 	  <option>{{ Auth::user()->name }}</option>
+					 	  @endif
+			              
+			              @if (Auth::user()->isHRD())
+			              <option>{{ $human -> location }}</option>
+			              <option>Tania Tidar</option>
+			              <option>Manna</option>
+			              <option>BKJ</option>
+			              <option>ABM</option>
+			              <option>Kania710</option>
+			              <option>Menggala</option>
+			              <option>Tritan</option>
+			              @endif
+			              </select>
+					</div>
+		
+			</div>
+
+
+			<div class="form-group">          
+      			<input type="hidden" class="form-control" name="role" required="required" value="{{ Auth::user()-> role_id }}">
+  			</div>
+  			<div class="form-group">          
+      			<input type="hidden" class="form-control" name="outlet" required="required" value="{{ Auth::user()-> name }}">
+  			</div>
+			
 			
 			<div class="form-group">
-				{!! Form::submit('Save', ['class'=>'btn btn-primary col-sm-2']) !!}
+				<button onclick="return confirm('simpan perubahan?')" type="submit" class="btn btn-primary col-sm-2">save changes </button>
 			</div>
 
 			{!! Form::close() !!}
 			
-			{!! Form::open(['method'=>'DELETE', 'action'=>['BownerHumansController@destroy', $human->id]]) !!}
-				<div class="form-group" style="margin-top:-50px;">
-					{!! Form::submit('Delete', ['class'=>'btn btn-danger col-sm-2']) !!}
+			<div class="row">
+			@if(auth::user() -> isHRD())
+
+			{!! Form::open(['method'=>'GET', 'action'=>['BownerHumansController@resign', $human->id]]) !!}
+				<div class="form-group" style="margin-top:-50px; margin-left: 50px;">
+					<button onclick="return confirm('status {{ $human->name }} akan berubah jadi resign, apa ingin melanjutkan?')" type="submit" class="btn btn-warning col-sm-2">resign </button>
 				</div>
 			{!! Form::close() !!}
+			
+		
+			{!! Form::open(['method'=>'DELETE', 'action'=>['BownerHumansController@destroy', $human->id]]) !!}
+				<div class="form-group" style="margin-top:-50px;">
+					<button onclick="return confirm('data yang telah dihapus tidak dapat dikembalikan, apa ingin melanjutkan?')" type="submit" class="btn btn-danger col-sm-2">delete data</button>
+				</div>
+			{!! Form::close() !!}
+			@endif
+
+			</div>
 		</div>
 	</div>
 	<hr>

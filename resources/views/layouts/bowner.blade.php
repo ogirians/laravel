@@ -104,6 +104,7 @@ $p = 0;
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.customer.index') }}">All Customers</a></li>
                                     <li><a href="{{ route('bowner.customer.create') }}">Create Customer</a></li>
+                                    <li><a href="http://localhost:8000/import_excel">Import & Export</a> </li>
                                 </ul>
                             </li>
 							
@@ -162,7 +163,7 @@ $p = 0;
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('HRD.humans.index') }}">All Employees</a></li>
                                     <li><a href="{{ route('HRD.humans.create') }}">Add Employee</a></li>
-                                    <li><a href="{{ route('HRD.leaves.index') }}">Leave</a>
+                                    <li><a href="{{ route('HRD.leaves.index') }}">Resign</a>
                                     <!--<li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li></li>-->
                                     <li><a href="/HRD/calculator/choice">Performance</a>    
                                     </li>
@@ -173,9 +174,9 @@ $p = 0;
                             @if (Auth::user()->isOutlet()) 
                             <li><a><i class="fa fa-users"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">                                 
-                                    <li><a href="{{route('outlet.humans.show', Auth::user()->name)}}"">All Employees</a></li>
+                                    <li><a href="{{route('outlet.humans.show', Auth::user()->name)}}">All Employees</a></li>
                                     <li><a href="{{ route('outlet.humans.create') }}">Add Employee</a></li>
-                                    <li><a href="{{ route('outlet.leaves.index') }}">Resign</a>
+                                    <li><a href="{{ route('outlet.leaves.show', Auth::user()->name)}}">Resign</a>
                                     <li><a href="/outlet/choice/{{ Auth::user()->name }}">Performance</a>      
                                     </li>
                                 </ul>

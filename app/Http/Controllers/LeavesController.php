@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Leave;
+use DB;
 
 class LeavesController extends Controller
 {
@@ -16,9 +17,18 @@ class LeavesController extends Controller
      */
     public function index()
     {
-        //
+    
+        $humanres = DB::Table('humans')
+                ->join('leaves','humans.id','=','leaves.human_id')
+                ->select('humans.id','humans.start_day','humans.job','humans.name','humans.photo','humans.location','leaves.leave_date','leaves.days')
+                ->where('humans.humans_status', 0)
+                ->get();
+
         $leaves = Leave::all();
-        return view('bowner.leaves.index', compact('leaves'));
+
+        return view('bowner.leaves.index', compact('humanres'));
+
+
     }
 
     /**
@@ -29,7 +39,7 @@ class LeavesController extends Controller
     public function create()
     {
         //
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -48,8 +58,17 @@ class LeavesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($location)
     {
+ 
+      $humanres = DB::Table('humans')
+                ->join('leaves','humans.id','=','leaves.human_id')
+                ->select('humans.id','humans.start_day','humans.job','humans.name','humans.photo','humans.location','leaves.leave_date','leaves.days')
+                ->where('humans.humans_status', 0)
+                ->where('location',$location)
+                ->get();
+
+        return view('bowner.leaves.index', compact('humanres'));
         //
     }
 

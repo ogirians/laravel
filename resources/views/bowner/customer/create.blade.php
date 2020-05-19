@@ -30,6 +30,18 @@
 
 	<div class="row">
 		<div class="form-group col-sm-6">
+			{!! Form::label('age', 'Age (*):') !!}
+			{!! Form::text('age', null, ['class'=>'form-control']) !!}
+		</div>
+	
+		<div class="form-group col-sm-6">
+			{!! Form::label('gender', 'Gender:') !!}
+			{!! Form::text('gender', null, ['class'=>'form-control']) !!}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="form-group col-sm-6">
 			{!! Form::label('city', 'City (*):') !!}
 			{!! Form::text('city', null, ['class'=>'form-control', 'required']) !!}
 		</div>
@@ -39,11 +51,28 @@
 			{!! Form::text('province', null, ['class'=>'form-control']) !!}
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="form-group col-sm-6">
+			{!! Form::label('status', 'Status:') !!}
+			{!! Form::text('status', null, ['class'=>'form-control']) !!}
+		</div>
+	
+		<div class="form-group col-sm-6">
+			{!! Form::label('job', 'Job:') !!}
+			{!! Form::text('job', null, ['class'=>'form-control']) !!}
+		</div>
+	</div>
 	
 	<div class="row">
 		<div class="form-group col-sm-6">
 			{!! Form::label('tax_num', 'Tax Code:') !!}
 			{!! Form::text('tax_num', null, ['class'=>'form-control']) !!}
+		</div>
+
+		<div class="form-group col-sm-6">
+			{!! Form::label('buy', 'Product:') !!}
+			{!! Form::text('buy', null, ['class'=>'form-control']) !!}
 		</div>
 	</div>
 		

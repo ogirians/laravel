@@ -142,11 +142,10 @@
                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
                               @endif
 
-                              @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') )
+                              @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
                                 @if ($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
                                     <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
                                 @else 
-
                                     <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>   
                                 @endif
                               @endif

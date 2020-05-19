@@ -6,11 +6,11 @@
 
 	
 	@if (Auth::user()->isHRD())
-	{!! Form::open(['route' => 'HRD.humans.store']) !!}
+	{!! Form::open(['route' => 'HRD.humans.store', 'files'=>true ]) !!}
 	@endif
 
 	@if (Auth::user()->isBowner())
-	{!! Form::open(['route' => 'bowner.humans.store']) !!}
+	{!! Form::open(['route' => 'bowner.humans.store', 'files'=>true ]) !!}
 	@endif
 
 	@if (Auth::user()->isOutlet())
@@ -101,6 +101,14 @@
 				{!! Form::label('photo', 'Photo:') !!}
 				{!! Form::file('photo', null, ['class'=>'form-control']) !!}
 		</div>
+		 
+		 <input type="hidden" class="form-control" name="humans_status" required="required" value="1">
+		 <div class="form-group">          
+      		<input type="hidden" class="form-control" name="role" required="required" value="{{ Auth::user()-> role_id }}">
+  		</div>
+  		<div class="form-group">          
+      		<input type="hidden" class="form-control" name="outlet" required="required" value="{{ Auth::user()-> name }}">
+  		</div>
 	</div>
 
 	<div class="row">
