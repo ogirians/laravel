@@ -91,9 +91,9 @@ $p = 0;
 							<li><a><i class="fa fa-users"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.humans.index') }}">All Employees</a></li>
-                                    <li><a href="{{ route('bowner.humans.create') }}">Add Employee</a></li>
-                                    <li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li>
-                                    <li><a href="{{ route('bowner.leaves.index') }}">Leave</a></li>
+                                    <!--<li><a href="{{ route('bowner.humans.create') }}">Add Employee</a></li>-->
+                                    <!--<li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li>-->
+                                    <li><a href="{{ route('bowner.leaves.index') }}">resign</a></li>
                                     <li><a href="http://localhost:8000/calculator/choice">Performance</a>
                                        
                                     </li>

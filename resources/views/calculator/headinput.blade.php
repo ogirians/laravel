@@ -4,19 +4,12 @@
 
 <body class="align-content-center">
 
-@foreach ($human as $h)
 
- @if (Auth::user()->isHRD())
-<a class="btn btn-success" href="/HRD/calculator/tampstaff/">Kembali</a>
-<form action="/HRD/calculator/storestaff" method="post" >
- @endif
+<a class="btn btn-success" href="/calculator/choice">Kembali</a>
+<form action="/bowner/storehead" method="post" >
 
- @if (Auth::user()->isOutlet())
-<a class="btn btn-success" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
-<form action="/outlet/storeeditstaff/{{ $h -> id }}" method="post" >
- @endif
 
-<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL STAFF/ADMIN</h2>
+<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL KEPALA/KABAG</h2>
 
 <br>
 
@@ -24,10 +17,19 @@
 
 
 {{ csrf_field() }}
+  <div class="row">
+    <div class="col col-lg-2" style="min-width: 100px;">  
+        <label for="PERIODE" style="margin-top: 5px;">PERIODE</label>
+    </div>
+    <div class="col col-lg-3" style="min-width: 250px;">
+        <div class="form-group">          
+            <input type="date" class="form-control" name="pdate" required="required">
+        </div>
+    </div>
+  </div>
 
 
-
- 
+  
   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
       <label for="nama" style="margin-top: 5px;"> NAMA </label>
@@ -35,17 +37,17 @@
     <div class="col col-lg-3" style="min-width: 250px;">
        <div class="form-group">
             <select class="form-control" id="exampleFormControlSelect1" name="name" required="required" value="{{ old('nama') }}">
-              
+               @foreach ($human as $h)
                   <option>{{ $h -> name }}</option>
-               
+               @endforeach  
             </select>  
         <br/>
     </div>
         </div>
     </div>
-  
 
-   <div class="row">
+
+  <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
        <label for="exampleFormControlSelect1" style="margin-top: 5px;">JABATAN</label>
     </div>
@@ -57,6 +59,7 @@
         </select><br/>
     </div>
   </div>
+
 
   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
@@ -72,18 +75,15 @@
     </div>
   </div>
 
-   
-@endforeach
-
+ @foreach ($human as $h)
+  <div class="form-group">          
+      <input type="hidden" class="form-control" name="id" required="required" value="{{ $h -> id }}">
+  </div>
+ @endforeach
 
    <div class="form-group">          
       <input type="hidden" class="form-control" name="user" required="required" value="{{ Auth::user()-> role_id }}">
   </div>
-
-  <div class="form-group">          
-      <input type="hidden" class="form-control" name="location" required="required" value="{{ Auth::user()-> name }}">
-  </div>
-
 
 </div>
 <br>
@@ -114,7 +114,7 @@
              <td>
             <label for="knowledge">1. Wawasan/Pengetahuan mengenai pekerjaan/job desk</label>
             </td>
-            <td>15%</td>
+            <td>5%</td>
             <td>
               <div class="form-group">  
                 <input type="number" class="form-control" name="knowledge" id="knowledge" required="required" min="0" max="100">
@@ -129,7 +129,7 @@
             <td>
             <label for="wspeed">2. Kecepatan Kerja</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
               <div class="form-group">
                 <input type="number" class="form-control" name="wspeed" id="wspeed" required="required"  min="0" max="100">
@@ -145,7 +145,7 @@
             <td>
              <label for="wsoul">3. Kemampuan menyelesaikan pekerjaan</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
                 <div class="form-group">
                    <input type="number" class="form-control" name="wsoul" id="wsoul" required="required"  min="0" max="100">
@@ -159,7 +159,7 @@
             <td>
              <label for="wqual">4. Kualitas hasil pekerjaan</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
                 <div class="form-group">
                   <input type="number" class="form-control" name="wqual" id="wqual" required="required"  min="0" max="100">
@@ -173,7 +173,7 @@
             <td>
              <label for="wpress">5. Prestasi kerja dibawah tekanan</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
                <div class="form-group">
                  <input type="number" class="form-control" name="wpress" id="wpress" required="required"  min="0" max="100">
@@ -194,7 +194,7 @@
          <tr>
             <td></td>
             <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
-            <td>50%</td>
+            <td>25    %</td>
             <td  style="text-align: center;"><p id="rata"></p></td>
             <td></td>
         </tr>
@@ -346,7 +346,6 @@
             <td><p id="loyalkuali"></p></td>
         </tr>
 
-
         <tr>
             <td></td>
             <td style="text-align: center;"></td>
@@ -363,26 +362,119 @@
             <td></td>
         </tr>
 
+        <tr>
+            <td>C</td>
+            <td>KEPEMIMPINAN / MANAGERIAL SKILL </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+            <tr>
+            <td></td>
+            <td>
+              <label for="initiative">1. Pengorganisasian</label>
+            </td>
+            <td>5%</td>
+            <td>
+              <div class="form-group"> 
+                <input type="number" class="form-control" name="organate" required="required" id="organate"  min="0" max="100">
+              </div></td>
+            <td><p id="organatekuali"></p></td>
+        </tr>
+
+
+          <tr>
+            <td></td>
+            <td>
+              <label for="creativity">2.Pembinaan / pengarahan</label>
+            </td>
+            <td>5%</td>
+            <td>
+              <div class="form-group">
+                <input type="number" class="form-control" name="coaching" required="required" id="coaching"  min="0" max="100">
+              </div></td>
+            <td><p id="coachingkuali"></p></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+               <label for="honestly">3.Pemeriksaan / pengendalian</label>
+            </td>
+            <td>5%</td>
+            <td>
+              <div class="form-group">
+                <input type="number" class="form-control" name="controling" required="required" id="controling"  min="0" max="100">
+              </div></td>
+            <td><p id="controlkuali"></p></td>
+        </tr>
+
+         <tr>
+            <td></td>
+            <td>
+               <label for="obedience">4. Perencanaan</label>
+            </td>
+            <td>5%</td>
+            <td>
+                <div class="form-group">
+                  <input type="number" class="form-control" name="planing" required="required" id="planing"  min="0" max="100">
+                </div></td>
+            <td><p id="plankuali"></p></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+               <label for="loyalty">5. Pendelegasian</label>
+            </td>
+            <td>5%</td>
+            <td>
+              <div class="form-group">
+                <input type="number" class="form-control" name="delegate" required="required" id="delegate"  min="0" max="100">
+              </div></td>
+            <td><p id="delegatekuali"></p></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
+            <td>25%</td>
+            <td style="text-align: center;"><p id="rata3"></p></td>
+            <td></td>
+        </tr>
+
+
           <tr>
             <td></td>
             <td style="text-align: center;"><strong>GENERAL TOTAL</strong></td>
             <td>100%</td>
-            <td style="text-align: center;"><p style="color: red; font-size: 25px;" id="gtotal"></td>
+            <td style="text-align: center;"><p style="color: red; font-size: 25px;" id="gtotal"></p></td>
             <td style="text-align: center;"><p style="font-size: 25px; color: red;" id="tkualitas"></p></td>
-        </tr>
+          </tr>
 
         
          
          
     </table>
+
+    <center>
+    <a class="btn btn-success" id="Cek" onclick="showhead()">cek</a>
+    <button onclick="return confirm('Simpan penilaian?')" type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
+    </center>
+
 </div> 
 </div>
 
 
-<center>
-    <a class="btn btn-success" id="Cek" onclick="show()">cek</a>
-    <button type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
-</center>
 
 </form>
 

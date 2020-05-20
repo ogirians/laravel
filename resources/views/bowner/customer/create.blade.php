@@ -36,7 +36,12 @@
 	
 		<div class="form-group col-sm-6">
 			{!! Form::label('gender', 'Gender:') !!}
-			{!! Form::text('gender', null, ['class'=>'form-control']) !!}
+			<select class="form-control" id="exampleFormControlSelect1" name="gender" required="required" value="{{ old('gender') }}">
+             <option>-</option>
+             <option>Pria</option>
+             <option>Wanita</option>
+                
+            </select> 
 		</div>
 	</div>
 

@@ -37,6 +37,7 @@ class HumanRequest extends FormRequest
             //'location' => 'required',
             'photo' => 'mimes:jpeg,png,bmp',
             'location' => 'required',
+            'humans_id' => 'required',   
         ];
     }
 

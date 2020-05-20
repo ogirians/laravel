@@ -14,7 +14,7 @@
 <form action="/outlet/storedrive" method="post" >
  @endif
 
-<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN</h2>
+<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL DRIVER/HELPER</h2>
 
 <br>
 
@@ -62,19 +62,19 @@
     </div>
   </div>
   
-   @if (Auth::user()->isBowner())
   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
        <label for="exampleFormControlSelect1" style="margin-top: 5px;">LOKASI</label>
     </div>
     <div class="col col-lg-3  " style="min-width: 250px;">
       <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
-              <option>{{ Auth::user()->name }}</option>
+             @foreach ($human as $h)
+                  <option>{{ $h -> location }}</option>
+               @endforeach    
       </select>
-              <br>
+      <br>
     </div>
   </div>
-  @endif
 
 
 
@@ -87,9 +87,6 @@
       <input type="hidden" class="form-control" name="user" required="required" value="{{ Auth::user()-> role_id }}">
   </div>
 
-  <div class="form-group">          
-      <input type="hidden" class="form-control" name="location" required="required" value="{{ Auth::user()-> name }}">
-  </div>
   
 </div>
 

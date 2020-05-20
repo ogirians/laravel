@@ -36,6 +36,7 @@
 <br>
 <br>
 -->
+@include('includes.message')
 
 <h1> Perfomance Board </h1>
 
@@ -56,7 +57,7 @@
           <th>Penilaian bulan ini</th>
           <th>nilai total rata-rata</th>
           <th>Kualitas</th>
-          @if (Auth::user()->isHRD())
+          @if (Auth::user()->isHRD() || Auth::user()->isBowner())
           <th>lokasi</th>
           @endif
           <th>opsi</th>
@@ -70,7 +71,7 @@
           <th>Penilaian bulan ini</th>
           <th>nilai total rata-rata</th>
           <th>Kualitas</th>
-          @if (Auth::user()->isHRD())
+          @if (Auth::user()->isHRD() || Auth::user()->isBowner())
           <th>lokasi</th>
           @endif
           <th>opsi</th>
@@ -91,19 +92,31 @@
         
       @if ( $q->last_test == null || $now !== Carbon\Carbon::parse($q->last_test)->format('M'))
           @if (Auth::user()->isHRD())
-          <td class="warning">Belum ada penilaian</td>
+              <td class="warning">Belum ada penilaian</td>
           @endif
 
-          @if (Auth::user()->isOutlet())
+          @if (Auth::user()->isOutlet()) 
+              <td style="text-align: center;">        
+                  @if($q->humans_level == 3)
+                       <a href="/outlet/inputdriver/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>
+                  @endif     
+                  @if($q->humans_level == 2)
+                       <a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>               
+                  @endif   
+              </td>            
+          @endif  
 
-                @if($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
-                   <td style="text-align: center;"><a href="/outlet/inputdriver/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a></td>        
-                    @else
-                    <td style="text-align: center;"><a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a> </td>                
-                @endif
-                  
-          @endif
-
+          @if (Auth::user()->isBowner())
+            
+              @if($q->humans_level == 1)
+              <td style="text-align: center;">  
+                      <a href="/bowner/inputhead/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>  
+              </td>    
+              @else
+                      <td class="warning">Belum ada penilaian</td>              
+              @endif
+                
+          @endif     
       @else
         <td class="success" style="text-align: center;">Completed <span class="text-success glyphicon glyphicon-ok"></span></td>
       @endif
@@ -121,35 +134,39 @@
 
         document.getElementById("Kualitaschoice_{{ $loop->index }}").innerHTML = kua;
         </script>
-         @if (Auth::user()->isHRD())
+        @if (Auth::user()->isHRD() || Auth::user()->isBowner())
         <td>{{ $q-> location }}</td>
          @endif
         
         <td style="text-align: center;">
           
-            <div class="dropdown mb-4">
-                  <button class="btn btn-info btn-xs dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Action
-                  </button>
-                          <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+            <div class="container">
+                         
                               @if (Auth::user()->isOutlet())
                               <a href="{{route('outlet.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
                               @endif
                               @if (Auth::user()->isHRD())
-                              <a href="{{route('HRD.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              <a href="{{route('HRD.humans.edit', $q -> id)}}"><span class="text-success glyphicon glyphicon-user">view Profile</span></a>
                               @endif
                               @if (Auth::user()->isBowner())
-                              <a href="{{route('bowner.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              <p><a href="{{route('bowner.humans.edit', $q -> id)}}"><span class="text-success glyphicon glyphicon-user"> view</span></a></p>
                               @endif
 
                               @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
-                                @if ($q->job == 'Driver' || $q->job == 'Helper' || $q->job == 'Produksi')
-                                    <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
-                                @else 
-                                    <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>   
-                                @endif
+                                    @if ($q->humans_level == 3)
+                                        <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
+                                    @endif
+                                    @if ($q->humans_level == 2)
+                                        <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>   
+                                    @endif
                               @endif
-                          </div>
+                              @if (Auth::user()->isBowner() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
+                                    @if ($q->humans_level == 1)
+                                        <p><a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/edithead/{{ $q -> id }}"><span class="text-success glyphicon glyphicon-repeat"></span> Ulang</a></p>
+                                    @endif
+                              @endif
+
+                          
             </div>
         </td>
         </tr>

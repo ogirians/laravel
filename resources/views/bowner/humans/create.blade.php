@@ -24,31 +24,8 @@
 		</div>
 
 		<div class="form-group col-sm-6">
-		 {!! Form::label('job', 'Job:') !!}
-		 
-		 <select class="form-control" id="exampleFormControlSelect1" name="job" required="required" value="{{ old('job') }}">  
-              
-		 	  <option>Choose Option</option>
-              @if (Auth::user()->isHRD())
-              <option>Kepala outlet</option>
-              <option>Kepala divisi</option>
-              <option>Kepala / manajer</option>
-              @endif
-              <option>Staff Purchasing</option>
-              <option>Staff Admin Purchasing</option>
-              <option>Staff Finance</option>
-              <option>Staff Marketing</option>
-              <option>Staff Expedition</option>
-              <option>Staff Production</option>
-              <option>Staff Accounting & Tax</option>
-              <option>Staff Digital Marketing</option>
-              <option>Staff HRD</option>
-              <option>Staff IT</option>
-              <option>Driver</option>
-              <option>Helper</option>
-              <option>Produksi</option>
-             
-              </select>
+		 {!! Form::label('job', 'Job:') !!} 
+		 {!! Form::text('job', null, ['class'=>'form-control', 'required']) !!}		
 		</div>
 
 	</div>
@@ -70,7 +47,7 @@
 	<div class="row">
 		<div class="form-group col-sm-6">
 			{!! Form::label('gender', 'Gender (*):') !!}
-			{!! Form::select('gender', [''=>'Choose Option', 'male'=>'Male', 'female'=>'Female'], null, ['class'=>'form-control', 'required']) !!}
+			{!! Form::select('gender', [''=>'Choose Option', 'Laki - laki'=>'Laki - laki', 'Perempuan'=>'Perempuan'], null, ['class'=>'form-control', 'required']) !!}
 		</div>
 		
 		<div class="form-group col-sm-6">
@@ -133,7 +110,25 @@
               @endif
               </select>
 		</div>
+
+		<div class="form-group col-sm-6">
+		 {!! Form::label('Level', 'Level:') !!}
+		 
+		 <select class="form-control" id="exampleFormControlSelect1" name="humans_level" required="required" value="{{ old('location') }}">
+		 	  <option>pilih level</option>           
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>       
+          </select>
+		</div>
 		
+	</div>
+
+	<div class="alert alert-warning" style="max-width: 300px; float: right;">
+	  		<strong>Catatan :</strong>
+			<p>level 1 => Kepala Outlet / Kepala Bagian</p>
+			<p>level 2 => Staff / Admin </p>
+			<p>level 3 => Driver / Helper </p>
 	</div>
 
 	<div class="row">

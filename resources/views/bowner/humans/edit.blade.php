@@ -21,6 +21,9 @@
 			@if(auth::user() -> isHRD())
 			{!! Form::model($human, ['method'=>'PATCH', 'action'=>['BownerHumansController@update', $human->id], 'files'=>true]) !!}
 			@endif
+			@if(auth::user() -> isBowner())
+			{!! Form::model($human, ['method'=>'PATCH', 'action'=>['BownerHumansController@update', $human->id], 'files'=>true]) !!}
+			@endif
 			@if(auth::user() -> isOutlet())
 			{!! Form::model($human, ['method'=>'PATCH', 'route'=>['outlet.humans.update', $human->id], 'files'=>true]) !!}
 			@endif
@@ -32,28 +35,7 @@
 
 				<div class="form-group col-sm-6">
 					{!! Form::label('job', 'Job Title (*):') !!}
-					<select class="form-control" id="exampleFormControlSelect1" name="job" required="required" value="{{ old('job') }}">             
-				 	  <option>{{ $human -> job}}</option>
-		              @if (Auth::user()->isHRD())
-		              <option>Kepala outlet</option>
-		              <option>Kepala divisi</option>
-		              <option>Kepala / manajer</option>
-		              @endif
-		              <option>Staff Purchasing</option>
-		              <option>Staff Admin Purchasing</option>
-		              <option>Staff Finance</option>
-		              <option>Staff Marketing</option>
-		              <option>Staff Expedition</option>
-		              <option>Staff Production</option>
-		              <option>Staff Accounting & Tax</option>
-		              <option>Staff Digital Marketing</option>
-		              <option>Staff HRD</option>
-		              <option>Staff IT</option>
-		              <option>Driver</option>
-		              <option>Helper</option>
-		              <option>Produksi</option>
-		             
-		              </select>
+					{!! Form::text('job', null, ['class'=>'form-control']) !!}
 				</div>
 			</div>
 			
@@ -74,7 +56,7 @@
 			<div class="row">
 				<div class="form-group col-sm-6">
 					{!! Form::label('gender', 'Gender (*):') !!}
-					{!! Form::select('gender', [''=>'Choose Option', 'male'=>'Male', 'female'=>'Female'], null, ['class'=>'form-control']) !!}
+					{!! Form::select('gender', [''=>'Choose Option', 'laki-laki'=>'laki-laki', 'perempuan'=>'perempuan'], null, ['class'=>'form-control']) !!}
 				</div>
 
 				<div class="form-group col-sm-6">
@@ -110,13 +92,12 @@
 
 
 			<div class="row">
-
 					<div class="form-group col-sm-6">
 					 {!! Form::label('location', 'location:') !!}
 					 
 					 <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
-					 	  @if (Auth::user()->isOutlet())
-					 	  <option>{{ Auth::user()->name }}</option>
+					 	  @if (Auth::user()->isOutlet() || Auth::user()->isBowner())
+					 	  <option>{{ $human -> location }}</option>
 					 	  @endif
 			              
 			              @if (Auth::user()->isHRD())
@@ -131,8 +112,18 @@
 			              @endif
 			              </select>
 					</div>
-		
+
+					<div class="form-group col-sm-6">
+						 {!! Form::label('level', 'level:') !!}					 
+						 <select class="form-control" id="exampleFormControlSelect1" name="humans_level" required="required" value="{{ old('location') }}">
+						 	  <option>{{ $human-> humans_level }}</option>           
+				              <option>1</option>
+				              <option>2</option>
+				              <option>3</option>       
+				          </select>
+					</div>	
 			</div>
+		
 
 
 			<div class="form-group">          
@@ -142,11 +133,11 @@
       			<input type="hidden" class="form-control" name="outlet" required="required" value="{{ Auth::user()-> name }}">
   			</div>
 			
-			
+			 @if (Auth::user()->isOutlet() || Auth::user()->isHRD())
 			<div class="form-group">
 				<button onclick="return confirm('simpan perubahan?')" type="submit" class="btn btn-primary col-sm-2">save changes </button>
 			</div>
-
+			@endif
 			{!! Form::close() !!}
 			
 			<div class="row">
@@ -166,8 +157,17 @@
 			{!! Form::close() !!}
 			@endif
 
+			<div class="alert alert-warning" style="max-width: 300px; float: right; margin-top: -36px;">
+	  		<strong>Catatan :</strong>
+			<p>level 1 => Kepala Outlet / Kepala Bagian</p>
+			<p>level 2 => Staff / Admin </p>
+			<p>level 3 => Driver / Helper </p>
 			</div>
-		</div>
+			</div>
+			</div>
+
+
+
 	</div>
 	<hr>
 	@include('includes.form_error')

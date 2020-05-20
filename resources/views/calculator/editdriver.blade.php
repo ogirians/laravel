@@ -14,7 +14,7 @@
 <form action="/outlet/storeeditdriver/{{ $h -> id}}" method="post" >
  @endif
 @endforeach
-<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN</h2>
+<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL DRIVER/HELPER</h2>
 
 <br>
 
@@ -60,9 +60,11 @@
     </div>
     <div class="col col-lg-3  " style="min-width: 250px;">
       <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
-              <option>{{ Auth::user()->name }}</option>
+             @foreach ($human as $h)
+                  <option>{{ $h -> location }}</option>
+               @endforeach    
       </select>
-              <br>
+      <br>
     </div>
   </div>
   @endif

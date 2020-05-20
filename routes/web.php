@@ -78,21 +78,21 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 		'as' => 'orders.deliver',
 	]);
 
-	// Performances Route
+
+	// Calculater Route
 	Route::get('/calculator', 'CalculatorController@index');
-	Route::get('/calculator/inputdriver', 'CalculatorController@inputdriver');
-	Route::get('/calculator/inputstaff', 'CalculatorController@inputstaff');
-	Route::post('/calculator/store', 'CalculatorController@calculator');
-	Route::post('/calculator/storedrive', 'CalculatorController@calculatordriver');
-	//Route::get('calculator.store', 'CalculatorController@store');
-	Route::get('/calculator/tamp', 'CalculatorController@tamp');
-	Route::get('/calculator/tampdrive', 'CalculatorController@tampdrive');
-	Route::get('/calculator/tampstaff', 'CalculatorController@tampstaff');
-	Route::post('/calculator/storestaff', 'CalculatorController@calculatorstaff');
-	Route::get('/calculator/choice', 'CalculatorController@choice');
-	Route::get('/calculator/cari', 'CalculatorController@cari');
-	Route::get('/calculator/caristaff', 'CalculatorController@caristaff');
-	Route::get('/calculator/caridriver', 'CalculatorController@caridriver');
+		//input
+	Route::get('/bowner/inputhead/{location}/{id?}', 'CalculatorController@inputhead');
+		//store
+	Route::post('/bowner/storehead', 'CalculatorController@calculator');
+		//edit
+	Route::get('/bowner/edithead/{id}', 'CalculatorController@edithead');
+		//update
+	Route::post('/bowner/storeedithead/{id}', 'CalculatorController@updhead');
+
+	//choice
+	Route::get('/calculator/choice/{location?}', 'CalculatorController@choice');
+
 
 
 	/*
@@ -127,7 +127,7 @@ Route::group(['middleware'=>'auth'], function(){
 // BusinessOwner_Manager middleware
 
 
-	Route::group(['middleware' => 'bowner_manager', 'as' => 'bowner.'], function() {
+Route::group(['middleware' => 'bowner_manager', 'as' => 'bowner.'], function() {
 
 	Route::get('manager', function(){
 		return view('bowner.index');
@@ -178,7 +178,7 @@ Route::group(['middleware'=>'auth'], function(){
 });
 
 // Employee_BusinessOwner middleware
-	Route::group(['middleware' => 'bowner_employee'], function() {
+Route::group(['middleware' => 'bowner_employee'], function() {
 
 	// Order route
 	Route::resource('orders', 'OrderController', ['except'=>['destroy']]);
@@ -216,12 +216,10 @@ Route::group(['middleware'=>'auth'], function(){
 
 
 
-	Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
+Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet', function(){
 			return view('bowner.index');
 		});
-
-
 	//humans route
 	Route::resource('/outlet/humans', 'BownerHumansController', ['except' =>['resign','destroy']]);
 	Route::patch('outlet/humans/update/{id}', [
@@ -232,47 +230,27 @@ Route::group(['middleware'=>'auth'], function(){
 		'uses' => 'BownerHumansController@edit',
 		'as' => 'humans.edit'
 	]);
-
-
-
-
 	Route::resource('/outlet/leaves', 'LeavesController');
-
 
 	//calculator route
 	//input
-	Route::get('/outlet/calculator', 'CalculatorController@index');
 	Route::get('/outlet/inputdriver/{location}/{id?}', 'CalculatorController@inputdriver');
 	Route::get('/outlet/inputstaff/{location}/{id?}', 'CalculatorController@inputstaff');
+
 	//store
-	Route::post('/outlet/store', 'CalculatorController@calculator');
 	Route::post('/outlet/storedrive', 'CalculatorController@calculatordriver');
 	Route::post('/outlet/storestaff', 'CalculatorController@calculatorstaff');
-	
 
 	//edit
 	Route::get('/outlet/editstaff/{id}', 'CalculatorController@updatestaff');
 	Route::get('/outlet/editdriver/{id}', 'CalculatorController@updatedriver');
-	Route::get('/outlet/editm/{id}', 'CalculatorController@updatebowner');
+
 	//update
-	Route::post('/outlet/storeedit', 'CalculatorController@upd');
 	Route::post('/outlet/storeeditdriver/{id}', 'CalculatorController@upddriver');
 	Route::post('/outlet/storeeditstaff/{id}', 'CalculatorController@updstaff');
 
-
-	//Route::get('calculator.store', 'CalculatorController@store');
-	Route::get('/outlet/tamp', 'CalculatorController@tamp');
-	Route::get('/outlet/tampdrive', 'CalculatorController@tampdrive');
-	Route::get('/outlet/tampstaff', 'CalculatorController@tampstaff');
-
-	
 	//perfomance
 	Route::get('/outlet/choice/{location?}', 'CalculatorController@choice');
-	
-
-	Route::get('/calculator/cari', 'CalculatorController@cari');
-	Route::get('/calculator/caristaff', 'CalculatorController@caristaff');
-	Route::get('/calculator/caridriver', 'CalculatorController@caridriver');
 
 	Route::post('/import_excel/import', 'CustomerController@import');
 
@@ -284,36 +262,17 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	Route::get('/HRD', function(){
 			return view('bowner.index');
 		});	
-
+	//humans route
 	Route::get('/HRD/humans/resign/{id}', 'BownerHumansController@resign');
 	Route::resource('/HRD/humans', 'BownerHumansController');
 	Route::resource('/HRD/leaves', 'LeavesController');
 
-	
-	Route::get('/HRD/calculator/inputhead', 'CalculatorController@index');
-	Route::get('/HRD/calculator/inputdriver', 'CalculatorController@inputdriver');
-	Route::get('/HRD/calculator/inputstaff', 'CalculatorController@inputstaff');
-	
-
-	Route::post('/HRD/calculator/storestaff', 'CalculatorController@calculatorstaff');
-	Route::post('/HRD/calculator/store', 'CalculatorController@calculator');
-	Route::post('/HRD/calculator/storedrive', 'CalculatorController@calculatordriver');
-	//Route::get('calculator.store', 'CalculatorController@store');
-
-	Route::get('/HRD/calculator/tamp', 'CalculatorController@tamp');
-	Route::get('/HRD/calculator/tampdrive', 'CalculatorController@tampdrive');
-	Route::get('/HRD/calculator/tampstaff', 'CalculatorController@tampstaff');
-	
+	//perfomances
 	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
-
-	
-	Route::get('/HRD/calculator/cari', 'CalculatorController@cari');
-	Route::get('/caristaff', 'CalculatorController@caristaff');
-	Route::get('/HRD/calculator/caridriver', 'CalculatorController@caridriver');
 	
 });
 
-Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
-Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
-Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
+	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
+	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
 
