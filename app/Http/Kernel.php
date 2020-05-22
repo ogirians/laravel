@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'bowner_manager' => \App\Http\Middleware\BownerManager::class,
         'HRD' => \App\Http\Middleware\HRD::class,
         'outlet' => \App\Http\Middleware\outlet::class,
+        'DM' => \App\Http\Middleware\DM::class,
 
     ];
 }

@@ -17,8 +17,17 @@
      <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/js/kualitas.js"></script>
+   
 
-    @yield('styles')
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+
+
+
+@yield('styles')
  
 <?php
 $p = 0;
@@ -34,7 +43,7 @@ $p = 0;
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="{{url('/')}}" class="site_title"><i class="fa fa-briefcase"></i> <span>Lavina ERP</span></a>
+                    <a href="{{url('/')}}" class="site_title"><i class="fa fa-briefcase"></i> <span>IBI Office</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -183,6 +192,19 @@ $p = 0;
                             </li> 
 
                             @endif
+
+                              @if (Auth::user()->isDM())
+                            <li><a><i class="fa fa-users"></i> Digital Marketing <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                   
+                                    <li><a href="http://localhost:8000/DM">All Customers</a></li>
+                                    <li><a href="http://localhost:8000/DM/create">Create Customers</a></li>
+                                    <li><a href="http://localhost:8000/import_excel">Import</a> </li>
+                                       
+                                    </li>
+                                </ul>
+                            </li>        
+                            @endif
                         </ul>
                     </div>
 
@@ -296,9 +318,8 @@ $p = 0;
 
 <script src="{{ asset('js/libs.js') }}"></script>
 @yield('scripts')
+
 <script>
-
-
     $(document).ready(function(){
         //CKEDITOR.replace('body');
 
@@ -322,11 +343,7 @@ $p = 0;
 </script>
 
 
-
-
 <!--<script src="code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
-
-
 
 <script src= "/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>

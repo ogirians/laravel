@@ -25,7 +25,7 @@
 			@foreach($customers as $customer)
 			  <tr>
 				<td>{{$customer->id}}</td>
-				<td><a href="{{route('bowner.customer.edit', $customer->id)}}">{{$customer->name}}</td>
+				<td><a href="/DM/edit/{{ $customer->id }}">{{$customer->name}}</a></td>
 				<td>{{$customer->address1 .','. $customer->address2}}</td>
 				<td>{{$customer->city}}</td>
 				<td>{{$customer->province}}</td>

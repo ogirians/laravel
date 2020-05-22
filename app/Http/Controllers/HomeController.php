@@ -40,6 +40,9 @@ class HomeController extends Controller
                     elseif (Auth::user()->isOutlet()) {
                         return redirect('/outlet');
                     }
+                     elseif (Auth::user()->isDM()) {
+                        return redirect('/DM');
+                     }
                   } else {
                       return view('home');
                     } 

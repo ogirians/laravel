@@ -7,6 +7,9 @@
 		<li role="presenstation"><a href="#create" aria-controls="create" role="tab" data-toggle="tab"><strong>history penilaian</strong></a></li>
 </ul>
 
+@include('includes.message')
+
+
 <div class="tab-content">
  <div role="tabpanel1" class="tab-pane fade in active" id="view">
 
@@ -56,7 +59,7 @@
 			<div class="row">
 				<div class="form-group col-sm-6">
 					{!! Form::label('gender', 'Gender (*):') !!}
-					{!! Form::select('gender', [''=>'Choose Option', 'laki-laki'=>'laki-laki', 'perempuan'=>'perempuan'], null, ['class'=>'form-control']) !!}
+					{!! Form::select('gender', [''=>'Choose Option', 'Laki – laki'=>'Laki – laki', 'Perempuan'=>'Perempuan'], null, ['class'=>'form-control']) !!}
 				</div>
 
 				<div class="form-group col-sm-6">
@@ -157,7 +160,7 @@
 			{!! Form::close() !!}
 			@endif
 
-			<div class="alert alert-warning" style="max-width: 300px; float: right; margin-top: -36px;">
+			<div class="alert alert-warning" style="max-width: 300px; float: right;">
 	  		<strong>Catatan :</strong>
 			<p>level 1 => Kepala Outlet / Kepala Bagian</p>
 			<p>level 2 => Staff / Admin </p>
@@ -176,14 +179,16 @@
 
 <div role="tabpanel2" class="tab-pane fade" id="create" style="padding: 20px;">
 	<div class="table-responsive">
-		<table class="table table-hover table-bordered table-striped">
+		<table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 	    <thead>
 	      <tr>
 	        <th>name</th>
 	        <th>tanggal</th>
 	        <th>nilai</th>
 	        <th>kualitas</th>
+	        @if(auth::user() -> isHRD())
 	        <th>opsi</th>
+	        @endif
 	      </tr>
 	    </thead>
 	    <tfoot>
@@ -192,7 +197,9 @@
 	        <th>tanggal</th>
 	        <th>nilai</th>
 	        <th>kualitas</th>
+	        @if(auth::user() -> isHRD())
 	        <th>opsi</th>
+	        @endif
 	      </tr>
 	  </tfoot>
 	  <tbody>
@@ -211,7 +218,9 @@
 
 			        document.getElementById("Kualitaschoice_{{ $loop->index }}").innerHTML = kua;
 			        </script>
-	  		<td></td>
+			 @if(auth::user() -> isHRD())
+	  		<td style=" text-align: center;"><a class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus penilaian" href="/HRD/calculator/delete/{{ $h -> id}}/{{ $h -> no }}" onclick="return confirm('Yakin ingin menghapus penilaian ini ?')"><span class="glyphicon glyphicon-remove"></span></a></td>
+	  		@endif
 	  	   </tr>
 	  	@endforeach
 	  </tbody>
@@ -237,5 +246,13 @@
 			//alert("You joined " + years + " ago");
 		});
 	});
+	</script>
+
+	 <script type="text/javascript">
+		  $(document).ready(function() {
+		    $('#dataTable').DataTable( {
+		        "order": [[ 0, "desc" ]]
+		    } );
+		} );
 	</script>
 @stop

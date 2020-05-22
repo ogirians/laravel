@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 10:01 AM
+-- Generation Time: May 22, 2020 at 11:45 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -56,68 +56,6 @@ CREATE TABLE `calc` (
   `delegate` float DEFAULT NULL,
   `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `calc`
---
-
-INSERT INTO `calc` (`no`, `humans_id`, `position`, `location`, `pdate`, `knowledge`, `wspeed`, `wsoul`, `wqual`, `wpress`, `teamwork`, `communicate`, `responbility`, `learning`, `dicipline`, `initiative`, `creativity`, `honestly`, `obedience`, `loyalty`, `organate`, `coaching`, `controling`, `planing`, `delegate`, `total`) VALUES
-(1, '0', '', '', '0000-00-00', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, '0', '', '', '0000-00-00', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, '0', '', '', '0000-00-00', 0.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, '0', '', '', '0000-00-00', 0.6, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, '0', '', '', '0000-00-00', 0.6, 0.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, '0', '', '', '0000-00-00', 0.6, 0.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, '0', '', '', '0000-00-00', 0.6, 0.6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, '0', '', '', '0000-00-00', 3.25, 4.35, 2.75, 0.75, 4.9, 4.9, 2.8, 2.4, 3.9, 3.25, 1.15, 4.4, 4.95, 3.9, 2.7, 4.75, 2.4, 4.75, 3.4, 3.9, 69.55),
-(9, '0', 'Staff', '', '2020-03-13', 2.7, 3.4, 3.9, 0.6, 4.7, 3.35, 4.25, 4.95, 2.7, 3.4, 0.9, 2.7, 1.6, 4.7, 1.9, 4.4, 2.75, 3.2, 1.55, 4.4, 62.05),
-(10, '0', 'Staff', '', '2020-03-11', 2.7, 4.35, 3.25, 4.9, 2.75, 1, 4.35, 4.7, 4.25, 3.75, 1.1, 3.9, 2.7, 1.05, 3.3, 1.1, 3.9, 3.25, 3.85, 4.95, 65.1),
-(11, '0', 'Staff', '', '2020-03-11', 2.7, 4.35, 3.25, 4.9, 2.75, 1, 4.35, 4.7, 4.25, 3.75, 1.1, 3.9, 2.7, 1.05, 3.3, 1.1, 3.9, 3.25, 3.85, 4.95, 65.1),
-(12, '0', 'Staff', '', '2020-03-11', 2.7, 4.35, 3.25, 4.9, 2.75, 1, 4.35, 4.7, 4.25, 3.75, 1.1, 3.9, 2.7, 1.05, 3.3, 1.1, 3.9, 3.25, 3.85, 4.95, 65.1),
-(13, '0', 'Staff', '', '2020-03-11', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(14, '0', 'Driver', '', '2020-03-18', 4.35, 2.7, 4.9, 2.9, 3.4, 3.85, 4.75, 2.45, 4.3, 0.75, 4.4, 3.75, 4.75, 2.25, 4.8, 4.35, 4.75, 3.2, 4.3, 2.25, 73.15),
-(15, '0', 'Staff', '', '2020-03-11', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(16, '0', 'Staff', '', '2020-03-01', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(17, '0', 'Staff', '', '2020-03-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(18, '0', 'Staff', '', '2020-03-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(19, '0', 'Staff', '', '2020-03-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(20, '0', 'Staff', '', '2020-03-10', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(21, '0', 'Driver', '', '2020-03-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(22, '0', 'Driver', '', '2020-03-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(23, '0', 'Staff', '', '2020-03-04', 0.6, 1.15, 1.15, 0.7, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 13.2),
-(24, '0', 'Staff', '', '2020-03-24', 1.15, 0.6, 2.25, 0.6, 3.35, 2.25, 0.8, 4.5, 3.9, 2.25, 1.15, 3.7, 1.35, 0.6, 4.45, 0, 0, 0, 0, 0, 32.9),
-(25, '0', 'Driver', '', '2020-03-24', 1.7, 0, 0, 2.7, 0, 1.15, 0.6, 0, 0, 3.85, 4.95, 0, 2.8, 1.7, 1.15, 0, 0, 0, 0, 0, 20.6),
-(26, '0', 'Helper', 'Kania 710', '2020-04-02', 0.6, 0, 0, 0.6, 0, 0.6, 0.6, 0, 0, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0, 0, 0, 0, 0, 6),
-(27, '0', 'Staff Accounting & Tax', 'Tania Lombok', '2020-04-02', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0, 0, 0, 0, 0, 9),
-(28, '0', 'Staff Production', 'Berkat Karunia Jaya', '2020-04-02', 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 0, 0, 0, 0, 0, 25.5),
-(29, '0', 'Staff Finance', 'Manna Sejahterah Galvalume', '2020-04-02', 0.6, 0.6, 0.6, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0.65, 0, 0, 0, 0, 0, 9.6),
-(30, '0', 'Kepala Outlet/Divisi', 'Tritan', '2020-04-23', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(31, '0', 'Driver/Helper', 'Kania 710', '2020-04-03', 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 12),
-(32, '0', 'Helper', 'UD. Menggala', '2020-04-03', 1.8, NULL, NULL, 0.6, NULL, 1.8, 1.3, NULL, NULL, 1.3, 0.65, 1.3, 1.3, 1.95, 0.65, NULL, NULL, NULL, NULL, NULL, 12.65),
-(33, '0', 'Helper', 'UD. Menggala', '2020-04-03', 1.8, NULL, NULL, 0.6, NULL, 1.8, 1.3, NULL, NULL, 1.3, 0.65, 1.3, 1.3, 1.95, 0.65, NULL, NULL, NULL, NULL, NULL, 12.65),
-(34, '0', 'Helper', 'Manna Sejahterah Galvalume', '2020-04-03', 1.95, NULL, NULL, 0.65, NULL, 1.95, 1.3, NULL, NULL, 1.3, 0.65, 1.3, 1.3, 1.95, 0.65, NULL, NULL, NULL, NULL, NULL, 13),
-(35, '0', 'Staff Marketing', 'Tania Tidar', '2020-04-11', 4.35, 4.25, 4.4, 4.45, 4.45, 4.25, 4.4, 4.5, 4.25, 4.5, 4.4, 4.4, 4.5, 4.5, 4.75, 0, 0, 0, 0, 0, 66.35),
-(36, '0', 'Staff Marketing', 'Tania Tidar', '2020-04-11', 13.05, 8.5, 8.8, 8.9, 4.45, 4.25, 4.4, 4.5, 4.25, 4.5, 4.4, 4.4, 4.5, 4.5, 4.75, NULL, NULL, NULL, NULL, NULL, 74.9),
-(37, '0', 'Staff Marketing', 'Tania Tidar', '2020-04-04', 13.05, 8.5, 8.8, 8.9, 4.45, 4.25, 4.4, 4.5, 4.25, 4.5, 4.4, 4.4, 4.5, 4.5, 4.75, NULL, NULL, NULL, NULL, NULL, 74.9),
-(38, '0', 'Staff Marketing', 'Tania Tidar', '2020-04-11', 13.05, 8.5, 8.8, 8.9, 4.45, 4.25, 4.4, 4.5, 4.25, 4.5, 4.4, 4.4, 4.5, 4.5, 4.75, NULL, NULL, NULL, NULL, NULL, 74.9),
-(39, '0', 'Staff Marketing', 'Tania Tidar', '2020-04-11', 13.05, 8.5, 8.8, 8.9, 4.45, 4.25, 4.4, 4.5, 4.25, 4.5, 4.4, 4.4, 4.5, 4.5, 4.75, NULL, NULL, NULL, NULL, NULL, 88.15),
-(40, '0', 'Staff IT', 'jakarta', '2020-04-27', 12, 8, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, NULL, NULL, NULL, NULL, NULL, 80),
-(41, '0', 'Staff Digital Marketing', 'Tritan', '2020-04-30', 1.8, 1.2, 1.2, 1.2, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, NULL, NULL, NULL, NULL, NULL, 12),
-(42, '0', 'Staff Purchasing', 'Erli Pratiwi', '2020-05-04', 12, 8, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, NULL, NULL, NULL, NULL, NULL, 80),
-(43, '0', 'Staff Purchasing', 'Tania Tidar', '2020-05-04', 7.5, 5, 5, 5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, NULL, NULL, NULL, NULL, NULL, 50),
-(44, '0', 'Staff HRD', 'Manna', '2020-05-04', 10.5, 7, 7, 7, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, NULL, NULL, NULL, NULL, NULL, 70),
-(45, '0', 'Staff Marketing', 'BKJ', '2020-05-04', 6.75, 4.5, 4.5, 4.5, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, NULL, NULL, NULL, NULL, NULL, 45),
-(46, '0', 'Staff Purchasing', 'ABM', '2020-05-04', 11.25, 7.5, 7.5, 7.5, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, NULL, NULL, NULL, NULL, NULL, 75),
-(47, '0', 'Staff Expedition', 'Kania710', '2020-05-04', 4.5, 3, 3, 3, 0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, NULL, NULL, NULL, NULL, NULL, 28.5),
-(48, '0', 'Staff HRD', 'Menggala', '2020-05-04', 11.7, 7.8, 7.8, 7.8, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, NULL, NULL, NULL, NULL, NULL, 78),
-(49, '0', 'Staff Purchasing', 'Tritan', '2020-05-15', 12, 8, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, NULL, NULL, NULL, NULL, NULL, 80),
-(50, '0', 'Staff Purchasing', 'Tritan', '2020-05-22', 6.75, 4.5, 4.5, 4.5, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, 2.25, NULL, NULL, NULL, NULL, NULL, 45),
-(51, '[{\"id\":6}]', 'Staff IT', 'Tania Tidar', '2020-05-13', 12, 8, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, NULL, NULL, NULL, NULL, NULL, 80),
-(52, '7', 'Staff Purchasing', 'Tania Tidar', '2020-05-12', 12, 8, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, NULL, NULL, NULL, NULL, NULL, 80),
-(53, '6', 'Staff IT', 'Tania Tidar', '2020-05-12', 10.5, 7, 7, 7, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, NULL, NULL, NULL, NULL, NULL, 70),
-(54, '7', 'Staff HRD', 'Tania Tidar', '2020-05-12', 13.5, 9, 9, 9, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, NULL, NULL, NULL, NULL, NULL, 90),
-(55, '9', NULL, 'Tania Tidar', '2020-05-13', 6, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, NULL, NULL, NULL, NULL, NULL, 40),
-(56, '5', NULL, 'Tania Tidar', '2020-05-15', 6, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, NULL, NULL, NULL, NULL, NULL, 40);
 
 -- --------------------------------------------------------
 
@@ -200,7 +138,14 @@ CREATE TABLE `customers` (
   `tax_num` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `age` int(11) DEFAULT NULL,
+  `gender` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `job` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `province` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `buy` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -209,9 +154,19 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `tax_num`, `address1`, `address2`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 'ABC', '123456', '123 Street', NULL, '0911111111', '2020-01-21 20:41:28', '2020-01-21 20:41:28'),
-(2, 'DEF', '56789', '456 Street', NULL, '0922222222', '2020-01-21 20:41:28', '2020-01-21 20:41:28');
+INSERT INTO `customers` (`id`, `name`, `tax_num`, `address1`, `address2`, `age`, `gender`, `job`, `city`, `province`, `phone`, `status`, `buy`, `created_at`, `updated_at`) VALUES
+(1, 'ABC', '123456', '123 Street', 'asd', 0, '', '', 'qwe', 'qwe', '0911111111', '', '', '2020-01-21 20:41:28', '2020-05-17 19:26:49'),
+(2, 'DEF', '56789', '456 Street', 'asd', 0, '', '', 'qwe', 'zxc', '0922222222', '', '', '2020-01-21 20:41:28', '2020-01-21 20:41:28'),
+(5, 'ABC', '1236562', '123 Street', 'asd', 0, '', '', 'qwe', 'qwe', '5468756132', '', '', NULL, NULL),
+(6, 'DEF', '1851542', '456 Street', 'asd', 0, '', '', 'qwe', 'zxc', '7895132185', '', '', NULL, NULL),
+(7, 'ABC', '1596348', '123 Street', 'asd', 0, '', '', 'qwe', 'qwe', '4656189456', '', '', NULL, NULL),
+(8, 'DEF', '1968251', '456 Street', 'asd', 0, '', '', 'qwe', 'zxc', '4895465185', '', '', NULL, NULL),
+(10, 'ABC', '123456', '123 Street', 'asd', NULL, NULL, NULL, 'qwe', 'qwe', '0911111111', NULL, NULL, NULL, NULL),
+(11, 'DEF', '56789', '456 Street', 'asd', NULL, NULL, NULL, 'qwe', 'zxc', '0922222222', NULL, NULL, NULL, NULL),
+(12, 'ABC', '1236562', '123 Street', 'asd', NULL, NULL, NULL, 'qwe', 'qwe', '5468756132', NULL, NULL, NULL, NULL),
+(13, 'DEF', '1851542', '456 Street', 'asd', NULL, NULL, NULL, 'qwe', 'zxc', '7895132185', NULL, NULL, NULL, NULL),
+(14, 'ABC', '1596348', '123 Street', 'asd', NULL, NULL, NULL, 'qwe', 'qwe', '4656189456', NULL, NULL, NULL, NULL),
+(15, 'DEF', '1968251', '456 Street', 'asd', NULL, NULL, NULL, 'qwe', 'zxc', '4895465185', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -222,40 +177,319 @@ INSERT INTO `customers` (`id`, `name`, `tax_num`, `address1`, `address2`, `phone
 CREATE TABLE `humans` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `job` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `start_day` date NOT NULL,
-  `birth` date NOT NULL,
-  `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `job` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `start_day` date DEFAULT NULL,
+  `birth` date DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `idnum` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idnum` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `photo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `humans_status` int(11) DEFAULT NULL,
+  `humans_level` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `humans`
 --
 
-INSERT INTO `humans` (`id`, `name`, `job`, `start_day`, `birth`, `gender`, `address1`, `address2`, `phone`, `idnum`, `photo`, `location`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', '2016-10-01', '1980-01-01', 'male', 'Admin address', NULL, '090000000', '123456789', NULL, '', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
-(2, 'Business', 'business', '2016-10-01', '1980-02-02', 'female', 'Business address', NULL, '090000001', '123456780', NULL, '', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
-(3, 'Employee', 'employee', '2016-10-01', '1980-02-02', 'male', 'Employee address', NULL, '090000002', '123456781', NULL, '', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
-(4, 'Inventory Manager', 'manager', '2016-10-01', '1980-02-02', 'male', 'Manager address', NULL, '090000003', '123456782', NULL, '', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
-(5, 'dewi', 'Admin ', '2020-01-24', '1995-01-19', 'female', 'asd', 'qwe', '12312312312', '123123123123', NULL, '', '2020-01-24 00:17:05', '2020-01-24 00:17:05'),
-(6, 'Ogy', 'Staff IT', '2018-02-17', '1994-08-26', 'male', 'asddfgqwe', '', '0812134111', '222456789123', NULL, '', '2020-02-17 01:47:06', '2020-02-17 01:47:06'),
-(7, 'gule', 'produksi', '2020-05-16', '2020-05-20', 'male', 'jl in aja dulu', 'dsda', '01234567896', '12345678989', '', '', '2020-05-08 21:23:19', '2020-05-08 21:23:19'),
-(8, 'kambing', 'produksi', '2020-05-23', '2020-05-20', 'female', 'jl amsmda', 'dsda', '123456789', '12345678910', '', 'Tritan', '2020-05-08 22:01:38', '2020-05-08 22:01:38'),
-(9, 'mamunah', 'STAFF MARKETING', '2020-05-12', '2006-05-03', 'female', 'JL KOKOA', 'DALO', '1234567890', '1234546987', '1589265552Dewi.jpg', 'Tania Tidar', '2020-05-11 19:33:58', '2020-05-11 23:39:12'),
-(10, 'kiki', 'Staff Purchasing', '2020-05-04', '2006-05-30', 'female', 'jl mu jl ku', 'jl komp', '9876543210', '0909090909', '1589265459agam.png', 'Tania Tidar', '2020-05-11 23:37:27', '2020-05-11 23:37:39'),
-(11, 'ello', 'Staff Purchasing', '2020-05-01', '1994-04-25', 'female', 'jl muy u', 'jl', '9876541232', '01256347898', '1589266362ella.png', 'Tania Tidar', '2020-05-11 23:51:14', '2020-05-11 23:52:42'),
-(12, 'popo', 'Staff Purchasing', '2020-05-13', '2020-05-04', 'male', 'kookok', 'joi', '7894561423', '123545879', '', 'Tania Tidar', '2020-05-12 00:02:49', '2020-05-12 00:02:49'),
-(13, 'aadam', 'Staff Digital Marketing', '2020-05-01', '1990-05-15', 'male', 'hyuysaa', '', '98745446321', '1234567987', '1589267444angga.png', 'Tania Tidar', '2020-05-12 00:09:57', '2020-05-12 00:10:44'),
-(15, 'bram', 'Staff Purchasing', '2020-05-03', '1987-05-04', 'female', 'freeefire', '', '9876543215', '365214789', '1589268457edu.jpeg', 'Tania Tidar', '2020-05-12 00:26:21', '2020-05-12 00:27:37'),
-(18, 'logue', 'Staff Finance', '2020-05-06', '1995-05-10', 'male', 'rewtw', '', '1234569874', '4563217898', '1589270226LINGGA.jpg', 'Tania Tidar', '2020-05-12 00:57:06', '2020-05-12 00:57:06');
+INSERT INTO `humans` (`id`, `name`, `job`, `start_day`, `birth`, `gender`, `address1`, `address2`, `phone`, `idnum`, `photo`, `location`, `created_at`, `updated_at`, `humans_status`, `humans_level`) VALUES
+(1, 'LEONARD HARTONO', 'DIREKTUR UTAMA', '2007-07-17', '1967-02-03', 'Laki – laki', 'SATELITE INDAH 9/GN-16 TANJUNGSARI SUKOMANUNGGAL', NULL, '0817320929', '3578270302670001', 'person-flat.png', '', '2020-01-23 17:17:05', '2020-05-18 12:52:15', 1, 0),
+(2, 'JOSEPH RICHARD HARTONO', 'KOMISARIS', '2014-07-01', '1995-07-13', 'Laki – laki', 'SATELITE INDAH 9/GN-16 TANJUNGSARI SUKOMANUNGGAL', NULL, '082231111310', '3578271307950001', 'person-flat.png', '', '2020-02-16 18:47:06', '2020-05-18 12:53:37', 1, 0),
+(3, 'DICKY ISPRIAMBODO', 'TAX AUDIT', '2015-10-01', '1973-03-31', 'Laki – laki', 'JL. SEMOLOWARU ELOK BLOK AM-24 SURABAYA', NULL, '081227079724', '3578093103730001', 'person-flat.png', 'EVATA', '2020-05-08 14:23:19', '2020-05-18 12:50:23', 1, 1),
+(4, 'DEWI LARASATI ', 'OPERASIONAL', '2018-10-01', '1996-03-17', 'Perempuan', 'DSN. WONOCOYO SELATAN, PANGGUL, TRENGGALEK', NULL, '085234412588', '3503015703960002', 'person-flat.png', 'EVATA', '2020-05-08 15:01:38', '2020-05-18 12:48:15', 1, 2),
+(5, 'ERNA APRIANI PUTRI', 'OPERASIONAL', '2018-01-10', '1996-04-24', 'Perempuan', 'DS. KARAS KEC. KARAS KAB. MAGETAN JAWA TIMUR', NULL, '085748685378', '3520146404960001', 'person-flat.png', 'EVATA', '2020-05-11 16:37:27', '2020-05-18 17:07:01', 1, 2),
+(6, 'NURUL ANIKA WULANDARI', 'OPERASIONAL', '2018-12-03', '1996-09-03', 'Perempuan', 'DSN. KOPEN, DS. MANTUP, KEC. MANTUP, KAB. LAMONGAN', NULL, '085648323876', '3524164309960001', 'person-flat.png', 'EVATA', '2020-05-11 16:51:14', '2020-05-18 17:05:25', 1, 2),
+(7, 'BOGAM TEMPAR PONGA', 'OPERASIONAL', '2018-05-02', '1991-02-08', 'Laki – laki', 'DS. PEKARUNGAN, SUKODONO, SIDOARJO', NULL, '082231428935', '3515140802910001', 'person-flat.png', 'EVATA', '2020-05-11 17:02:49', '2020-05-18 12:51:14', 1, 2),
+(8, 'EMILIAH HASANAH', 'OPERASIONAL', '2017-09-29', '1998-03-12', 'Perempuan', 'KETAPANG SUKO', NULL, '083122800964', '3515145203980001', 'person-flat.png', 'EVATA', '2020-05-11 17:26:21', '2020-05-18 14:30:22', 1, 2),
+(9, 'NYUMI HINDUN SUROYYAH', 'OPERASIONAL', '2017-11-01', '1995-03-24', 'Perempuan', 'JL. RUNGKUT LOR GG. X/77D SURABAYA', NULL, '083122795035', '3578036403950003', 'person-flat.png', 'EVATA', '2020-05-11 17:57:06', '2020-05-18 14:25:53', 1, 2),
+(10, 'ELLA NUR AINI', 'OPERASIONAL', '2018-05-02', '1996-06-03', 'Perempuan', '', NULL, '089630970306', '3525134306960019', 'person-flat.png', 'EVATA', '2020-05-13 18:00:57', '2020-05-18 17:14:12', 1, 2),
+(11, 'SITI KHOIRIYAH', 'OPERASIONAL', '2018-11-08', '1996-10-15', 'Perempuan', 'JL. KAPTEN DULASIM 7E NO.29', NULL, '083832513061', '3525165510950021', 'person-flat.png', 'EVATA', '2020-05-18 17:39:20', '2020-05-18 17:39:20', 1, 2),
+(12, 'PUTRI DEVI FORTUNA', 'OPERASIONAL', '2018-07-17', '2000-06-10', 'Perempuan', 'JL. GRESIK, GADUKAN TIMUR 101-B SURABAYA', NULL, '085854610509', '3578155006000003', 'person-flat.png', 'EVATA', '2020-05-18 17:51:19', '2020-05-18 17:51:19', 1, 2),
+(13, 'AGUNG MOERIJANTO', 'LOGISTIK', '2018-09-10', '1964-02-01', 'Laki – laki', 'JL. KANSER NO.3 KEL. PLOSO KEC. TAMBAKSARI', NULL, '0895364729153', '3578100102640007', 'person-flat.png', 'EVATA', NULL, NULL, 1, 2),
+(14, 'SEPTIANA TRI PARAMITHA', 'OPERASIONAL', '2019-09-19', '1996-09-13', 'Perempuan', 'JL. PAGESANGAN IV/77 SURABAYA', NULL, '083831236007/0895366126298', '3578235309960001', 'person-flat.png', 'EVATA', NULL, NULL, 1, 2),
+(15, 'VONY SAVRINA WULANDARI', 'OPERASIONAL', '2019-10-28', '1996-07-07', 'Perempuan', 'RUNGKUT PANDUGO GANG V NO. 2 SURABAYA', NULL, '082257817096', '3525134707960005', 'person-flat.png', 'EVATA', NULL, NULL, 1, 2),
+(16, 'AISYAH MAWAR SARI', 'EDP EVATA', '2017-10-01', '2000-02-12', 'Perempuan', 'PULOSAR II/7', NULL, '082244309885', '3578215202000001', 'person-flat.png', 'EVATA', NULL, NULL, 0, 2),
+(17, 'YENI AGUSTIN', 'GENERAL AFFAIR', '2010-06-30', '1991-06-15', 'Perempuan', 'JL. MASTRIP WARUGUNUNG NO.59', NULL, '087854324888', '3578015506910003', 'person-flat.png', 'CASIA', NULL, NULL, 1, 1),
+(18, 'ANISAH', 'GENERAL AFFAIR', '2010-07-10', '1992-06-08', 'Perempuan', 'GRIYA KEBRAON UTARA V AI/10', NULL, '087855930559 / 081336578055', '3578214806920003', 'person-flat.png', 'CASIA', NULL, NULL, 1, 1),
+(19, 'INTAN SENGAJI', 'ADMIN PEMBELIAN BAHAN BAKU', '2018-11-15', '1994-12-27', 'Perempuan', 'WAIERANG, ADONARA TIMUR, FLORES TIMUR, NTT', NULL, '082299376761', '5306106712940001', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(20, 'JOTI MUSTIKA SARI', 'ADMIN KEUANGAN', '2015-08-20', '1996-09-24', 'Perempuan', 'DSN. MANGUNAN DS. MANGUNAN KEC. KABUH KAB. JOMBANG', NULL, '085230339016', '3517166409960002', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(21, 'BENEDICTUS SALVATORE WAHYU ADITYA M', 'STAFF IT', '2017-10-01', '1994-08-05', 'Laki – laki', 'JL. GAJAH MADA 2/28 SAWOTRATAP', NULL, '089634327764', '3515160508940001', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(22, 'AGUSTIN TRIWAHYU NINGSIH', 'ADMIN PEMBELIAN BAHAN BAKU', '2017-04-21', '1994-08-26', 'Perempuan', 'JL. KEBONSARI 4 NO. 26 SURABAYA', NULL, '081329064475', '3578236608940001', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(23, 'DELLA CHURROTUL AVIVAH', 'ADMIN CHECKER KEUANGAN', '2018-10-10', '1996-09-15', 'Perempuan', 'GRIDI, DS. PACUH, KECAMATAN BALONGPANGGANG', NULL, '083812995692', '3525025409960021', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(24, 'NUR AZIZAH LEILIDA', 'ISO TEAM LEADER', '2018-09-01', '1998-01-01', 'Perempuan', 'JL. KENONGOSARI 3A/7 PEPELEGI WARU SIDOARJO', NULL, '089688147580', '3515184101980009', 'person-flat.png', 'CASIA', NULL, NULL, 0, 1),
+(25, 'OGY RACHMAD IRIANSAH', 'STAFF IT', '2018-03-15', '1994-08-26', 'Laki – laki', 'GRIYA KEBRAON UTARA V AI/10', NULL, '081228966424', '3578062608940004', 'person-flat.png', 'CASIA', NULL, NULL, 1, 1),
+(26, 'WAHYU NUR FEBRIANTO R.', 'SALES BAHAN BAKU', '2017-08-24', '1996-02-16', 'Laki – laki', 'JL. SAWAHAN BARU 3/30', NULL, '081217390595', '3518111602960003', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(27, 'MEGA SILVIA', 'CHECKER KEUANGAN', '2019-08-19', '2000-08-27', 'Perempuan', 'DSN. GROGOLAN DS. REJOSLAMET KEC. MOJOWARNO', NULL, '085859584633', '3517076708000004', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(28, 'YAHYA TRISON ISLAMI', 'STAFF IT', '2019-10-09', '1994-09-30', 'Laki – laki', 'JL. HAYAM WURUK MASJID NO.26 DS. SAWOTRATAP', NULL, '089677621699', '3515163009940004', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(29, 'VIGI GAHANI SUPARDI', 'SALES BAHAN BAKU', '2019-10-14', '1997-02-19', 'Laki – laki', 'BOGANGIN I/54 SURABAYA', NULL, '081331657612 / 081334588636', '3578011902970002', 'person-flat.png', 'CASIA', NULL, NULL, 1, 2),
+(30, 'IFTIYA TRISNAWATI', 'ADMIN LOGISTIK', '2018-10-12', '1996-04-21', 'Perempuan', 'DUSUN BALONG BIRU, DESA SADANG, KEC. TAMAN, SIDOARJO', NULL, '089653912556', '3578066104960007', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(31, 'TRI TIKA ARDIANI', 'ADMIN MARKETING', '2018-07-19', '1991-04-05', 'Perempuan', 'JL. S.PARMAN WARU SIDOARJO', NULL, '085749207591', '3519114504910001', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(32, 'KADRIN AM', 'MARKETING', '2017-07-31', '1983-08-06', 'Laki – laki', 'PLEMAHAN BESAR 73 SURABAYA', NULL, '085231455295', '3578050608830005', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(33, 'ANGGA ADI PUTRA', 'PURCHASING', '2011-01-14', '1988-04-17', 'Laki – laki', 'DS. DRIYOREJO, DSN. DRIYOREJO, KEC. DRIYOREJO', NULL, '081359768580', '3578161704880010', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(34, 'TRIANA PRATIWI', 'ADMIN KEUANGAN', '2016-08-15', '1996-03-13', 'Perempuan', 'SIDOTOPO KIDUL 168-A, SIDOTOPO, SEMAMPIR', NULL, '085353536395', '3578165303960002', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(35, 'ANIK LATIFAH', 'DIGITAL MARKETING', '2019-05-06', '1992-09-05', 'Perempuan', 'DESA PINGGIRSARI, NGANTRU, KAB. TULUNGAGUNG', NULL, '088996969637', '3504044511920002', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(36, 'AWALUDIN LINGGA PALIPUR', 'DIGITAL MARKETING', '2019-06-17', '1996-09-15', '', 'JL. KUSUMA GG PASAR BARU III BERBEK, WARU', '', '081334074483', '3515181509960004', 'person-flat.png', 'SATA', NULL, '2020-05-19 19:30:45', 1, 2),
+(37, 'RIZKY NURUL ISLAMI', 'ADMIN MARKETING', '2017-09-16', '1998-05-05', 'Perempuan', 'BALONGSARI KRAJAN 1/85', NULL, '085815833225', '3578144505980003', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(38, 'NAFIATI', 'ADMIN PIUTANG', '2012-11-16', '1989-11-19', 'Perempuan', 'BALONGSARI TAMA BLOK 2B NO.1', NULL, '085706497385', '3524175611890002', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(39, 'NAILIS SURUROH', 'DIGITAL MARKETING', '2019-08-08', '1995-09-19', 'Perempuan', 'DUSUN BINANGUN, DESA WADUNGASIH KEC. BUDURAN', NULL, '083847613014', '3515155909950001', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(40, 'AYUK WULAN WINARSIH', 'ADMIN LOGISTIK', '2019-08-12', '2000-04-04', 'Perempuan', 'DS. NGEPUNG KEC. PATTANROWO KAB. NGANJUK', NULL, '089615208102', '3518094404020005', 'person-flat.png', 'SATA', NULL, NULL, 1, 2),
+(41, 'RIKI RIDUWAN', 'KEPALA GUDANG', '2019-03-25', '1986-01-21', 'Perempuan', 'DSN. BLAYU KRAJAN KEC. WAJEK', NULL, '081252116385', '3507082101860003', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 1),
+(42, 'AGUS WINARTO', 'HELPER', '2019-03-30', '1994-08-01', 'Laki – laki', 'JL. KENDAL SARI III NO. 9 TULUSREJO, LOWOKWARU', NULL, '081230059498', '3573050108940001', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(43, 'JUWIYANTO', 'SOPIR', '2011-06-20', '1990-09-14', 'Laki – laki', 'BOJONEGORO', NULL, '081303131326', '3522271409900001', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(44, 'BAYU DWI PRATOMO', 'HELPER', '2017-04-24', '1996-04-27', 'Laki – laki', 'KWANGSEN, JIWAN, MADIUN', NULL, '085854546417', '3519092704960001', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(45, 'RACHMAD EDY SULISTIONO', 'HELPER', '2019-07-17', '1986-05-12', 'Perempuan', 'DSN. SELOMPAK DS. NGURI KEC. LEMBEYAN', NULL, '088235627320', '3576021205860005', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(46, 'RIZKY AMALIYAH', 'ACCOUNTING', '2019-08-13', '1996-09-06', 'Perempuan', 'DUSUN KRAJAN, DESA TUKUM, KEC. TEKUNG', NULL, '085649962230', '3508094609960002', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 2),
+(47, 'RULLI ULFANI', 'SALES COUNTER', '2019-09-19', '1996-07-21', 'Perempuan', 'KAJANG, BUNGUR, SUKOMORO, NGANJUK', NULL, '082302213082', '3518126107960003', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 2),
+(48, 'MUKHLIS', 'HELPER', '2019-11-01', '2000-07-11', 'Laki – laki', 'DSN. KASIN PUTUK, AMPELDENTO, KARANGPLOSO', NULL, '082230567742', '3507231107000001', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(49, 'DWI IMAN PRIHARNOKO', 'HELPER', '2019-11-01', '1995-07-12', 'Laki – laki', 'JL. MONDOROKO, BANJARARUM, SINGOSARI', NULL, '0895366999357', '3507241207950004', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(50, 'RITA HANDAYANI', 'SALES COUNTER', '2019-11-04', '1996-02-23', 'Perempuan', 'SEWULAN KULON, SEWULAN, DAGANGAN', NULL, '085724512161', '3519036302960001', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 2),
+(51, 'YUAN YUDHA PRAEDENA', 'SOPIR', '2019-11-13', '1993-03-31', 'Laki – laki', 'DSN. LOSAWI, TUNJUNG TIRTO, SINGOSARI, MALANG', NULL, '085646392587', '3507243203930004', 'person-flat.png', 'TRITAN', NULL, NULL, 1, 3),
+(52, 'ADAM SATRIA IRAWAN', 'DIGITAL MARKETING', '2019-04-04', '1998-06-15', 'Laki – laki', 'PERUM BABADAN ASRI BLOK E-7', NULL, '085703656780', '3578041507980012', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 2),
+(53, 'RIZKI KUSUMAWARDANI', 'SALES COUNTER', '2019-03-08', '1995-10-05', 'Perempuan', 'DK. MITIR SUMBERSAWIT KEC. SIDOREJO MAGETAN', NULL, '082232750701', '3520184510950002', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 2),
+(54, 'HAFSARI ANUGERANING DISTI', 'ACCOUNTING', '2019-04-01', '1996-10-04', 'Perempuan', 'JL. MANDIRI, LAWANG, MALANG', NULL, '08970431139', '3507254410960001', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 2),
+(55, 'ISMAUL FARIDA', 'ADMIN GUDANG', '2014-09-06', '1995-06-29', 'Perempuan', 'PUTAT JAYA 1B NO.5 SURABAYA', NULL, '085749435577', '3524266906950001', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 2),
+(56, 'RUSDIONO', 'SOPIR', '2007-07-17', '1966-01-05', 'Laki – laki', 'TENGGER REJOMULYO I NO 36B', NULL, '08214290997', '3578190501660001', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(57, 'HAROEN JOENIARSONO', 'SOPIR', '2019-06-17', '1965-06-15', 'Laki – laki', 'KUTISARI INDAH SEL I/47 SURABAYA', NULL, '085100165649', '3578241506650003', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(58, 'PRIYONO', 'HELPER', '2019-06-19', '1993-05-31', 'Laki – laki', 'DS. MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '081233742627', '3522273105930003', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(59, 'YUSTINUS SARONG', 'HELPER', '2016-02-03', '1995-11-05', 'Laki – laki', 'PAAN PUTAN, MANGGARAI TIMUR FLORES', NULL, '082131801296', '3519050511950001', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(60, 'IMAM SUTARI', 'HELPER', '2019-06-17', '1999-01-16', 'Laki – laki', 'GAYAM, DS. MIYONO, KEC. SEKAR', NULL, '082264485570', '3522271601990002', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(61, 'RIKARDUS EDVIN HARUM', 'HELPER', '2019-08-10', '2997-10-15', 'Laki – laki', 'KONGGANG, WASO, LANGKE REMBONG', NULL, '085332129393', '5310121510970002', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(62, 'SIPRIANUS NANDIN', 'HELPER', '2019-09-12', '1997-08-16', 'Laki – laki', 'RUNUS, LANGGA SAI, ELAR SELATAN', NULL, '081353667092', '5319051608970001', 'person-flat.png', 'TIDAR', NULL, NULL, 1, 3),
+(63, 'BENNY HIDAYAT', 'KEPALA OUTLET', '2012-07-17', '1972-05-06', 'Laki – laki', 'TLOGOMUKTI III / 1198', NULL, '082138380078', '3374010605720001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 1),
+(64, 'WAHYU HIDAYATI', 'ASSISTEN KEPALA OUTLET', '2012-07-17', '1987-03-06', 'Perempuan', 'JL. DINAR MAS IV', NULL, '085866299776', '3374084603870001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(65, 'YULICA ARDIAN NINGSIH', 'ADMIN ACCOUNTING', '2017-03-25', '1992-07-19', 'Perempuan', 'WONOMUKTI TIMUR KAPLING', NULL, '085640090077', '3374045907920001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(66, 'NUR PUTRI RACHMAWATI', 'ADMIN ACCOUNTING & PAJAK', '2018-03-14', '1996-01-02', 'Perempuan', 'JL. AMPELSARI', NULL, '081215449535', '3374134201960001', 'person-flat.png', 'KANIA 710', NULL, NULL, 0, 2),
+(67, 'CAROLINA HIDAYAT', 'SALES', '2014-04-21', '1983-12-03', 'Perempuan', 'JL. TLOGO MUKTI RAYA NO. 925 PERUM GRAHA MUKTI', NULL, '089611682008', '3374014312830001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(68, 'ELOK NOVITASARI', 'SALES', '2017-10-17', '1995-11-16', 'Perempuan', 'JL. DEWI SARTIKA BARAT', NULL, '085755550112', '3521015611950003', 'person-flat.png', 'KANIA 710', NULL, NULL, 0, 2),
+(69, 'NURUL HUDA DWI WARDANI', 'ADMIN GUDANG', '2019-05-08', '1999-03-30', 'Perempuan', 'PAMONGAN', NULL, '085742822441', '3321033003990001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(70, 'DWI ASTUTIK', 'ADMIN SALES', '2019-07-22', '1991-07-26', 'Perempuan', 'JL. KALICARI TIMUR DS. PALEBON KEC. PEDURUNGAN', NULL, '089622661977', '3374056607910002', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(71, 'MUH MUSLIKIN', 'SOPIR', '2019-03-12', '1983-04-28', 'Laki – laki', 'SIDOREJO – KARANG AWEN', NULL, '082167473402', '3315192804830002', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(72, 'SUNARTO', 'SOPIR', '2014-11-14', '1989-07-06', 'Laki – laki', 'SOKA', NULL, '085602847770 / 089677551319', '3321020607890003', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(73, 'SYAIFUL FUAD', 'HELPER', '2013-09-01', '1988-03-26', 'Laki – laki', 'DUSUN KARANG GONDANG', NULL, '08975466800', '3315192603880001', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(74, 'MUHAMMAD ARIFIN', 'HELPER', '2013-05-28', '1990-03-25', 'Laki – laki', 'DUSUN KARANG GONDANG', NULL, '089668849545', '3315191608900003', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(75, 'MOHAMMAD ALIM', 'HELPER', '2016-11-29', '1989-12-25', 'Laki – laki', 'JL. TANJUNG SARI', NULL, '089669321728', '3374062512890010', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(76, 'ANTONY KURNIAWAN', 'HELPER', '2015-11-23', '1981-03-12', 'Laki – laki', 'KP. PANDEAN TM. HARJO NO. 53', NULL, '085701205889', '3374031203810002', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(77, 'ELYAM', 'HELPER', '2017-08-22', '1978-04-27', 'Laki – laki', 'JL. TAMBRA DALAM XI', NULL, '089633597968', '3374022704780006', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 3),
+(78, 'WILDAN CHANIGIA AL-HAFIDS', 'ADMIN ACCOUNTING & PAJAK', '2019-11-04', '1997-03-17', 'Laki – laki', 'JL. DINAR MAS IV / 29', NULL, '089636350187', '3374091703970002', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 2),
+(79, 'FITRILIA RATNASARI', '', '2019-11-04', '1995-03-02', 'Perempuan', 'JL. SAWI IX NO. 19', NULL, '08979840590', '3374104203950004', 'person-flat.png', 'KANIA 710', NULL, NULL, 1, 0),
+(80, 'ALVIAN IQBAL KURNIAWAN', 'ADM GUDANG', '0000-00-00', '0000-00-00', 'Perempuan', '', NULL, '', '', 'person-flat.png', 'KANIA 710', NULL, NULL, 0, 1),
+(81, 'SONNY SUSANTO', 'KEPALA OUTLET', '2011-04-25', '1981-03-27', 'Laki – laki', 'TURIHARJO, MADEGONDO, GROGOL SKH', NULL, '081215049192', '3372042703810002', 'person-flat.png', 'K410; ABM; S78; BINTIM', NULL, NULL, 1, 1),
+(82, 'LINTANG CAHAYA SUTRISNA', 'KEPALA GUDANG', '2019-03-11', '1996-03-24', 'Laki – laki', 'PURI KAHURIPAN BLOK I NO. 5 JATENG KRS', NULL, '081228463767', '3313112403960005', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 1),
+(83, 'YASFIN NURLAYLI', 'SALES COUNTER', '2018-09-05', '1999-06-11', 'Perempuan', 'BEKON, KARANGMALANG', NULL, '085640370501', '3314035106990003', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 2),
+(84, 'WIKE YUNITA SARI', 'ACCOUNTING', '2019-03-15', '1994-06-12', 'Perempuan', 'JL. PATIMURA NO. 117 DAWUNG KULON', NULL, '085743717776', '3372025206940002', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 2),
+(85, 'SRI SETYONINGSIH', 'PURCHASING', '2012-09-04', '1993-09-22', 'Perempuan', 'TEGALREJO', NULL, '082134368802', '3313146209930001', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 2),
+(86, 'ARNOLDUS MARIANUS L. URAN', 'HELPER', '2018-10-02', '1997-03-28', 'Laki – laki', 'LEMBATA FLORES NTT', NULL, '081269367826', '5313011703970001', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(87, 'ANDRIANUS SIDAR', 'SOPIR', '2017-11-06', '1997-06-28', 'Laki – laki', 'DERU, MOKEL, KOTA KOMBA', NULL, '081321045752', '5319062806970003', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(88, 'ADRIANUS DIANTO', 'SOPIR', '2014-08-07', '1992-11-01', 'Laki – laki', 'AJANG RT 09/05 BENTENG RAJA BORONG MANGGARAI TIMUR', NULL, '', '961114460650', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(89, 'HENDRIKUS LODI', 'HELPER', '2013-06-25', '1996-01-06', 'Laki – laki', 'AJANG, BENTENG RAJA, BORONG', NULL, '081329445118', '5319010601960002', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(90, 'RIZKY FRANSISKUS RAO', 'HELPER', '2019-03-11', '1997-10-15', 'Laki – laki', 'PUNA, POLEN, TTS', NULL, '0895384000341', '', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(91, 'JONIKUS SOBA', 'HELPER', '2019-10-11', '1995-06-16', 'Laki – laki', '', NULL, '082136137710', '5313041606950001', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(92, 'TEODORUS BALDUS', 'HELPER', '2019-10-07', '2019-07-01', 'Laki – laki', 'ARA - BEA SITA BENTENG RAJA, BORONG MANGGARAI TIMUR', NULL, '081393749206', '5319010107970155', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 3),
+(93, 'LISA BUDIARTI', '', '2019-12-02', '1997-02-28', 'Perempuan', 'MOJO, PUNUNG, PACITAN, JAWA TIMUR', NULL, '082336618114', '3501036802970002', 'person-flat.png', 'KANIA 410', NULL, NULL, 1, 0),
+(94, 'HENY SUSANTI', 'KEPALA OUTLET', '2017-02-06', '1982-04-26', 'Perempuan', 'TURIHARJO, GROGOL', NULL, '085730017778', '3372046604820002', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 1),
+(95, 'SALMA NURAZIZAH', 'ADMIN PURCHASING', '2018-03-19', '1999-03-16', 'Perempuan', 'TEMPEL, PURBAYAN BAKI', NULL, '085702541858', '3311105603990003', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 2),
+(96, 'HERU HERYANTO', 'SALES', '2015-04-01', '1994-03-07', 'Laki – laki', 'DUSUN NERINGIN, JATIPURO', NULL, '081326519861', '3313010703940002', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 2),
+(97, 'WALID KHOLIFATU', 'HELPER', '2019-01-02', '2000-05-03', 'Laki – laki', 'BANJAR, KEDUNGREJO', NULL, '082248789534', '3275010304000014', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(98, 'YOHANES F DANDO', 'HELPER', '2016-06-25', '1998-02-04', 'Laki – laki', 'DERU, MOKEL, KOTA KOMBA', NULL, '081228109586', '5319060204980003', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(99, 'APOLONARIS BATA', 'SOPIR', '2017-09-10', '1989-04-19', 'Laki – laki', 'WERE II, WATUROKA', NULL, '081390832486', '5309021904890002', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(100, 'YULI SANTOSO', 'HELPER', '2017-02-06', '2000-07-23', 'Laki – laki', 'GUNUNG PUCANGAN, KARTASURA', NULL, '087778954865', '3311122307000002', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(101, 'MONIKA TRI WAHYUNINGSIH', 'SALES', '2019-01-07', '1998-06-06', 'Perempuan', 'BANJARANSARI, BUNTAR MOJOGEDANG', NULL, '082137459568', '3313154906980003', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(102, 'ANDI YUSTIANTO', 'ACCOUNTING', '2011-07-21', '1979-09-13', 'Laki – laki', 'KEPRABON KULON, KEPRABON, BANJARSARI', NULL, '085728802728', '3372051309790003', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 2),
+(103, 'HILARION JADUR', 'HELPER', '2019-10-01', '2020-03-25', 'Laki – laki', 'TODO, GOLO BORE, NDOSO, MANGGARAI BARAT', NULL, '', '5315022503000002', 'person-flat.png', 'SINAR 78', NULL, NULL, 1, 3),
+(104, 'PRASETYO', 'HELPER', '2019-11-18', '1999-08-20', 'Perempuan', 'LEGO, LEGOWETAN, BRINGIN', NULL, '085730496298', '3521152008990001', 'person-flat.png', 'SINAR 78', NULL, NULL, 0, 3),
+(105, 'KARTIKA GUNADI KARTAWIDJAJA', 'KEPALA PABRIK', '2017-03-01', '1962-06-06', 'Laki – laki', 'KUTISARI INDAH SEL I/84 SURABAYA', NULL, '08123528487', '3578240606620001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 1),
+(106, 'NURUL HASANAH', 'KEPALA ADMINISTRASI', '2018-05-02', '1989-12-30', 'Perempuan', 'JL. LIDAH WETAN GG. IVB / 68C', NULL, '081938376991', '3578187012890001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 1),
+(107, 'FATMALA SARI', 'ACCOUNTING', '2018-12-08', '1996-02-25', 'Perempuan', 'DESA PALEMWATU RT.02 RW.01 MENGANTI GRESIK', NULL, '085655277662', '3525136502960001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(108, 'FITRIANA DEWI RAHMAWATI', 'ADMIN PRODUKSI', '2019-03-11', '1996-01-13', 'Perempuan', 'JL. SEMERU DESA BAMBE DRIYOREJO GRESIK', NULL, '083849938695', '3525155301960004', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(109, 'IPUNG TRI ADMOJO', 'KEPALA PRODUKSI', '2010-02-28', '1987-10-31', 'Laki – laki', 'DSN. KARANG TENGAH PULO GEDANG TEMBELANG JOMBANG', NULL, '085607038045', '3517023110670001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 1),
+(110, 'EKY HERWONO', 'STAFF GUDANG BAHAN BAKU', '2019-02-26', '1995-05-13', 'Laki – laki', 'DSN. SUKOMULYO DS. BLIMBING KEC. GUDO JOMBANG', NULL, '085736636667', '3517021305950003', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(111, 'AINUL GILANG PRIYATAMA', 'STAFF PRODUKSI', '2019-06-17', '2000-04-08', 'Laki – laki', 'DS. PLUMBON GAMBANG GUDO JOMBANG', NULL, '085735405399', '3517020804000002', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(112, 'SUTRISNO', 'STAFF PRODUKSI', '2018-08-23', '1996-06-24', 'Laki – laki', 'SOCO, PENGAMPON, KABUH', NULL, '085748916506', '3517162406960001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(113, 'YUMANI', 'STAFF PRODUKSI', '2018-12-07', '1995-04-22', 'Laki – laki', 'DS. MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '085280430220', '3522272204950002', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(114, 'LAKSONO', 'STAFF PRODUKSI', '2018-12-10', '1993-10-22', 'Laki – laki', 'DS. MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '085213896117', '3522272210930001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(115, 'YOGI ADI YUDA', 'STAFF PRODUKSI', '2018-12-25', '1992-01-19', 'Laki – laki', 'JL. GADING DSN KARANGTENGAH DS. PULOGEDANG KEC. TEMBELANG', NULL, '085856491080', '3517131901920002', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(116, 'NURWAHYU EKO PRASETYO', 'STAFF PRODUKSI', '2018-08-23', '2000-06-23', 'Laki – laki', 'DSN. RANDUREJO DS. MARMOTO', NULL, '085784126380', '3517162306000001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(117, 'URIP MAULANA', 'STAFF PRODUKSI', '2008-04-08', '1990-01-23', 'Laki – laki', 'KAPAS JAYA NO. 39 B', NULL, '082244125758', '3578102301900003', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(118, 'AGUS SETYO PURNOMO', 'STAFF PRODUKSI', '2010-09-17', '1988-03-07', 'Laki – laki', 'GAYAM DESA MIYONO KEC. SEKAR', NULL, '082131636668', '3522270703880004', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(119, 'BAGUS ARI PRADANA', 'STAFF PRODUKSI', '2019-01-07', '2000-05-13', 'Laki – laki', 'DUSUN KARANG TENGAH DESA PULOGEDANG KEC. TEMBELANG', NULL, '088235878573', '3517131305000003', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(120, 'HENDRO SAPUTRO', 'STAFF PRODUKSI', '2008-04-08', '1991-11-15', 'Laki – laki', 'KAPAS JAYA NO. 39 B', NULL, '085852744276', '3578101507910007', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(121, 'MUHAMMAD MUNTAHA', 'STAFF PRODUKSI', '2011-10-01', '1990-09-15', 'Laki – laki', 'REJOSARI LOR ROWOSARI TUNTANG', NULL, '083833554150', '3322061509900002', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(122, 'NAZARUDDIN ISMAN', 'STAFF PRODUKSI', '2019-07-10', '2001-07-14', 'Laki – laki', 'DSN. KARANG TENGAH PULO GEDANG TEMBELANG JOMBANG', NULL, '088784624309', '3517132407010004', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(123, 'SOFIA DWI AULIA', 'STAFF PRODUKSI', '2019-07-25', '2000-07-18', 'Perempuan', 'GRAHA MUTIARA INDAH A7-3, DRIYOREJO, GRESIK', NULL, '083142957257', '3525155807000006', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(124, 'IRMA FITRIANI', 'ADMIN PRODUKSI', '0000-00-00', '1995-12-31', 'Perempuan', 'DESA PUCANGANOM KEC. KEBONSARI KAB. MADIUN', NULL, '08563257159', '3519017112950003', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(125, 'JULIA ANGGRAINI', 'ADMIN GUDANG', '2019-11-19', '1994-07-27', 'Perempuan', 'DSN. BALONGREJO DS. BELONGGEBANG, GONDANG, NGANJUK', NULL, '087858812910', '3518176707940004', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(126, 'WILLY SANJANYA', 'ADMIN GUDANG BAHAN BAKU', '2019-11-19', '1998-10-07', 'Laki – laki', 'JL. WISMA TENGGER 5/7 SURABAYA', NULL, '082245164663', '3578190710980002', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(127, 'DIMAS BAYU PUTRA', 'ADMIN GUDANG', '2019-11-20', '1998-06-26', 'Laki – laki', 'JL. PISANG I-08 PERUMAHAN MENGANTI SATELIT INDAH', NULL, '087776110968', '3525132806980001', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(128, 'ASMA\'UL NOVITASARI PUTRI', '', '2019-11-15', '2000-11-22', 'Perempuan', 'JL. KANSER NO. 3 SURABAYA', NULL, '089675903242', '3578106211000005', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(129, 'EVI ENJELINA', 'ADMIN PRODUKSI', '2020-04-02', '1995-06-07', 'Perempuan', '', NULL, '085745481888', '33170447069500000', 'person-flat.png', 'MOJOTENGAH', NULL, NULL, 1, 2),
+(130, 'AYU CAHYANI', 'KEPALA OUTLET', '2017-08-25', '1998-09-29', 'Perempuan', 'JAMBANGAN, JETAK, SIDOHARJO, SRAGEN', NULL, '081215095369', '3314116909980003', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 1),
+(131, 'KRISDIANTO', 'KEPALA GUDANG', '2017-08-25', '1988-09-28', 'Laki – laki', 'BANYUDONO, MOJODOYONG, KEDAWUNG, SRAGEN', NULL, '085656271510', '3314042809980005', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 1),
+(132, 'EMMA SARWENDAH KUSUMA WARDANI', 'SALES', '2018-09-05', '1999-09-10', 'Perempuan', 'MIJEN, SUDIROPRAJAN, JEBRES, SURAKARTA', NULL, '081328920275', '3372045009990009', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 2),
+(133, 'DANI SAPUTRA', 'HELPER', '2019-06-14', '2002-02-07', 'Laki – laki', 'DS. MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '082231402680', '3522270702020002', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 3),
+(134, 'HADI SETIAWAN', 'HELPER', '2019-06-14', '2001-06-10', 'Laki – laki', 'DS. BARENG KEC. SEKAR KAB. BOJONEGORO', NULL, '082252548380', '3522271009010002', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 3),
+(135, 'SANTOSO', 'HELPER', '2019-06-14', '2001-11-17', 'Laki – laki', 'DS. DELING KEC. SEKAR KAB. BOJONEGORO', NULL, '082395129064', '3522270710010002', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 3),
+(136, 'FAJAR WIQO ARIFIANTO', 'HELPER', '2019-10-21', '2000-11-22', 'Laki – laki', 'DS. MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '085281430826', '3522272211000002', 'person-flat.png', 'BINTANG TIMUR', NULL, NULL, 1, 3),
+(137, 'NIGITA RATNASARI', 'ADMIN KASIR', '2019-02-14', '1999-03-13', 'Perempuan', 'NGEMPLAK, SURUHKALANG, JATEN, KARANGANYAR', NULL, '08157948467', '3313115303990001', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(138, 'KUSRINI', 'ADMIN', '2012-05-20', '1993-02-17', 'Perempuan', 'TULALEAN, GODOG, POLOKARTO', NULL, '081904280685', '3311075702930001', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(139, 'FX. CHRISNA PUTRA FADJAR TJANJA NUGRAHA', 'ADMIN', '2017-09-25', '1980-12-15', 'Laki – laki', 'KUSUMODININGRATAN, KEL. KEPRABON KEC. BANJARSARI', NULL, '081804408468', '3372051512800022', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(140, 'SAMSURIANTO', 'STAFF PRODUKSI', '2017-01-09', '1997-05-11', 'Laki – laki', 'GAYAM DESA MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '081228015740', '3522271105960001', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(141, 'SUSILO', 'KEPALA PRODUKSI', '2011-08-07', '1992-06-07', 'Laki – laki', 'GAYAM DESA MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '081232286347', '3522270706920001', 'person-flat.png', 'ABM', NULL, NULL, 1, 1),
+(142, 'SLAMET WIBOWO', 'STAFF PRODUKSI', '2018-07-09', '1999-01-10', 'Laki – laki', 'GAYAM DESA MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '082331692712', '3522271001990003', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(143, 'DWIYANTO', 'STAFF PRODUKSI', '2019-04-11', '1987-11-15', 'Laki – laki', 'JATIREJO, GENUKHARJO, WURYANTORO', NULL, '081329632037', '3312091511870001', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(144, 'EDY WIBOWO', 'SOPIR', '2018-09-01', '1969-01-29', 'Laki – laki', 'PERUM GADING PERMAI BLOK BB7 GROGOL SUKOHARJO', NULL, '089614270558', '3372042901690004', 'person-flat.png', 'ABM', NULL, NULL, 1, 3),
+(145, 'ABDUL FATAH', 'STAFF PRODUKSI', '2019-11-18', '2001-12-11', 'Laki – laki', 'DS. BRINGIN KEC. BRINGIN KAB. NGAWI', NULL, '085785381245', '3521151112010001', 'person-flat.png', 'ABM', NULL, NULL, 1, 2),
+(146, 'RAGIL PURNAMA DEWI', 'KEPALA OUTLET', '2009-10-05', '1986-04-24', 'Laki – laki', 'JL. MALENGKERI RAYA', NULL, '087853127002 / 082231031616', '3508176404860001', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 1),
+(147, 'YUSMAN', 'KEPALA GUDANG', '2013-05-01', '1979-04-08', 'Laki – laki', 'JL. MALENGKERI RAYA', NULL, '082245000568 / 087853700567', '3508170804790001', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 1),
+(148, 'NOVIANA MARSI S.', 'ACCOUNTING PAJAK', '2015-08-01', '1991-11-01', 'Perempuan', 'DUSUN PAMANJENGAN MONCONGLOE', NULL, '081346700279', '7309134111910002', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 2),
+(149, 'ISRAYANTI', 'ADMIN ACCOUNTING', '2019-01-23', '1990-02-21', 'Perempuan', 'JL. LETJEN MAPPAODDANG NO.11', NULL, '085298779992', '7371106102900005', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 2),
+(150, 'DONATUS LEMBA', 'SOPIR', '2013-10-24', '1993-04-26', 'Laki – laki', 'WAKUNG, MANGGARAI, TIMUR, NTT', NULL, '0895801086040', '5319062604930001', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(151, 'BENEDIKTUS TURA', 'SOPIR', '2015-10-01', '1994-06-15', 'Laki – laki', 'WAKUNG, MANGGARAI, TIMUR, NTT', NULL, '081247023748', '5319061506940001', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(152, 'FRANSISKUS YORDAN MAN', 'HELPER', '2017-10-01', '1997-06-15', 'Laki – laki', 'DAHANG, RENGKAM, POCO RANAKA TIMUR', NULL, '082188195618', '5319021506970002', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(153, 'FLORIANUS JEBARUS', 'HELPER', '2018-07-02', '1999-09-05', 'Laki – laki', 'KUBUR, GOLO RU\'A, NDOSO', NULL, '0895800176300', '5315020509990002', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(154, 'KORNELIS MANTERA', 'HELPER', '2018-11-02', '1999-09-16', 'Laki – laki', 'MANGGARAI', NULL, '082195847741', '', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(155, 'EMI MASTURA', 'SALES COUNTER', '2019-08-09', '1996-08-10', 'Perempuan', 'JALANRU, LOMPO RIAJA, TANETE RIAJA', NULL, '0821901200808', '7311015008960004', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 2),
+(156, 'JUMRIAH', 'ADMIN GUDANG', '2019-09-02', '2001-04-06', 'Perempuan', 'JL. JIPANG RAYA KARUNCUNG, RAPPOCINI, MAKASSAR', NULL, '081527622753', '7371134604010009', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 2),
+(157, 'MARSIANUS RANA', 'SOPIR', '2019-08-01', '1996-01-04', 'Laki – laki', 'RANA MBATA, KOTA KOMBA, MANGGARAI TIMUR', NULL, '', '5319060107970001', 'person-flat.png', 'BERKAT KARUNIA JAYA', NULL, NULL, 1, 3),
+(158, 'ANGGARA CITRA PERKASA', 'KEPALA GUDANG', '2012-11-01', '1994-08-24', 'Perempuan', 'JL. KANSER NO.3', NULL, '085790870010', '3578102408940002', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 1),
+(159, 'NUR ISTIQOMAH', 'ADMIN GUDANG', '2018-08-01', '1995-09-13', 'Perempuan', 'DS. KARAS, KEC. KARAS, MAGETAN', NULL, '089509677748', '3520145309950001', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 2),
+(160, 'GUSPA YULANDA PUNGKI', 'ADMIN ACCOUNTING', '2018-05-02', '1998-09-15', 'Perempuan', 'DS. SIDOREJO SARADAN MADIUN', NULL, '081359302864', '3519125509980003', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 2),
+(161, 'EDI SAPUTRA', 'HELPER', '2018-10-01', '1999-08-09', 'Laki – laki', 'GAYAM DESA MIYONO KEC. SEKAR', NULL, '082228244850', '3522270908990001', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 3),
+(162, 'BERNARDUS NARUT', 'HELPER', '2015-08-20', '1994-03-12', 'Laki – laki', 'GALONG, WATU PARI, KOTA KOMBA', NULL, '082140418711', '5319061203940002', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 3),
+(163, 'ANNISA WAHYU FITRIA', '', '2018-11-21', '1996-03-02', 'Perempuan', 'JL. KRAJAN, TANGKILSARI NO. 439 MALANG', NULL, '085646343585', '3507154203960001', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 2),
+(164, 'SHEVA AINUN ROSDIKA', 'ADMIN SALES', '2019-08-28', '2000-02-28', 'Perempuan', 'DUKUH KRAJAN BARAT KUTUWETAN JETIS PONOROGO', NULL, '085790718057', '3502096802000003', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 2),
+(165, 'M. ARIF', 'HELPER', '2019-08-28', '1999-04-11', 'Perempuan', 'DESA MIYONO KEC. SEKAR KAB. BOJONEGORO', NULL, '', '3522271104990003', 'person-flat.png', 'MENGGALA', NULL, NULL, 0, 3),
+(166, 'NUR CAHYA', 'HELPER', '2019-10-18', '1997-12-22', 'Laki – laki', 'DS. SEKAR, DSN. SEKAR, KEC. SEKAR, KAB. BOJONEGORO', NULL, '082264171672', '3522272212970002', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 3),
+(167, 'EKA SUGIANTO', 'HELPER', '2020-02-03', '2000-06-08', 'Laki – laki', 'DSN KRAJAN, DS BOBOL KEC.SEKAR KAB. BOJONEGORO', NULL, '082247562158', '', 'person-flat.png', 'MENGGALA', NULL, NULL, 1, 3),
+(168, 'AHMAD ZAENUDIN', 'KEPALA OUTLET', '2017-01-24', '1990-08-13', 'Laki – laki', 'DUSUN TEMPIT, DESA BAJUR, KEC. LABUAPI', NULL, '085238710410', '5201080107890099', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 1),
+(169, 'SITI ZULAEHA', 'ADMIN ACCOUNTING', '2018-02-17', '1992-02-04', 'Perempuan', 'JL.JEND. SUDIRMAN GG. ALOR REMBIGA, SELAPARANG', NULL, '085237028810', '5271054402920002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(170, 'SARAH RAMADHANTY AKMAL', 'SALES COUNTER', '2018-11-13', '1992-03-20', 'Perempuan', 'JL. PATTIMURA GG. MELATI 3 DS. MIDANG KEC. GUNUNGSARI', NULL, '087865756935', '5201096003920002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(171, 'DIANTIKA ADRIANTI', 'SALES MARKETING', '2018-04-13', '1996-12-12', 'Perempuan', 'BATU GOLENG, TEMPOS, GERUNG', NULL, '085337948554', '5201015212960003', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(172, 'KARIAWAN', 'KEPALA GUDANG', '2017-09-09', '1990-04-12', 'Laki – laki', 'BALE BUWUH, DAREK, PRAYA BARAT DAYA', NULL, '085337052321 / 085961463778', '5202111204900002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 1),
+(173, 'MAULANA RIKY EFENDY', 'HELPER', '2019-03-01', '1999-07-11', 'Laki – laki', 'JL. KARTINI GG. BADAK KEBON JAYA BARAT MONJOK, SELAPARANG', NULL, '081907906949', '5271051107990002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(174, 'IDRIS SARDI', 'ASSISTEN KEPALA GUDANG', '2017-08-27', '1988-12-30', 'Laki – laki', 'GERIA SELATAN, DASAN GERIA, LINGSAR', NULL, '087864573655', '5201123012880002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(175, 'M. BANYU URIP', 'HELPER', '2018-12-06', '1998-03-08', 'Laki – laki', 'JL. TERUSAN BUNG HATTA KEBON JAYA TIMUR, MONJOK, SELAPARANG', NULL, '085955177352', '5271051006990001', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(176, 'AHMAD RIYAN MURDANU', 'HELPER', '2019-03-04', '2002-12-18', 'Laki – laki', 'DUSUN TEMPIT', NULL, '081934074218', '5201081812030003', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(177, 'I WAYAN ARIASA', 'HELPER', '2018-12-05', '2000-10-01', 'Laki – laki', 'JL. SULTAN SALAHUDIN BARU DAWA, TANJUNG KARANG, SEKARBELA', NULL, '0819366090275', '5271040101000005', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(178, 'JUMAWAN', 'SOPIR', '2018-04-24', '1967-12-31', 'Laki – laki', 'MONJOK BANGKET CILIK, MONJOK, SELAPARANG', NULL, '087761602094', '5271053112670108', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(179, 'SAHRUN', 'HELPER', '2017-04-04', '1987-06-09', 'Laki – laki', 'SUMPAK DUSUN BOYOT, DARMAJI, KOPANG', NULL, '082339804171', '5202090906870002', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(180, 'NI KETUT NOVIANI WULANDARI', 'ADMIN ACCOUNTING', '2019-06-20', '1990-11-15', 'Perempuan', 'DUMAN INDAH KECAMATAN LINGSAR', NULL, '082359225972', '5271035511900005', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(181, 'RADEN BURHANUDIN', 'HELPER', '2019-06-13', '1999-04-30', 'Laki – laki', 'MONJOK KEBON JAYA MATARAM', NULL, '081916072848', '5271053004990003', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(182, 'AHMAD NAJIB ARAFAH', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 3),
+(183, 'NI NENGAH SUJANI', 'SALES', '2019-11-27', '1997-03-29', 'Perempuan', 'RINCUNG, BANYU URIP, GERUNG', NULL, '085239110212', '5201017112960025', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(184, 'WASNI ATUN', 'STAFF', '0000-00-00', '0000-00-00', 'Perempuan', 'MENDAGI DSN MENDAGI RT 003/ RW -/ BELEKE GERUNG', NULL, '', '5201015301930000', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(185, 'ABDUL MANAN', 'STAFF', '0000-00-00', '0000-00-00', 'Laki – laki', 'LINGKUNGAN GANDOR RT030/ RW 000 SELONG', NULL, '', '5203073011950000', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(186, 'FATHURROZI, SST', 'STAFF', '0000-00-00', '0000-00-00', 'Laki – laki', 'KAMPUNG SUKADAMAI, MASBAGIK UTARA.', NULL, '', '5203052606920000', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(187, 'ILHAMDI AHYA', 'STAFF', '0000-00-00', '0000-00-00', 'Perempuan', 'JL. KOMODO I KAMASAN RT 006/ RW222 MONJOK SELAPARANG', NULL, '', '5271052305930000', 'person-flat.png', 'TANIA LOMBOK', NULL, NULL, 1, 2),
+(188, 'I NENGAH ASTIKA', 'KEPALA OUTLET', '2018-07-01', '1965-07-10', 'Perempuan', 'MANYAR ADI 1/52 KERTAJAYA GUBENG', NULL, '087754200738', '3578081007650006', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 1),
+(189, 'CHRISTIAN MUSTAKIM', '', '0000-00-00', '1972-05-05', 'Laki – laki', 'esti', NULL, '082349707082', '7171050505720041', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(190, 'YUDHI POWA', 'STAFF GUDANG', '2019-05-02', '1995-03-30', 'Laki – laki', 'LINGKUNGAN I, DS. RANOMUUT, KEC. PAAL DUA', NULL, '082292637060 / 082189099968', '7171053003950002', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(191, 'FRENGKI KASEHUNG', '', '0000-00-00', '1995-09-05', 'Laki – laki', 'LINGKUNGAN VIII DS. BUHA, KEC. MAPANGET', NULL, '082398441337', '7103171007950301', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(192, 'SITI HARSITA SUNARKO', 'KASIR', '2019-07-23', '1994-12-24', 'Perempuan', 'JL. BATESDHA 5 KELURAHAN RANOTAMA', NULL, '085241876874', '7110056412940002', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(193, 'LAELASARI MOKODONGAN', 'ADMIN SALES', '2019-07-30', '1994-02-26', 'Perempuan', 'PAAL DUA, MANADO', NULL, '082290790033', '7101196602940301', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(194, 'FITRIANI A. TANUA', 'ADMIN GUDANG', '2019-08-06', '1988-05-14', 'Perempuan', 'JL. DAAN MOGOT II NO. 71A KELURAHAN BANJER', NULL, '085241211969', '7171055405880001', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(195, 'ERFENDY KASEHUNG', 'HELPER', '2019-08-12', '1999-09-04', 'Laki – laki', 'JL. MANGUNI RAYA NO.8', NULL, '0895395372290', '', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 3),
+(196, 'ISAK GOHA', 'HELPER', '2019-10-01', '1960-02-26', 'Perempuan', 'SINGKIL DUA, LINGKUNGAN V', NULL, '', '7171032602600001', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 3),
+(197, 'SARY N PUNUINDONG', '', '2019-11-15', '1992-09-25', 'Perempuan', 'JADA II', NULL, '', '7107066509920001', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(198, 'TRIANTI GUMOHUNG', '', '2019-11-20', '1992-05-30', 'Perempuan', 'GIHANG, KAIDIPANG', NULL, '', '7108057005920001', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(199, 'JOSUA BRUCELEE VRITSJOF KAHINDUTU', '', '2019-12-20', '2000-02-21', 'Laki – laki', 'LINGKUNGAN V, SUMOMPO, TUMINTING', NULL, '', '7171022102020001', 'person-flat.png', 'MANNA SEJAHTERA', NULL, NULL, 1, 2),
+(200, 'HERU NJOTOPRAWIRO', 'GENERAL MANAGER', '2015-03-04', '1967-12-01', 'Laki – laki', 'GUBENG KERTAJAYA 6-A/47 SURABAYA', NULL, '081330506462', '3578100112670005', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 1),
+(201, 'DHITO YUDHO N', 'TAX & ACCOUNTING', '2016-09-21', '1982-06-30', 'Laki – laki', 'SRIKANA NO.28 SURABAYA', NULL, '085732699945', '3578083006820002', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(202, 'SITI NUR MUKARROMAH YULIANA', 'ACCOUNTING', '2013-12-13', '1992-07-07', 'Perempuan', 'SENG 53-A DS. SIDODADI KEC. SIMOKERTO', NULL, '085258681012', '3578114707920003', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(203, 'OKTAVIANTI YANI PABIA', 'ADMIN KASIR', '2010-06-10', '1991-10-22', 'Perempuan', 'KAMPUNG TOBABERENG', NULL, '081230146605', '7326136010910001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(204, 'DITA NORMASARI', 'ADMIN PRODUKSI', '2011-09-16', '1989-12-14', 'Perempuan', 'JL. DONOWATI GG.V NO.8', NULL, '081703288909', '3524055412840001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 0),
+(205, 'HENI AYUNING P.S', 'ADMIN PENJUALAN', '2011-01-14', '1991-12-10', 'Perempuan', 'TUBANAN LAMA NO.12', NULL, '087854845777', '3516085012910002', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(206, 'FERIA DIANA', 'ADMIN GUDANG', '2010-10-15', '1985-03-26', 'Perempuan', 'MARGORUKUN GG.3/57', NULL, '085106372797', '3578146603850001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(207, 'EDO PRASETYO', 'KEPALA GUDANG', '2012-11-01', '1991-07-15', 'Laki – laki', 'TAMBAK WINDU 2/25', NULL, '083831331660', '3578111507910001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 1),
+(208, 'MARDI', 'SOPIR', '2009-09-01', '1953-06-30', 'Laki – laki', 'MANUKAN TELAGA, 32-M/5', NULL, '083854577718', '3578143006530063', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(209, 'TARSISIUS DHIU', 'SOPIR', '2010-11-14', '1991-10-29', 'Laki – laki', 'GADEL SARI PRAJA GANG 2 NO. 37', NULL, '082140298147', '5309022910910001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(210, 'HANDOYO', 'HELPER', '2016-09-09', '1992-01-19', 'Laki – laki', 'PAPRIMAN, TEMAYAM', NULL, '085130304336', '3522211901920001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(211, 'EVARISTUS AMANDUS ANGGAL ', 'HELPER', '2018-10-03', '1997-10-26', 'Laki – laki', 'TANGO, DS. RANA MBELING, KEC. KOTA KOMBA', NULL, '082236191893', '5319062610970001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(212, 'GONSAGA BASTAN ', 'HELPER', '2017-09-25', '1993-02-23', 'Laki – laki', 'WANO, DS. PAAN LELENG, KEC. KOTA KOMBA', NULL, '081358672096', '5319062302930006', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(213, 'ANDANG DOMU KABORANG', 'HELPER', '2017-10-11', '1992-02-23', 'Laki – laki', 'BAJONG SARI KRAJAN 2 NO. 83A', NULL, '082341666546', '5311120303930001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(214, 'YOHANES LOJI ', 'HELPER', '2016-12-09', '1992-12-09', 'Laki – laki', 'BOLOJI, DS. WAWOWAE, KEC. BAJAWA', NULL, '081228816031', '5309060912920001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(215, 'SILFANUS TANGGUNG', 'HELPER', '2016-12-13', '1993-12-25', 'Laki – laki', 'LANGKAS, DS. PONG MURUNG, KEC. RUTENG', NULL, '081358168683', '5310032512931001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 3),
+(216, 'GABRIEL NGABI KAREMI HUMBA', 'STAFF PRODUKSI', '2019-05-06', '1989-12-14', 'Laki – laki', '', NULL, '081234948633', '5311071412890002', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(217, 'OXZY BUNGA MUTIARA', 'ADMIN', '2019-07-01', '2000-09-16', 'Laki – laki', 'JL. TAMBAK ASRI 14/01 MOROKREMBANGAN SURABAYA', NULL, '083854365425', '3578155609000001', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(218, 'AKMALIYAH', 'ADMIN PIUTANG', '2019-07-22', '1994-01-31', 'Perempuan', 'GADEL SARI MADYA 1-D BUNTU NO.7 KARANGPOH ', NULL, '088996168980', '3578067101940002', 'person-flat.png', 'MARGOMULYO C-10', NULL, NULL, 1, 2),
+(219, 'YOHANES INDRA SUYITNO', 'KEPALA PABRIK', '2010-07-01', '1985-09-29', 'Laki – laki', 'KAPAS MADYA 1-E/44 SURABAYA', NULL, '087751131001', '3578102909850007', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 1),
+(220, 'MUKRI', 'STAFF PRODUKSI', '2010-09-15', '1975-07-12', 'Laki – laki', 'GENJOR, SUGIHWARAS, BOJONEGORO', NULL, '087853720421', '3522071207750004', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(221, 'TOLAK EFENDI', 'STAFF PRODUKSI', '2011-03-05', '1974-09-02', 'Laki – laki', 'RUNGKUT KIDUL GG III MAJEMUK NO. 8 J SURABAYA', NULL, '082330780464', '3578030209740001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(222, 'M. TRI ISWAHYUDI', 'STAFF PRODUKSI', '2016-12-10', '1978-07-01', 'Laki – laki', 'GADUKAN UTARA 7B/2B SURABAYA', NULL, '082142968160/082142968161', '357823010778002', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(223, 'ACHMAD HARIYANTO', 'STAFF PRODUKSI', '2011-10-01', '1993-09-30', 'Laki – laki', 'PETEMON SIDOMULYO 5/8 SURABAYA', NULL, '081231877307', '3578063009930001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(224, 'DANIELTUS NEN', 'STAFF PRODUKSI', '2019-07-09', '1998-06-26', 'Laki – laki', 'RANTE LEROS, DS. GOLO NDELE, KEC. KOTA KOMBA', NULL, '081296559351', '5319062606980003', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(225, 'AKTANASIUS AGUNG', 'STAFF PRODUKSI', '2019-07-08', '2000-05-02', 'Laki – laki', 'WAKUNG, DS. MOKEL MORID, KEC. KOTA KOMBA', NULL, '081321905031', '5319060502990001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(226, 'BONEFASIUS HASAN', 'HELPER', '2017-11-09', '1995-08-25', 'Laki – laki', 'MANGGARAI', NULL, '', '5319020403950002', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 3),
+(227, 'MUSTAKIM', 'STAFF PRODUKSI', '2016-02-24', '1989-01-15', 'Laki – laki', 'DSN SOCO, DS. PENGAMPON, KEC. KABUH', NULL, '085815553734', '3517161501890001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(228, 'AGUS MADOYI', 'STAFF PRODUKSI', '2016-05-09', '1995-08-05', 'Laki – laki', 'DSN SOCO, DS. PENGAMPON, KEC. KABUH', NULL, '085607718348', '3517160508950001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(229, 'AGUSTINUS LIBERTUS JANING', 'STAFF PRODUKSI', '0000-00-00', '1986-08-17', 'Laki – laki', 'LAO, WALI, LANGKE REMBONG, MANGGARAI', NULL, '', '5310121708800010', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(230, 'MARTHEN NGARU HARUNDIMA', 'STAFF PRODUKSI', '2019-11-20', '1993-03-22', 'Laki – laki', 'KULLU, LAINJANJI, WULLA WULLU, SUMBA TIMUR', NULL, '', '5311112203930001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(231, 'NURRAHMAN', 'STAFF PRODUKSI', '2019-11-20', '1997-05-23', 'Laki – laki', 'JL. BANDENG, TANJUNG, RASANAE BARAT, BIMA', NULL, '', '5272012305970001', 'person-flat.png', 'MARGOMULYO C-2', NULL, NULL, 1, 2),
+(232, 'THOMAS NADO', 'SALES', '2011-06-20', '1991-07-03', 'Laki – laki', 'BEBOT, MOKEL MORID, KOTA KOMBA, MANGGARAI TIMUR', NULL, '081239471093', '5319061701890001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(233, 'KADEK SUTRISNA DEWI', 'SALES COUNTER', '2019-07-15', '1997-11-17', 'Perempuan', 'BANJAR DINAS DESA, CEMPAGA, BANJAR, BULELENG', NULL, '087861133694', '5108045711970002', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(234, 'I NYOMAN TAMTAM', 'HELPER', '2011-10-01', '1976-12-31', 'Laki – laki', 'BANJAR DINAS KAWANAN, JULAH, TEJAKULA, BULELENG', NULL, '082146583266', '5108093112760115', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(235, 'I NYOMAN NATA', 'SOPIR', '2012-05-01', '1975-06-26', 'Laki – laki', 'JL. PUPUTAN BARU GG. 11 NO. 11, DENPASAR LINGKUNGAN MERTHA GANGGA DENPASAR', NULL, '08533147575 / 081805562544', '5171012606750001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(236, 'FILMONSIUS JAMPUNG', 'SOPIR', '2014-01-27', '1993-11-22', 'Laki – laki', 'PURANG TUWA, GURUNG LIWUT, BORONG, MANGGARAI TIMUR', NULL, '081239100212', '539012211930321', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3);
+INSERT INTO `humans` (`id`, `name`, `job`, `start_day`, `birth`, `gender`, `address1`, `address2`, `phone`, `idnum`, `photo`, `location`, `created_at`, `updated_at`, `humans_status`, `humans_level`) VALUES
+(237, 'WASIS', 'SOPIR', '2014-10-18', '1984-03-03', 'Laki – laki', 'DUSUN KRAJAN, SEKAR, BOJONEGORO', NULL, '087859638495', '3522270303840005', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(238, 'EMILANUS JEHAMAN', 'HELPER', '2015-06-06', '1995-02-08', 'Laki – laki', 'WATU RAJONG, RANA MBATA, KOTA KOMBA, MANGGARAI TIMUR', NULL, '082145132588', '5319060802950001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(239, 'MATIOS SION', 'HELPER', '2016-07-11', '1995-11-18', 'Laki – laki', 'GOLO KALO, WELA LADA, SAMBI RAMPAS, MANGGARAI TIMUR', NULL, '081337889943', '5319041811970001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(240, 'SAFEREIUS NAWAN', 'HELPER', '2017-06-05', '1997-05-20', 'Laki – laki', 'SATAR LAHING, RANA MESE, MANGGARAI TIMUR', NULL, '081356453967', '5319012005970005', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(241, 'AMBROSIUS EBROS', 'HELPER', '2017-07-15', '1997-12-07', 'Laki – laki', 'JENDONG, GOLO LONI, RANA MESE, MANGGARAI TIMUR', NULL, '081337884045', '5319010712970002', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(242, 'YULIA SARNITA BANUL', 'SALES', '2017-11-15', '1997-10-01', 'Perempuan', 'BEBOT, MOKEL MORID, KOTA KOMBA, MANGGARAI TIMUR', NULL, '081339291215', '5319064110970004', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(243, 'ZUMRAH', 'ADMIN', '2018-02-28', '1993-05-06', 'Perempuan', 'DESA SORO, KECAMATAN LAMBU, KAB. BIMA', NULL, '082341311010', '5206124605931003', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(244, 'ARDHIEVA DHARMA YODHA', 'DIGITAL MARKETING', '2018-07-15', '1993-08-05', 'Laki – laki', 'JL. WONOMULYOMUKTI TIMUR II/348 SEMARANG', NULL, '081339091221', '3374060208930003', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(245, 'MUKHLIS', 'ADMIN', '2018-11-01', '1997-09-19', 'Laki – laki', 'DUSUN KEJAWAT, SAPURAGA BREE, BRANG REA, SUMBAWA BARAT', NULL, '082340683252', '5207051209970001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(246, 'I PUTU SUKEARSANA', 'HELPER', '2019-01-11', '1997-08-25', 'Laki – laki', 'DUSUN TENGAH DESA DAWAN KLOD, KLUNGKUNG', NULL, '083856044129', '5105042508970001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(247, 'PASKALIS JULUNG', 'HELPER', '2019-01-11', '1998-04-09', 'Laki – laki', 'WAKUNG, MOKEL MORID, KOTA KOMBA, MANGGARAI TIMUR', NULL, '081353551793', '5319060404980001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(248, 'NI PUTU PANDE JAYANTI', 'DIGITAL MARKETING', '2019-01-12', '1994-10-22', 'Perempuan', 'JL. CEMPAKA BIRU GG. I NO. 10 DENPASAR', NULL, '081337046625', '5171046210940005', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(249, 'FITRIA LESTARI', 'ADMIN SALES', '2019-01-21', '1997-04-23', 'Perempuan', 'JL. IMAM BONJOL GG. JAMBU RATA 201 NO.12', NULL, '081238969636', '5171036304970001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(250, 'HERONIMUS ENGGOT', 'HELPER', '2019-01-22', '1998-10-21', 'Laki – laki', 'MOMANG MESE, COMPANG NDEJING, BORONG, MANGGARAI TIMUR', NULL, '082146436616', '5319011501980001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(251, 'MARTINUS PANTANG', 'HELPER', '2019-01-22', '2000-11-09', 'Laki – laki', 'MOMANG MESE, COMPANG NDEJING, BORONG, MANGGARAI TIMUR', NULL, '082197562589', '5319010911000006', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(252, 'AULIA AGNES LARASANTI', 'SALES COUNTER', '2019-01-25', '1998-10-29', 'Perempuan', 'JL. GATOT SUBROTO KRAPYAKREJO, GADINGREJO, PASURUAN', NULL, '089623148429', '3575016910980002', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(253, 'NI KETUT SENIASIH', 'KEPALA GUDANG', '2011-10-01', '1975-05-05', 'Perempuan', 'BANJAR DINAS KAWANAN, JULAH, TEJAKULA, BULELENG', NULL, '081999722417', '5108094505750006', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 1),
+(254, 'LALU RIAN SETIAWAN', 'STAFF GUDANG', '2019-07-26', '1998-04-11', 'Perempuan', 'JL. PELABUHAN PENYEBRANGAN LEMBAR, LOMBOK BARAT', NULL, '087857096909', '5201131104980002', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(255, 'MOCHAMAD AFANDIE', 'SOPIR', '2011-06-01', '1964-03-29', 'Laki – laki', 'WONOSARI WETAN 1E/9 SURABAYA', NULL, '081934971611', '3578162903640001', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(256, 'NUR\'AINI NANDITA PUTRI', 'ADMIN SALES', '2019-05-09', '1998-11-27', 'Perempuan', 'JL. NUANSA UTAMA NO.5Br/link TEGAL KORI KAJA', NULL, '081339529660', '5171046711980002', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(257, 'NI PUTU NITADAYANTI', 'ACCOUNTING', '2019-02-09', '1997-07-12', 'Perempuan', 'GANG VII BLOK 4 NO. 4 PEDUNGAN DENPASAR BALI', NULL, '082339165413', '5108024712970006', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(258, 'KUIRINUS TUNTI', 'SOPIR', '2019-07-03', '1993-06-04', 'Perempuan', 'WAKUNG, MOKEL MORID, KOTA KOMBA', NULL, '082147184250', '5319060406930003', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(259, 'TANTRI NUR HIDAYAH', 'KASIR', '0000-00-00', '0000-00-00', 'Perempuan', '', NULL, '', '', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(260, 'MARIA KHATARINA SIMO', 'GUDANG', '0000-00-00', '0000-00-00', 'Perempuan', '', NULL, '', '', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 2),
+(261, 'SILFESTER ERSAN', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(262, 'I PUTU PUTRA UTAMMA GUNA SUSILA', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(263, 'I MADE DWI ANTARA PUTRA', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'CASIA KARUNIA JAYA', NULL, NULL, 1, 3),
+(264, 'DEVANDA GITA SASQIYA MASTYASARI', 'ADMIN ACCOUNTING', '2018-07-02', '1998-05-29', 'Perempuan', 'JL. NGESREP BARAT I NO. 43A', NULL, '08990650908', '3374116905980001', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 2),
+(265, 'LIA PUJI ASTUTI', '', '2012-07-24', '1994-10-21', 'Perempuan', 'KARANGGAWANG BARAT', NULL, '087832708538', '3374106110940002', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 2),
+(266, 'SYAIFUL RAMADHAN', 'ADMIN GUDANG', '2019-08-03', '1997-01-20', 'Laki – laki', 'PERUMAHAN GEDANG ASRI BAWAH, GEDANG ANAK UNGARAN TIMUR', NULL, '085799243770', '3322182001970001', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 2),
+(267, 'ADITYAWISNU', 'DRIVER', '2018-09-01', '1991-10-08', 'Laki – laki', 'KARANGGAWANG BARAT', NULL, '08985458999', '3374100810910002', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 3),
+(268, 'MUHAMMAD FARIS ATTHORIQ', 'HELPER', '2019-10-07', '2000-04-06', 'Laki – laki', 'GENUK BARAT', NULL, '0895360472610', '3322180604000007', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 3),
+(269, 'AHMAD ANDY KURNIAWAN', 'HELPER', '2019-10-03', '1998-09-24', 'Laki – laki', 'DUSUN NDURENAN', NULL, '081239279466', '1606070912990002', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 3),
+(270, 'MUH. ROHYI', 'HELPER', '2019-10-01', '2001-02-13', 'Laki – laki', 'DUSUN NDURENAN', NULL, '083842948819', '3322151302010002', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 3),
+(271, 'RIKARDUS JEHADUT', 'HELPER', '2013-05-13', '1991-04-03', 'Laki – laki', 'LACI MOK, LACI CAREP, LANGKE REMBONG', NULL, '081228618462', '5310120304910003', 'person-flat.png', 'BEN\'S TRUSS', NULL, NULL, 1, 3),
+(272, 'ARIYANI', 'ADM SALES', '0000-00-00', '0000-00-00', 'Perempuan', '', NULL, '', '', 'person-flat.png', 'BEN\'S TRUSS UNGARAN', NULL, NULL, 1, 2),
+(273, 'GUNANDA KIKI AGUSTINA', 'KEPALA OUTLET', '2017-11-06', '1996-08-20', 'Perempuan', 'BANJARDOWO, GENUKSARI, SEMARANG', NULL, '089668661623', '337405600896002', 'person-flat.png', 'KANIA 240; KANIA 512', NULL, NULL, 1, 1),
+(274, 'ANINDA HANI APRILIA', 'ACCOUNTING', '2019-07-26', '2001-04-02', 'Perempuan', '`', NULL, '082266591087', '3402164204010003', 'person-flat.png', 'KANIA 240', NULL, NULL, 0, 2),
+(275, 'JOSEBTIA ALDIE', 'ADMIN PENJUALAN', '2019-07-24', '2000-03-19', 'Perempuan', 'JL. K.H WAHID HASYIM 63 YOGYAKARTA', NULL, '089691936006', '3471061903000003', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 2),
+(276, 'RICO ADE PUTRA', 'HELPER', '2019-03-08', '1999-04-10', 'Perempuan', 'SRIBIT SENDANG TIRTO BERBAH SLEMAN', NULL, '08994564563', '3404081004990002', 'person-flat.png', 'KANIA 240', NULL, NULL, 0, 3),
+(277, 'AHMAD SAHLAN', 'HELPER', '2019-04-25', '1990-03-02', 'Perempuan', 'KARANG KULON, WUKIRSARI, IMOGIRI, BANTUL, YOGYAKARTA', NULL, '081295712385', '3402100203900001', 'person-flat.png', 'KANIA 240', NULL, NULL, 0, 3),
+(278, 'EKO PRIYONO JURIYUNA', 'HELPER', '0000-00-00', '1998-07-10', 'Laki – laki', 'SRIBIT KIDUL SENDANG TIRTO BERBAH SLEMAN', NULL, '085354666314', '9103011007980001', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(279, 'GATOT PRIYANTO', 'HELPER', '2019-05-08', '1983-01-15', 'Laki – laki', 'SEMAHI KULON UH1/419 YOGYAKARTA', NULL, '088226369211', '', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(280, 'YUSRON NURCHOLIS', 'HELPER', '2018-07-12', '1998-05-20', 'Perempuan', 'MINGGIRAN', NULL, '', '', 'person-flat.png', 'KANIA 240', NULL, NULL, 0, 3),
+(281, 'YUDI PRASONGKO', 'SOPIR', '2018-03-15', '1979-07-27', 'Laki – laki', 'SEKARSULI, SENDANGTIRTO, BERBAH, SLEMAN', NULL, '085799500441', '3404082707790001', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(282, 'RISTU NUGROHO', 'SOPIR', '0000-00-00', '1992-06-06', 'Laki – laki', 'WONOCATUR', NULL, '085601870445', '3402120606920002', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(283, 'HANA TRI FEBRIANI', 'ADMIN PENJUALAN', '2019-12-23', '2001-02-03', 'Perempuan', 'JL. KARANGGAWANG BARAT, TANDANG, TEMBALANG', NULL, '0895421877034', '3374104302010002', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 2),
+(284, 'MUHAMMAD SUDARTO', 'DIGITAL MARKETING', '2019-12-23', '1999-08-01', 'Perempuan', 'DS. JATISARI KEC. JAKENAN KAB. PATI', NULL, '081238482834', '3318090108990001', 'person-flat.png', 'KANIA 240', NULL, NULL, 0, 2),
+(285, 'M. SOBIRIN', 'DIGITAL MARKETING', '2019-12-23', '2000-02-12', 'Laki – laki', 'DS. PANJANG, KEC. TANAH TUMBUH, KAB. BUNGA', NULL, '082375769043', '1508011202000001', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 2),
+(286, 'SUKARDI', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(287, 'BEDI SUSANTO', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 3),
+(288, 'SYAFIN WAHYU PRASETYO', 'STAFF', '0000-00-00', '1992-11-12', 'Laki – laki', 'DS.PATUNG REJO/ JL. ASTAR 2 NO. 19 A, GAHO ONCA', NULL, '081398276313', '', 'person-flat.png', 'KANIA 240', NULL, NULL, 1, 2),
+(289, 'ENGRIT', 'DRIVER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'KANIA 512', NULL, NULL, 1, 3),
+(290, 'DWI CAHYO', 'HELPER', '0000-00-00', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'KANIA 512', NULL, NULL, 1, 3),
+(291, 'RODI YULIANTO', 'HELPER', '2020-10-02', '0000-00-00', 'Laki – laki', '', NULL, '', '', 'person-flat.png', 'KANIA 512', NULL, NULL, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -266,29 +500,14 @@ INSERT INTO `humans` (`id`, `name`, `job`, `start_day`, `birth`, `gender`, `addr
 CREATE TABLE `leaves` (
   `id` int(10) UNSIGNED NOT NULL,
   `human_id` int(10) UNSIGNED NOT NULL,
+  `leave_date` date DEFAULT NULL,
+  `days` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `annual_leave` tinyint(3) UNSIGNED NOT NULL DEFAULT 10,
   `avai_annual_leave` tinyint(3) UNSIGNED NOT NULL DEFAULT 10,
   `unpaid_leave` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `leaves`
---
-
-INSERT INTO `leaves` (`id`, `human_id`, `annual_leave`, `avai_annual_leave`, `unpaid_leave`, `created_at`, `updated_at`) VALUES
-(1, 5, 10, 10, 0, '2020-01-24 00:17:05', '2020-01-24 00:17:05'),
-(2, 6, 10, 10, 0, '2020-02-17 01:47:06', '2020-02-17 01:47:06'),
-(3, 7, 10, 10, 0, '2020-05-08 21:23:19', '2020-05-08 21:23:19'),
-(4, 8, 10, 10, 0, '2020-05-08 22:01:38', '2020-05-08 22:01:38'),
-(5, 9, 10, 10, 0, '2020-05-11 19:33:58', '2020-05-11 19:33:58'),
-(6, 10, 10, 10, 0, '2020-05-11 23:37:27', '2020-05-11 23:37:27'),
-(7, 11, 10, 10, 0, '2020-05-11 23:51:14', '2020-05-11 23:51:14'),
-(8, 12, 10, 10, 0, '2020-05-12 00:02:49', '2020-05-12 00:02:49'),
-(9, 13, 10, 10, 0, '2020-05-12 00:09:57', '2020-05-12 00:09:57'),
-(11, 15, 10, 10, 0, '2020-05-12 00:26:21', '2020-05-12 00:26:21'),
-(14, 18, 10, 10, 0, '2020-05-12 00:57:07', '2020-05-12 00:57:07');
 
 -- --------------------------------------------------------
 
@@ -560,7 +779,8 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (4, 'bfm', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
 (5, 'unknown', '2020-01-21 20:41:29', '2020-01-21 20:41:29'),
 (6, 'HRD', '2020-04-05 17:00:00', '2020-04-05 17:00:00'),
-(7, 'outlet', '2020-04-16 17:00:00', '2020-04-16 17:00:00');
+(7, 'outlet', '2020-04-16 17:00:00', '2020-04-16 17:00:00'),
+(18, 'DM', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -580,32 +800,6 @@ CREATE TABLE `salaries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `salaries`
---
-
-INSERT INTO `salaries` (`id`, `human_id`, `basic_salary`, `nondeduct_leave`, `deduct_leave`, `change`, `dates`, `total`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-01-21 20:55:07', '2020-01-21 20:55:07'),
-(2, 2, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-01-21 20:55:07', '2020-01-21 20:55:07'),
-(3, 3, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-01-21 20:55:07', '2020-01-21 20:55:07'),
-(4, 4, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-01-21 20:55:07', '2020-01-21 20:55:07'),
-(5, 5, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-01-24 00:17:05', '2020-01-24 00:17:05'),
-(6, 1, 0, NULL, NULL, 0, '2020-02-01', 0, '2020-02-06 02:28:19', '2020-02-06 02:28:19'),
-(7, 2, 0, NULL, NULL, 0, '2020-02-01', 0, '2020-02-06 02:28:19', '2020-02-06 02:28:19'),
-(8, 3, 0, NULL, NULL, 0, '2020-02-01', 0, '2020-02-06 02:28:19', '2020-02-06 02:28:19'),
-(9, 4, 0, NULL, NULL, 0, '2020-02-01', 0, '2020-02-06 02:28:19', '2020-02-06 02:28:19'),
-(10, 5, 0, NULL, NULL, 0, '2020-02-01', 0, '2020-02-06 02:28:19', '2020-02-06 02:28:19'),
-(11, 6, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-02-17 01:47:06', '2020-02-17 01:47:06'),
-(12, 7, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-08 21:23:19', '2020-05-08 21:23:19'),
-(13, 8, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-08 22:01:38', '2020-05-08 22:01:38'),
-(14, 9, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-11 19:33:58', '2020-05-11 19:33:58'),
-(15, 10, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-11 23:37:27', '2020-05-11 23:37:27'),
-(16, 11, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-11 23:51:14', '2020-05-11 23:51:14'),
-(17, 12, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-12 00:02:49', '2020-05-12 00:02:49'),
-(18, 13, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-12 00:09:57', '2020-05-12 00:09:57'),
-(20, 15, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-12 00:26:21', '2020-05-12 00:26:21'),
-(23, 18, 0, NULL, NULL, 0, '2020-01-01', 0, '2020-05-12 00:57:07', '2020-05-12 00:57:07');
 
 -- --------------------------------------------------------
 
@@ -705,22 +899,36 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `role_id`, `is_active`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(5, 'ogy', 'ogi.rians3@gmail.com', 'ogy', '$2y$10$BlBxcNiOQe200aVdJ/nE1OHtTG0iYjO76.cVTjRT5Hi2gULlFJqSq', 1, 1, 'Co9jeWS12aRF13rfXBabMazFF8rKeKe8aAECGpnjLy0H16B8k3Vm8vNVftOB', '2020-01-22 21:19:49', '2020-01-22 21:19:49', NULL),
-(7, 'yahya', 'yahyatrison@gmail.com', 'yahya', '$2y$10$SCU13pT82yvPRUxjFZj72O/BdKnt.s4qdOsamlPYko/87xSgR67sO', 3, 1, 'HglCZtraSkHacxwVeEqVzFLnGCtI38auKRes2Ik4d6OvfNTdeqkNwxqAcaq7', '2020-01-23 01:19:02', '2020-01-23 01:19:02', NULL),
+(5, 'ogy', 'ogi.rians3@gmail.com', 'ogy', '$2y$10$BlBxcNiOQe200aVdJ/nE1OHtTG0iYjO76.cVTjRT5Hi2gULlFJqSq', 1, 1, '8EQ45vPD2Y4rE2ZJ7n5P9OauByeHYtoCWQrXK4NkcLJF8kCE7n7N0ZFeS27g', '2020-01-22 21:19:49', '2020-01-22 21:19:49', NULL),
+(7, 'yahya', 'yahyatrison@gmail.com', 'yahya', '$2y$10$SCU13pT82yvPRUxjFZj72O/BdKnt.s4qdOsamlPYko/87xSgR67sO', 3, 1, 'WOriBslMfy7zqJoBg5FtjnMezOOsTYW67YjzDZcEK8I27eogxaPHRjSRmmzX', '2020-01-23 01:19:02', '2020-01-23 01:19:02', NULL),
 (8, 'Aisyah', 'aisyahmawar@gmail.com', 'aisyah', '$2y$10$bJwdJY0ZZN8oSWpTdjngvO9Te6EPfAzLNpkGjRaDGkdrXquOdo2km', 2, 1, 'fHXdE1B8aBPOnzg9Eq6N6Tv2wLz7qEJfEYP3XE2hGeOkkJcEurfiyEkSO6bJ', '2020-01-23 02:24:41', '2020-01-23 02:24:41', NULL),
 (9, 'Intan', 'intan@gmail.com', 'Intan', '$2y$10$c9UaRofIoe.cTNDBsSafte0fnJ/ibXlxfGGXqap42CvdF3Bmz8bgu', 4, 1, 'Ab3AGQMtMJ9nUG80XeTBU5XNXejLa8TTcwAehTdyvOIbvZVNm8QlbAAzPtOm', '2020-01-23 02:26:43', '2020-02-17 02:23:38', 1),
 (10, 'Lingga', 'Lingga@gmail.com', 'Lingga', '$2y$10$5SgMYffdAwpJlm7o9WwUxO/gte3SYFBsiN2XtebPi9uZe2s5dtm7i', 5, 1, 'HjdmLGIgDNsls2qtLi5No8GMRjIMN6oB4PMhyfDPqGF9DA6cAuvFpaBtR8UP', '2020-01-23 02:31:36', '2020-01-23 20:15:23', NULL),
 (11, 'Dewi', 'dewi@gmail.com', 'dewi', '$2y$10$00XUwkPTLIwM7BbMhCkileuXRGOC1ofkJLtYSEvakfQ5sTh0Vuue6', 4, 1, 'u253xvH1grfxI38dSTUzxXdMds2orGRqTZPiUj6KgPEFDPaTqzD9oTj8aD5P', '2020-01-30 20:22:49', '2020-01-30 20:22:49', NULL),
 (12, 'qwe', 'asd@zxc', 'qwe', '$2y$10$SKIUvppPALS.ukDzmwGDauxQQQRstIrPRmBCATRJmVoV0QP5z83HG', 4, 1, NULL, '2020-02-24 02:14:17', '2020-02-24 02:14:17', NULL),
-(13, 'Erli Pratiwi', 'HRD_Erli@indoberka.com', 'HRD_Erli', '$2y$10$qUilTdpmZhfeKE0IXoXfhupE/UsMx7scM/R0I1p7EnWV9dSJVCERm', 6, 1, 'jtzw5KVIHG9EIhAcrXHcFN51jzQVl08qWZtZCiAGYUrkFy95oa8XMr56i8kv', '2020-04-05 21:28:00', '2020-04-05 21:28:00', NULL),
-(15, 'Tritan', 'tritan@indoberka.com', 'Tritan', '$2y$10$0Hz6qsWteL6GV4zP3qXVwOrZ1vx3UEQppKuDPH4IQOpKlUabHSEm6', 7, 1, 'ncbcjkTRKZHtjMmW1PDdj6x2sUq0zyXeF9uTEdKkZIC1sQ0ePikssDlJgZQN', '2020-04-20 21:29:01', '2020-04-20 21:29:01', NULL),
-(16, 'Menggala', 'Menggala@indoberka.com', 'Menggala', '$2y$10$k1FBtYwJaTip.AMn/P4QU.1UgHUSH3HUtRYqXSY0Io.G52A9xWlAm', 7, 1, 'VNRJVqLutC2cltkI1CK8wP4llhnib8i54zijwt48iK1CzhuRbPh3tLPBBC8W', '2020-04-21 00:40:16', '2020-04-21 00:40:16', NULL),
-(17, 'Kania710', 'Kania710@indoberka.com', 'Kania710', '$2y$10$o4OUDZkBrpAC16wFh0.U4eqz3yBjcThAzg2QW0LuR3mjG47tCND7e', 7, 1, 'lvyIFxAiFKYeB24XoFK6lMYUAU7gzHnUBmQN0BoGWwIcmpxf3WBFF30dKBWV', '2020-04-21 00:57:17', '2020-04-21 00:57:17', NULL),
+(13, 'Erli Pratiwi', 'HRD_Erli@indoberka.com', 'HRD_Erli', '$2y$10$qUilTdpmZhfeKE0IXoXfhupE/UsMx7scM/R0I1p7EnWV9dSJVCERm', 6, 1, 'melmkvdP9neRExrQu8HSoSUNyHHtW60u8ItMAkpCKg1tdwHfOKBn78FOQbsF', '2020-04-05 21:28:00', '2020-04-05 21:28:00', NULL),
+(15, 'TRITAN', 'tritan@indoberka.com', 'Tritan', '$2y$10$0Hz6qsWteL6GV4zP3qXVwOrZ1vx3UEQppKuDPH4IQOpKlUabHSEm6', 7, 1, 'gYhjW8Lgja0loJSwqOfwho8MJRzDHpW0vkxhQThCoMzRakSevezFijgUIb5b', '2020-04-20 21:29:01', '2020-05-22 01:51:27', NULL),
+(16, 'MENGGALA', 'Menggala@indoberka.com', 'Menggala', '$2y$10$k1FBtYwJaTip.AMn/P4QU.1UgHUSH3HUtRYqXSY0Io.G52A9xWlAm', 7, 1, 'VNRJVqLutC2cltkI1CK8wP4llhnib8i54zijwt48iK1CzhuRbPh3tLPBBC8W', '2020-04-21 00:40:16', '2020-05-22 01:46:45', NULL),
+(17, 'KANIA 710', 'Kania710@indoberka.com', 'Kania710', '$2y$10$o4OUDZkBrpAC16wFh0.U4eqz3yBjcThAzg2QW0LuR3mjG47tCND7e', 7, 1, 'lvyIFxAiFKYeB24XoFK6lMYUAU7gzHnUBmQN0BoGWwIcmpxf3WBFF30dKBWV', '2020-04-21 00:57:17', '2020-05-22 01:44:19', NULL),
 (18, 'ABM', 'abm@indoberka.com', 'ABM', '$2y$10$kF1x4cQ9fJnkExFs9EflbeH4DUkFNYS4tXqFq9KIB5uRKieboIPrS', 7, 1, 'p0oPfpVKdQE0ZQIpXFnQViagCsy9S02EfrSY79Vm9cwMNGWdEI3QhPme8yac', '2020-04-21 01:37:36', '2020-04-21 01:37:36', NULL),
-(19, 'Tania Lombok', 'Tanialombok@indoberka.com', 'Tania', '$2y$10$EbbN0UUqeVXnTC1hdAQNZuVA5jXPJA/v7Cihm3Hnm9UPOSGDWFu3S', 7, 1, 'JuWIkIuNFJ55YnIdUAzlZkNJDvDhf3LWz6dshP6oQgE3NnGGA2QTN6XmQNAZ', '2020-04-21 01:53:36', '2020-05-03 19:41:21', NULL),
-(20, 'BKJ', 'bkj@indoberka.com', 'BKJ', '$2y$10$ia5k2AgbNO/UBriFudL8cOxZauKg80OFgXTDxk4pSo7r5FeRJcx6C', 7, 1, '01mK3uoxVE44NNN2WT0nvPdqpuUedqT2qDQ0zvGwsFz6SlNXsAd1YTRPJCc4', '2020-04-21 02:35:34', '2020-04-21 02:35:34', NULL),
-(21, 'Manna', 'manna@indoberka.com', 'Manna', '$2y$10$/YKnMFILPjUgVXgx50Q0rOv98tAsTMpVU77vLZEf4eOkOmCHvhTD2', 7, 1, 'BzBHd0Ow4eYXRMlP45uo5RfLt59lAjm3Pygy2NjwwxstQ67SHeITsuF7Uoqv', '2020-04-21 02:42:11', '2020-04-21 02:42:11', NULL),
-(22, 'Tania Tidar', 'taniatidar@indoberka.com', 'Tidar', '$2y$10$O7/3yAgMhnXoYWuffGMxGuTS8x9dImnHyicZmkHeAhdrGBivXu64a', 7, 1, 'wfaH4ZHmBtpBtqVCLfs0pwfrEN1my7QMXKLPtS4JVpv5umLE3P4amse0zytS', '2020-04-21 21:29:40', '2020-05-03 19:41:55', NULL);
+(19, 'TANIA LOMBOK', 'Tanialombok@indoberka.com', 'Tania', '$2y$10$EbbN0UUqeVXnTC1hdAQNZuVA5jXPJA/v7Cihm3Hnm9UPOSGDWFu3S', 7, 1, 'JuWIkIuNFJ55YnIdUAzlZkNJDvDhf3LWz6dshP6oQgE3NnGGA2QTN6XmQNAZ', '2020-04-21 01:53:36', '2020-05-22 01:49:41', NULL),
+(20, 'BERKAT KARUNIA JAYA', 'bkj@indoberka.com', 'BKJ', '$2y$10$ia5k2AgbNO/UBriFudL8cOxZauKg80OFgXTDxk4pSo7r5FeRJcx6C', 7, 1, '01mK3uoxVE44NNN2WT0nvPdqpuUedqT2qDQ0zvGwsFz6SlNXsAd1YTRPJCc4', '2020-04-21 02:35:34', '2020-05-22 01:36:33', NULL),
+(21, 'MANNA SEJAHTERA', 'manna@indoberka.com', 'Manna', '$2y$10$/YKnMFILPjUgVXgx50Q0rOv98tAsTMpVU77vLZEf4eOkOmCHvhTD2', 7, 1, 'BzBHd0Ow4eYXRMlP45uo5RfLt59lAjm3Pygy2NjwwxstQ67SHeITsuF7Uoqv', '2020-04-21 02:42:11', '2020-05-22 01:44:52', NULL),
+(22, 'TIDAR', 'taniatidar@indoberka.com', 'Tidar', '$2y$10$O7/3yAgMhnXoYWuffGMxGuTS8x9dImnHyicZmkHeAhdrGBivXu64a', 7, 1, '56dib728ZqoS388MzZBz4DtOvhd20xTumeyTUM55yHt2Ou81wuf5Qqu1jiyH', '2020-04-21 21:29:40', '2020-05-22 01:50:59', NULL),
+(24, 'BEN\'S TRUSS', 'bentrus@gmail.com', 'bentruss', '$2y$10$8OyYs/mYxrY4hlg6os/fCe/3H3VfwcTtu8N185JE.bKkA6jO1y10y', 7, 1, NULL, '2020-05-22 01:35:46', '2020-05-22 01:35:46', NULL),
+(25, 'BINTANG TIMUR', 'bintim@gmail.com', 'bintim', '$2y$10$IJLl.SQ7stN3hzKAE4IQvu8.AvB7cJ0OqttBKTEvVhfSoNTednhrC', 7, 1, NULL, '2020-05-22 01:37:34', '2020-05-22 01:37:34', NULL),
+(26, 'CASIA', 'casia@gmail.com', 'casia', '$2y$10$HzKllg4/5kx4eyJd4ninqejxb9yP7j97TcqivTUp/TSAgjcZIXCVG', 7, 1, NULL, '2020-05-22 01:38:21', '2020-05-22 01:38:21', NULL),
+(27, 'CASIA KARUNIA JAYA', 'ckj@gmail.com', 'ckj', '$2y$10$9hxr0hmtRL/JhRr3ICYAXOqpnUVruSDL.0CIfNLkZ9CpHL6j3vrle', 7, 1, NULL, '2020-05-22 01:39:50', '2020-05-22 01:39:50', NULL),
+(28, 'EVATA', 'evata@gmail.com', 'evata', '$2y$10$IsubA.KlVc7mY77/ddM6YuGpGYn1dMscFiD6bjyDcNkhV.z5An9wy', 7, 1, NULL, '2020-05-22 01:40:31', '2020-05-22 01:40:31', NULL),
+(29, 'KANIA 240', 'kania240@gmail.com', 'kania240', '$2y$10$wDnBeqGNJvTOtNnjjeNc/eAeUqjHrS/LzJ8NEu/IPi9O45VmkHJQS', 7, 1, NULL, '2020-05-22 01:41:16', '2020-05-22 01:41:16', NULL),
+(30, 'KANIA 410', 'kania410@gmail.com', 'kania410', '$2y$10$eVebQLgO.LERIOyOw80pD.9uExhyghF/EwOHuEfi7m1DWkKcx1hkS', 7, 1, NULL, '2020-05-22 01:43:00', '2020-05-22 01:43:00', NULL),
+(31, 'KANIA 512', 'kania512@gmail.com', 'kania512', '$2y$10$7YO/vUGJl1o0NAto3dam..APuoD/p3SdtgV4l2hsIRPaFUulYHjXe', 7, 1, NULL, '2020-05-22 01:43:46', '2020-05-22 01:43:46', NULL),
+(32, 'MARGOMULYO C-10', 'margo@gmail.com', 'margoc10', '$2y$10$h123bRTEKbyTH/wqDNP7m.TLAOx2L1yFWYZnHCmksLZn/Z/TKWlUe', 7, 1, NULL, '2020-05-22 01:45:36', '2020-05-22 01:47:19', NULL),
+(33, 'MARGOMULYO C-2', 'margo2@gmail.com', 'margoc2', '$2y$10$3.zAQBg0XbGM5K6/KXOJueYaDxXtyyWmejXh2/yBFV.nsjqdS1bQK', 7, 1, NULL, '2020-05-22 01:46:18', '2020-05-22 01:47:08', NULL),
+(34, 'MOJOTENGAH', 'mojo@gmail.com', 'mojotengah', '$2y$10$tMpZJnGNJzMW3KFSiRDUCe9tiZ/j7aJLO7TQHTYgGacfSvi17pB8G', 7, 1, NULL, '2020-05-22 01:48:02', '2020-05-22 01:48:02', NULL),
+(35, 'SATA', 'sata@gmail.com', 'sata', '$2y$10$LmmXv.ht2F9qJptAND8YeOdffhmIf3..f7cqSvO3Gga0jF5EvepWG', 7, 1, NULL, '2020-05-22 01:48:41', '2020-05-22 01:48:41', NULL),
+(36, 'SINAR 78', 'sinar@gmail.com', 'sinar78', '$2y$10$i3LFa3UGi2iwTQHNl2x36O1v43zPjEwa/VhRU/qTU/jkrFhIZSZQ.', 7, 1, NULL, '2020-05-22 01:49:12', '2020-05-22 01:49:12', NULL),
+(37, 'anik', 'anik@gmail.com', 'anik', '$2y$10$7S50SUlV2CT/lMkXcOLV/u9YJqIrloGrn29kx84Se3s/AYveDu.i2', 18, 1, 'o5M6by1l6r4WOT2fZwYJWHylvFZzUDZ7OwOBS0qIFpsNqUPSUyCdzhMcgbpN', '2020-05-22 02:39:34', '2020-05-22 02:39:34', NULL);
 
 --
 -- Indexes for dumped tables
@@ -749,16 +957,13 @@ ALTER TABLE `chp_details`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `customers_phone_unique` (`phone`),
-  ADD UNIQUE KEY `customers_tax_num_unique` (`tax_num`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `humans`
 --
 ALTER TABLE `humans`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `humans_phone_unique` (`phone`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `leaves`
@@ -859,25 +1064,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `calc`
 --
 ALTER TABLE `calc`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `humans`
 --
 ALTER TABLE `humans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
 
 --
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `materials`
@@ -925,13 +1130,13 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `salaries`
 --
 ALTER TABLE `salaries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -949,7 +1154,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables

@@ -64,6 +64,9 @@ class BownerHumansController extends Controller
 			$name = time() . $file->getClientOriginalName();
 			$file->move('images', $name);
 			$input['photo'] = $name;
+          }
+          else {
+            $input['photo'] = 'person-flat.png';
 		  } 
 
         $human = Human::create($input);
@@ -117,7 +120,7 @@ class BownerHumansController extends Controller
 
         $nilai = DB::Table('humans')
                 ->join('calc','humans.id','=','calc.humans_id')
-                ->select('humans.name','calc.total','calc.pdate')
+                ->select('humans.name','calc.total','calc.pdate','calc.no','humans.id')
                 ->where('humans.id', $id)
                 ->get();
 		

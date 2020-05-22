@@ -339,6 +339,109 @@ class CalculatorController extends Controller
     ///////////////UPDATE CONTROLER/////////////////////////////////
 
 
+     public function edithead($id) {
+
+         $now = Carbon::now()->format('m');
+
+         $human = DB::Table('humans')
+                ->where('id', $id)
+                ->get();
+
+            //return view('calculator.staffinput', ['human'=>$human]);
+             return view('calculator.edithead', array(
+            'human' => $human,
+           // 'job' => $job,
+            'now' => $now
+            ));
+    }
+
+    public function updhead(request $request, $id) {
+        $a = 10;
+        $b = 100;
+        $name = $request->name;
+        $role = $request->user;
+        $location = $request->location;
+
+        $knowledge = $request->knowledge;
+        $hasil1 = $knowledge*5/$b;
+        $wspeed = $request->wspeed;
+        $hasil2 = $wspeed*5/$b;
+        $wsoul = $request->wsoul;
+        $hasil3 = $wsoul*5/$b;
+        $wqual = $request->wqual;
+        $hasil4 = $wqual*5/$b;
+        $wpress = $request->wpress;
+        $hasil5 = $wpress*5/$b;
+        $teamwork = $request->teamwork;
+        $hasil6 = $teamwork*5/$b;
+        $communicate = $request->communicate;
+        $hasil7 = $communicate*5/$b;
+        $responbility = $request->responbility;
+        $hasil8 = $responbility*5/$b;
+        $learning = $request->learning;
+        $hasil9 = $learning*5/$b;
+        $dicipline = $request->dicipline;
+        $hasil10 = $dicipline*5/$b;
+        $initiative = $request->initiative;
+        $hasil11 = $initiative*5/$b;
+        $creativity = $request->creativity;
+        $hasil12 = $creativity*5/$b;
+        $honestly = $request->honestly;
+        $hasil13 = $honestly*5/$b;
+        $obedience = $request->obedience;
+        $hasil14 = $obedience*5/$b;
+        $loyalty = $request->loyalty;
+        $hasil15 = $loyalty*5/$b;
+        $organate = $request->organate;
+        $hasil16 = $organate*5/$b;
+        $coaching = $request->coaching;
+        $hasil17 = $coaching*5/$b;
+        $controling = $request->controling;
+        $hasil18 = $controling*5/$b;
+        $planing = $request->planing;
+        $hasil19 = $planing*5/$b;
+        $delegate = $request->delegate;
+        $hasil20 = $delegate*5/$b;
+        $hasil21 = $hasil1+$hasil2+$hasil3+$hasil4+$hasil5+$hasil6+$hasil7+$hasil8+$hasil9+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15+$hasil16+$hasil17+$hasil18+$hasil19+$hasil20;
+        $total =number_format($hasil21, 2);
+        $calc = DB::table('calc')
+            ->where('humans_id',$id)
+            ->update([
+
+            'knowledge'=> $hasil1,
+            'wspeed'=> $hasil2,
+            'wsoul'=> $hasil3,
+            'wqual'=> $hasil4,
+            'wpress'=> $hasil5,
+            'teamwork'=> $hasil6,
+            'communicate'=> $hasil7,
+            'responbility'=> $hasil8,
+            'learning' => $hasil9,
+            'dicipline' => $hasil10,
+            'initiative' => $hasil11,
+            'creativity' => $hasil12,
+            'honestly' => $hasil13,
+            'obedience' =>$hasil14,
+            'loyalty' => $hasil15,
+            'organate' => $hasil16,
+            'coaching' => $hasil17,
+            'controling' => $hasil18,
+            'planing' => $hasil19,
+            'delegate' => $hasil20,
+            'total' => $total,
+        ]);
+
+            if ($role == '3'){
+                return redirect('calculator/choice'); 
+            }
+
+            else {
+                return redirect('outlet/choice/'.$location);       
+            }
+
+    }
+
+
      public function updatestaff($id) {
 
          $now = Carbon::now()->format('m');
@@ -417,7 +520,7 @@ class CalculatorController extends Controller
             ]);
 
             if ($role == '3'){
-                return redirect('calculator/tampstaff'); 
+                return redirect('calculator/choice'); 
             }
 
             else {
@@ -499,6 +602,17 @@ class CalculatorController extends Controller
             else {
                 return redirect('outlet/choice/'.$location);       
             }
+
+    }
+
+
+    public function destroy($id, $calcid){
+
+        DB::table('calc')->where('no',$calcid)->delete();
+
+        Session::flash('deleted_message', 'penilaian telah dihapus');
+
+        return redirect('HRD/humans/'.$id.'/edit');
 
     }
 

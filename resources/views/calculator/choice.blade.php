@@ -143,26 +143,32 @@
             <div class="container">
                          
                               @if (Auth::user()->isOutlet())
-                              <a href="{{route('outlet.humans.edit', $q -> id)}}" class="dropdown-item">View Profile</a>
+                              <a href="{{route('outlet.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
+                                <span class="glyphicon glyphicon-user"></span>
+                              </a>
                               @endif
                               @if (Auth::user()->isHRD())
-                              <a href="{{route('HRD.humans.edit', $q -> id)}}"><span class="text-success glyphicon glyphicon-user">view Profile</span></a>
+                              <a href="{{route('HRD.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
+                                <span class="glyphicon glyphicon-user"></span>
+                              </a>
                               @endif
                               @if (Auth::user()->isBowner())
-                              <p><a href="{{route('bowner.humans.edit', $q -> id)}}"><span class="text-success glyphicon glyphicon-user"> view</span></a></p>
+                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
+                                <span class="glyphicon glyphicon-user" ></span>
+                               </a>
                               @endif
 
                               @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
                                     @if ($q->humans_level == 3)
-                                        <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>
                                     @endif
                                     @if ($q->humans_level == 2)
-                                        <a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="dropdown-item">Ulang penilaian</a>   
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>   
                                     @endif
                               @endif
                               @if (Auth::user()->isBowner() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
                                     @if ($q->humans_level == 1)
-                                        <p><a onclick="return confirm('Yakin ingin menilai ulang {{ $q->name }} untuk penilaian bulan ini? ?')" href="/outlet/edithead/{{ $q -> id }}"><span class="text-success glyphicon glyphicon-repeat"></span> Ulang</a></p>
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/bowner/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" ><span class="glyphicon glyphicon-repeat"></span></a>
                                     @endif
                               @endif
 
@@ -170,6 +176,7 @@
             </div>
         </td>
         </tr>
+
         
      @endforeach
       </tbody>
@@ -179,18 +186,15 @@
 
 
 </body>
-
  <script type="text/javascript">
   $(document).ready(function() {
     $('#dataTable').DataTable( {
         "order": [[ 0, "desc" ]]
     } );
 } );
-
-
-
-
 </script>
+
+
 
 
 

@@ -86,7 +86,7 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 		//store
 	Route::post('/bowner/storehead', 'CalculatorController@calculator');
 		//edit
-	Route::get('/bowner/edithead/{id}', 'CalculatorController@edithead');
+	Route::get('bowner/edithead/{id}', 'CalculatorController@edithead');
 		//update
 	Route::post('/bowner/storeedithead/{id}', 'CalculatorController@updhead');
 
@@ -269,10 +269,22 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 
 	//perfomances
 	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
+	Route::get('/HRD/calculator/delete/{id}/{calcid}', 'CalculatorController@destroy');
 	
 });
-
+	//Route import used by bowner
 	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
 	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
 	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+
+//DM route updated by trison
+Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){
+	Route::get('/DM', 'CustomerController@index');
+	Route::get('/DM/create', 'CustomerController@create');
+	Route::post('/DM/create/store', 'CustomerController@store');
+	Route::get('/DM/edit/{id}', 'CustomerController@edit');
+	Route::patch('/DM/update/{id}', 'CustomerController@update');
+	Route::delete('/DM/delete/{id}', 'CustomerController@destroy');
+	Route::get('/import_excel', 'ImportExcelController@index');
+});
 
