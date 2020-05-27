@@ -186,9 +186,7 @@
 	        <th>tanggal</th>
 	        <th>nilai</th>
 	        <th>kualitas</th>
-	        @if(auth::user() -> isHRD())
 	        <th>opsi</th>
-	        @endif
 	      </tr>
 	    </thead>
 	    <tfoot>
@@ -196,10 +194,8 @@
 	 	    <th>name</th>
 	        <th>tanggal</th>
 	        <th>nilai</th>
-	        <th>kualitas</th>
-	        @if(auth::user() -> isHRD())
+	        <th>kualitas</th>	   
 	        <th>opsi</th>
-	        @endif
 	      </tr>
 	  </tfoot>
 	  <tbody>
@@ -218,9 +214,15 @@
 
 			        document.getElementById("Kualitaschoice_{{ $loop->index }}").innerHTML = kua;
 			        </script>
-			 @if(auth::user() -> isHRD())
-	  		<td style=" text-align: center;"><a class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus penilaian" href="/HRD/calculator/delete/{{ $h -> id}}/{{ $h -> no }}" onclick="return confirm('Yakin ingin menghapus penilaian ini ?')"><span class="glyphicon glyphicon-remove"></span></a></td>
+			 
+	  		<td style=" text-align: center;">
+	  		@if(auth::user() -> isHRD())
+	  		<a class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus penilaian" href="/HRD/calculator/delete/{{ $h -> id}}/{{ $h -> no }}" onclick="return confirm('Yakin ingin menghapus penilaian ini ?')"><span class="glyphicon glyphicon-remove"></span></a>
 	  		@endif
+	  		<a class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="lihat detail" href="/HRD/calculator/detail/{{ $h -> id}}/{{ $h -> no }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+	  		</td>
+
+	  		
 	  	   </tr>
 	  	@endforeach
 	  </tbody>

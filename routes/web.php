@@ -39,7 +39,9 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 	});
 
 	// Human Resource route
+	Route::get('/bowner/humans/print', 'BownerHumansController@print');
 	Route::resource('/bowner/humans', 'BownerHumansController');
+	
 
 	// Salary route
 	Route::post('/bowner/salaries', 'BownerSalariesController@index');
@@ -188,6 +190,7 @@ Route::group(['middleware' => 'bowner_employee'], function() {
 	Route::post('customer', 'CustomerController@store')->name('customer');
 });
 
+
 // CHP route
 	Route::resource('chp', 'ChpController', ['except'=>['destroy']]);
 	Route::get('chp_delete/{chp_id}',[
@@ -215,7 +218,7 @@ Route::group(['middleware' => 'bowner_employee'], function() {
 
 
 
-
+//outlet middleware
 Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet', function(){
 			return view('bowner.index');
@@ -233,6 +236,9 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::resource('/outlet/leaves', 'LeavesController');
 
 	//calculator route
+	//see detail
+
+
 	//input
 	Route::get('/outlet/inputdriver/{location}/{id?}', 'CalculatorController@inputdriver');
 	Route::get('/outlet/inputstaff/{location}/{id?}', 'CalculatorController@inputstaff');
@@ -270,12 +276,19 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	//perfomances
 	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
 	Route::get('/HRD/calculator/delete/{id}/{calcid}', 'CalculatorController@destroy');
+
+	//see detail
+	Route::get('/HRD/calculator/detail/{id}/{calcid}', 'CalculatorController@detail');
 	
 });
+
+
+
 	//Route import used by bowner
 	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
 	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
 	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+
 
 //DM route updated by trison
 Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){

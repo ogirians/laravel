@@ -151,33 +151,33 @@ class CalculatorController extends Controller
         $delegate = $request->delegate;
         $hasil20 = $delegate*5/$b;
         $hasil21 = $hasil1+$hasil2+$hasil3+$hasil4+$hasil5+$hasil6+$hasil7+$hasil8+$hasil9+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15+$hasil16+$hasil17+$hasil18+$hasil19+$hasil20;
-        $total =number_format($hasil21, 2);
+        $total =number_format($hasil21, 1);
         $calc = DB::table('calc')->insert([
             'humans_id'=> $inhuman,
             'position'=>$request->position,
             'location'=>$location   ,
             'pdate'=>$request->pdate,
-            'knowledge'=> $hasil1,
-            'wspeed'=> $hasil2,
-            'wsoul'=> $hasil3,
-            'wqual'=> $hasil4,
-            'wpress'=> $hasil5,
-            'teamwork'=> $hasil6,
-            'communicate'=> $hasil7,
-            'responbility'=> $hasil8,
-            'learning' => $hasil9,
-            'dicipline' => $hasil10,
-            'initiative' => $hasil11,
-            'creativity' => $hasil12,
-            'honestly' => $hasil13,
-            'obedience' =>$hasil14,
-            'loyalty' => $hasil15,
-            'organate' => $hasil16,
-            'coaching' => $hasil17,
-            'controling' => $hasil18,
-            'planing' => $hasil19,
-            'delegate' => $hasil20,
-            'total' => $total,
+            'knowledge'=> round($hasil1),
+            'wspeed'=> round($hasil2),
+            'wsoul'=> round($hasil3),
+            'wqual'=> round($hasil4),
+            'wpress'=> round($hasil5),
+            'teamwork'=> round($hasil6),
+            'communicate'=> round($hasil7),
+            'responbility'=> round($hasil8),
+            'learning' => round($hasil9),
+            'dicipline' => round($hasil10),
+            'initiative' => round($hasil11),
+            'creativity' => round($hasil12),
+            'honestly' => round($hasil13),
+            'obedience' => round($hasil14),
+            'loyalty' => round($hasil15),
+            'organate' => round($hasil16),
+            'coaching' => round($hasil17),
+            'controling' => round($hasil18),
+            'planing' => round($hasil19),
+            'delegate' => round($hasil20),
+            'total' => round($total),
         ]);
 
         Session::flash('created_message', 'The score has been added');
@@ -225,24 +225,24 @@ class CalculatorController extends Controller
         $hasil15 = $loyalty*5/$b;
         
         $hasil21 = $hasil1+$hasil4+$hasil6+$hasil7+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
-        $total =number_format($hasil21, 2);
+        $total =number_format($hasil21, 1);
 
         $calc = DB::table('calc')->insert([
             'humans_id'=> $inhuman,
             'position'=>$request->position,
             'location'=>$request->location,
             'pdate'=>$request->pdate,
-            'knowledge'=> $hasil1,
-            'wqual'=> $hasil4,
-            'teamwork'=> $hasil6,
-            'communicate'=> $hasil7,
-            'dicipline' => $hasil10,
-            'initiative' => $hasil11,
-            'creativity' => $hasil12,
-            'honestly' => $hasil13,
-            'obedience' =>$hasil14,
-            'loyalty' => $hasil15,
-            'total' => $total,
+            'knowledge'=> round($hasil1),
+            'wqual'=> round($hasil4),
+            'teamwork'=> round($hasil6),
+            'communicate'=> round($hasil7),
+            'dicipline' => round($hasil10),
+            'initiative' => round($hasil11),
+            'creativity' => round($hasil12),
+            'honestly' => round($hasil13),
+            'obedience' => round($hasil14),
+            'loyalty' => round($hasil15),
+            'total' => round($total),
         ]);
 
         Session::flash('created_message', 'The score has been added');
@@ -298,28 +298,28 @@ class CalculatorController extends Controller
         $loyalty = $request->loyalty;
         $hasil15 = $loyalty*5/$b;
         $hasil21 = $hasil1+$hasil2+$hasil3+$hasil4+$hasil5+$hasil6+$hasil7+$hasil8+$hasil9+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
-        $total =number_format($hasil21, 2);
+        $total =round($hasil21);
         $calc = DB::table('calc')->insert([
             'humans_id'=> $inhuman,
             'position'=>$request->position,
             'location'=>$request->location,
             'pdate'=>$request->pdate,
-            'knowledge'=> $hasil1,
-            'wspeed'=> $hasil2,
-            'wsoul'=> $hasil3,
-            'wqual'=> $hasil4,
-            'wpress'=> $hasil5,
-            'teamwork'=> $hasil6,
-            'communicate'=> $hasil7,
-            'responbility'=> $hasil8,
-            'learning' => $hasil9,
-            'dicipline' => $hasil10,
-            'initiative' => $hasil11,
-            'creativity' => $hasil12,
-            'honestly' => $hasil13,
-            'obedience' =>$hasil14,
-            'loyalty' => $hasil15,
-            'total' => $total,
+            'knowledge'=> round($hasil1),
+            'wspeed'=> round($hasil2),
+            'wsoul'=> round($hasil3),
+            'wqual'=> round($hasil4),
+            'wpress'=> round($hasil5),
+            'teamwork'=> round($hasil6),
+            'communicate'=> round($hasil7),
+            'responbility'=> round($hasil8),
+            'learning' => round($hasil9),
+            'dicipline' => round($hasil10),
+            'initiative' => round($hasil11),
+            'creativity' => round($hasil12),
+            'honestly' => round($hasil13),
+            'obedience' =>round($hasil14),
+            'loyalty' => round($hasil15),
+            'total' => round($total),
         ]);
 
         Session::flash('created_message', 'The score has been added');
@@ -408,27 +408,27 @@ class CalculatorController extends Controller
             ->where('humans_id',$id)
             ->update([
 
-            'knowledge'=> $hasil1,
-            'wspeed'=> $hasil2,
-            'wsoul'=> $hasil3,
-            'wqual'=> $hasil4,
-            'wpress'=> $hasil5,
-            'teamwork'=> $hasil6,
-            'communicate'=> $hasil7,
-            'responbility'=> $hasil8,
-            'learning' => $hasil9,
-            'dicipline' => $hasil10,
-            'initiative' => $hasil11,
-            'creativity' => $hasil12,
-            'honestly' => $hasil13,
-            'obedience' =>$hasil14,
-            'loyalty' => $hasil15,
-            'organate' => $hasil16,
-            'coaching' => $hasil17,
-            'controling' => $hasil18,
-            'planing' => $hasil19,
-            'delegate' => $hasil20,
-            'total' => $total,
+            'knowledge'=> round($hasil1),
+            'wspeed'=> round($hasil2),
+            'wsoul'=> round($hasil3),
+            'wqual'=> round($hasil4),
+            'wpress'=> round($hasil5),
+            'teamwork'=> round($hasil6),
+            'communicate'=> round($hasil7),
+            'responbility'=> round($hasil8),
+            'learning' => round($hasil9),
+            'dicipline' => round($hasil10),
+            'initiative' => round($hasil11),
+            'creativity' => round($hasil12),
+            'honestly' => round($hasil13),
+            'obedience' => round($hasil14),
+            'loyalty' => round($hasil15),
+            'organate' => round($hasil16),
+            'coaching' => round($hasil17),
+            'controling' => round($hasil18),
+            'planing' => round($hasil19),
+            'delegate' => round($hasil20),
+            'total' => round($total),
         ]);
 
             if ($role == '3'){
@@ -501,22 +501,22 @@ class CalculatorController extends Controller
             $calc = DB::table('calc')
                 ->where('humans_id',$id)
                 ->update([
-                'knowledge'=> $hasil1,
-                'wspeed'=> $hasil2,
-                'wsoul'=> $hasil3,
-                'wqual'=> $hasil4,
-                'wpress'=> $hasil5,
-                'teamwork'=> $hasil6,
-                'communicate'=> $hasil7,
-                'responbility'=> $hasil8,
-                'learning' => $hasil9,
-                'dicipline' => $hasil10,
-                'initiative' => $hasil11,
-                'creativity' => $hasil12,
-                'honestly' => $hasil13,
-                'obedience' =>$hasil14,
-                'loyalty' => $hasil15,
-                'total' => $total,
+                'knowledge'=> round($hasil1),
+                'wspeed'=> round($hasil2),
+                'wsoul'=> round($hasil3),
+                'wqual'=> round($hasil4),
+                'wpress'=> round($hasil5),
+                'teamwork'=> round($hasil6),
+                'communicate'=> round($hasil7),
+                'responbility'=> round($hasil8),
+                'learning' => round($hasil9),
+                'dicipline' => round($hasil10),
+                'initiative' => round($hasil11),
+                'creativity' => round($hasil12),
+                'honestly' => round($hasil13),
+                'obedience' =>round($hasil14),
+                'loyalty' => round($hasil15),
+                'total' => round($total),
             ]);
 
             if ($role == '3'){
@@ -582,17 +582,17 @@ class CalculatorController extends Controller
             $calc = DB::table('calc')
             ->where('humans_id', $id)
             ->update([
-                'knowledge'=> $hasil1,
-                'wqual'=> $hasil4,
-                'teamwork'=> $hasil6,
-                'communicate'=> $hasil7,
-                'dicipline' => $hasil10,
-                'initiative' => $hasil11,
-                'creativity' => $hasil12,
-                'honestly' => $hasil13,
-                'obedience' =>$hasil14,
-                'loyalty' => $hasil15,
-                'total' => $total,
+                'knowledge'=> round($hasil1),
+                'wqual'=> round($hasil4),
+                'teamwork'=> round($hasil6),
+                'communicate'=> round($hasil7),
+                'dicipline' => round($hasil10),
+                'initiative' => round($hasil11),
+                'creativity' => round($hasil12),
+                'honestly' => round($hasil13),
+                'obedience' => round($hasil14),
+                'loyalty' => round($hasil15),
+                'total' => round($total),
             ]);
 
             if ($role == '3'){
@@ -613,6 +613,24 @@ class CalculatorController extends Controller
         Session::flash('deleted_message', 'penilaian telah dihapus');
 
         return redirect('HRD/humans/'.$id.'/edit');
+
+    }
+
+      public function detail($id, $calcid){
+
+         $human = DB::Table('humans')
+                ->where('id', $id)
+                ->get();
+
+
+        $calc = DB::table('calc')->where('no',$calcid)->get();
+        
+        return view('calculator.detail', array(
+            'human' => $human,
+           // 'job' => $job,
+            'calc' => $calc
+            ));
+
 
     }
 

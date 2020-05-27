@@ -380,7 +380,7 @@
 
 
 <center>
-    <a class="btn btn-success" id="Cek" onclick="show()">cek</a>
+    <a class="btn btn-success" id="Cek" onclick="showstaff()">cek</a>
     <button type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
 </center>
 

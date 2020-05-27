@@ -10,7 +10,7 @@
 <form action="/bowner/storeedithead/{{ $h -> id }}" method="post" >
 
 
-<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL STAFF/ADMIN</h2>
+<h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL KEPALA/KABAG</h2>
 
 <br>
 

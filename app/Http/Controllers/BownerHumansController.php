@@ -13,6 +13,7 @@ use App\Hques;
 use DB;
 use Carbon\Carbon;
 use DateTime;
+use PDF;
 
 class BownerHumansController extends Controller
 {
@@ -21,7 +22,7 @@ class BownerHumansController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($location = null)
+    public function index()
     {
         //
 
@@ -220,6 +221,15 @@ class BownerHumansController extends Controller
 
         return redirect('HRD/humans');
         
+    }
+
+    public function print()
+    {  
+        $humans = DB::table('humans')->get();
+       
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('bowner.humans.print',['humans'=>$humans]);
+        return $pdf->download('karyawan-pdf');
+
     }
 
 }

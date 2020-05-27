@@ -47,13 +47,13 @@
 			  <tr>
 			  	<td><img width="75px" src="{{ url('images/'.$human->photo) }}"></td>
 				@if (Auth::user()->isHRD())
-				<td><a href="{{route('HRD.humans.edit', $human->id)}}">{{$human->name}}</a></td>
+				<td>{{$human->name}}</td>
 				@endif
 				@if (Auth::user()->isBowner())
-				<td><a href="{{route('bowner.humans.edit', $human->id)}}">{{$human->name}}</a></td>
+				<td>{{$human->name}}</td>
 				@endif
 				@if (Auth::user()->isOutlet())
-				<td><a href="{{route('outlet.humans.edit', $human->id)}}">{{$human->name}}</a></td>
+				<td>{{$human->name}}</td>
 				@endif
 				<td>{{$human->job}}</td>
 				<td>{{date("d-m-Y", strtotime($human->start_day))}}</td>
@@ -73,20 +73,6 @@
 	  	</table>
 	</div>
 
-	 @if (Auth::user()->isHRD())
-	<a class="btn btn-info" href="{{ url('/HRD/humans/create') }}">Add Employee</a>
-	<a class="btn btn-info" href="{{ url('/HRD/humans/print') }}">Add Employee</a>
-	 @endif
-
-	 @if (Auth::user()->isBowner())
-	<a class="btn btn-info" href="{{ url('/bowner/humans/create') }}">Add Employee</a>
-	<a class="btn btn-info" href="{{ url('/bowner/humans/print') }}">Print</a>
-	 @endif
-
-	 @if (Auth::user()->isOutlet())
-	 <a class="btn btn-info" href="{{ url('/outlet/humans/create') }}">Add Employee</a>
-	 <a class="btn btn-info" href="{{ url('/outlet/humans/print') }}">Export PDF</a>
-	 @endif
 </div>
 
  <script type="text/javascript">

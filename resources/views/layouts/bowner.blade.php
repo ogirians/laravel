@@ -77,7 +77,7 @@ $p = 0;
                             </li>
                             @endif
                             
-							@if(Auth::user()->isBowner())
+							<!--@if(Auth::user()->isBowner())
                             <li><a><i class="fa fa-hourglass-1"></i> Production <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.production.index') }}">All Productions</a></li>
@@ -95,7 +95,7 @@ $p = 0;
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.chart.index') }}">All Charts</a></li>
                                 </ul>
-                            </li>       
+                            </li>-->       
 							
 							<li><a><i class="fa fa-users"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -117,21 +117,21 @@ $p = 0;
                                 </ul>
                             </li>
 							
-							<li><a><i class="fa fa-truck"></i> Supplier <span class="fa fa-chevron-down"></span></a>
+							<!--<li><a><i class="fa fa-truck"></i> Supplier <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.supplier.index') }}">All Suppliers</a></li>
                                     <li><a href="{{ route('bowner.supplier.create') }}">Add Suppliers</a></li>
                                 </ul>
                             </li>	
 
-                            <!--<li><a><i class="fa fa-opencart"></i> CHP <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-opencart"></i> CHP <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('chp.index') }}">Cek</a></li>
                                 </ul>
                             </li>-->	
                             @endif
 
-                            @if (Auth::user()->role_id == '3' || Auth::user()->role_id == '4')
+                            <!--@if (Auth::user()->role_id == '3' || Auth::user()->role_id == '4')
                             <li><a><i class="fa fa-opencart"></i> Sale <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('chp.index') }}">ek</a></li>
@@ -165,7 +165,7 @@ $p = 0;
                                     <li><a href="{{ route('bowner.customer.create') }}">Create Customer</a></li>
                                 </ul>
                             </li>      
-                            @endif
+                            @endif-->
 
                             @if (Auth::user()->isHRD())
                             <li><a><i class="fa fa-users"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
@@ -246,6 +246,7 @@ $p = 0;
                                 <span class="fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                
                                 <!--
                                 <li><a href="javascript:;"> Profile</a></li>
                                 <li>
