@@ -223,13 +223,31 @@ class BownerHumansController extends Controller
         
     }
 
-    public function print()
-    {  
-        $humans = DB::table('humans')->get();
+    //public function print()
+    //{  
+      //  $humans = DB::table('humans')->get();
        
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('bowner.humans.print',['humans'=>$humans]);
-        return $pdf->download('karyawan-pdf');
+        //$pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('bowner.humans.print',['humans'=>$humans]);
+        //return $pdf->download('karyawan-pdf');
 
+    //}
+
+    public function print()
+    {
+        
+        $humans = DB::table('humans')->get();
+        
+        //view()->share('humans',$humans);
+
+        //if($request->has('download')){
+            // Set extra option
+            //PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+            // pass view file
+            $pdf = PDF::loadView('bowner.humans.print',['humans'=>$humans]);
+            // download pdf
+            return $pdf->download('karyawan.pdf');
+        //}
+        //return view('index');
     }
 
 }

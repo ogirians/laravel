@@ -6,11 +6,12 @@
 
 
 	<h1>Employees Data</h1>
+	<a class="btn btn-info" href="{{ route('generate-pdf',['download'=>'pdf']) }}">Download PDF</a>
 	<div class="table-responsive">
 		<table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
 	    <thead>
 	      <tr>
-	        <th>foto</th>
+	        
 	        <th>Name</th>
 	        <th>Job Title</th>
 	        <th>Start Day</th>
@@ -45,25 +46,19 @@
 		@if($humans)
 			@foreach($humans as $human)
 			  <tr>
-			  	<td><img width="75px" src="{{ url('images/'.$human->photo) }}"></td>
-				@if (Auth::user()->isHRD())
+			  	
+				
 				<td>{{$human->name}}</td>
-				@endif
-				@if (Auth::user()->isBowner())
-				<td>{{$human->name}}</td>
-				@endif
-				@if (Auth::user()->isOutlet())
-				<td>{{$human->name}}</td>
-				@endif
+			
 				<td>{{$human->job}}</td>
 				<td>{{date("d-m-Y", strtotime($human->start_day))}}</td>
 				<td>{{date("d-m-Y", strtotime($human->birth))}}</td>
 				<td>{{$human->gender}}</td>
 				<td>{{$human->address1 .','. $human->address2}}</td>
 				<td>{{$human->phone}}</td>
-				 @if (Auth::user()->isHRD())
+				
 	        	<td>{{$human->location}}</td>
-	        	@endif
+	        	
 				<td>{{$human->idnum}}</td>
 			  </tr>
 			@endforeach

@@ -80,12 +80,12 @@
 
 	 @if (Auth::user()->isBowner())
 	<a class="btn btn-info" href="{{ url('/bowner/humans/create') }}">Add Employee</a>
-	<a class="btn btn-info" href="{{ url('/bowner/humans/print') }}">Print</a>
+	<a class="btn btn-info" href="{{ route('generate-pdf',['download'=>'pdf']) }}">Download PDF</a>
 	 @endif
 
 	 @if (Auth::user()->isOutlet())
 	 <a class="btn btn-info" href="{{ url('/outlet/humans/create') }}">Add Employee</a>
-	 <a class="btn btn-info" href="{{ url('/outlet/humans/print') }}">Export PDF</a>
+	 <a class="btn btn-info" href="{{ route('generate-pdf',['download'=>'pdf']) }}">Download PDF</a>
 	 @endif
 </div>
 

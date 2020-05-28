@@ -380,7 +380,7 @@
               <div class="form-group"> 
                 <input type="number" class="form-control" name="organate" required="required" id="organate"  min="0" max="100">
               </div></td>
-            <td><p id="organatekuali"></p></td>
+            <td><p id="orgakuali"></p></td>
         </tr>
 
 
@@ -394,7 +394,7 @@
               <div class="form-group">
                 <input type="number" class="form-control" name="coaching" required="required" id="coaching"  min="0" max="100">
               </div></td>
-            <td><p id="coachingkuali"></p></td>
+            <td><p id="coakuali"></p></td>
         </tr>
 
         <tr>
@@ -407,7 +407,7 @@
               <div class="form-group">
                 <input type="number" class="form-control" name="controling" required="required" id="controling"  min="0" max="100">
               </div></td>
-            <td><p id="controlkuali"></p></td>
+            <td><p id="contkuali"></p></td>
         </tr>
 
          <tr>
@@ -432,8 +432,8 @@
             <td>
               <div class="form-group">
                 <input type="number" class="form-control" name="delegate" required="required" id="delegate"  min="0" max="100">
-              </div></td>
-            <td><p id="delegatekuali"></p></td>
+              </div></td> 
+            <td><p id="delekuali"></p></td>
         </tr>
 
         <tr>
@@ -448,7 +448,7 @@
             <td></td>
             <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
             <td>25%</td>
-            <td style="text-align: center;"><p id="rata3"></p></td>
+            <td style="text-align: center;"><p id="rata222"></p></td>
             <td></td>
         </tr>
 

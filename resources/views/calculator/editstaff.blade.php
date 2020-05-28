@@ -375,6 +375,33 @@
          
          
     </table>
+    <label>Rekomendasi hasil penilaian </label>
+         <div class="form-group">
+              <label>1. Wawasan Pekerjaan </label>
+              <textarea class="form-control" name="rekomend1" id="rekomend1" required="required"></textarea>
+          </div>
+            
+            <div class="form-group">
+              <label>2. Kemampuan dan kualitas hasil kerja</label>
+              <textarea class="form-control" name="rekomend2" id="rekomend2" required="required"></textarea>
+          </div>
+
+          <div class="form-group">
+              <label>3. Tanggung jawab</label>
+              <textarea class="form-control" name="rekomend3" id="rekomend3" required="required"></textarea>
+          </div>
+
+           <div class="form-group">
+              <label>4. Ketaatan</label>
+              <textarea class="form-control" name="rekomend4" id="rekomend4" required="required"></textarea>
+          </div>
+
+          <div class="form-group">
+              <label>5. disiplin</label>
+              <textarea class="form-control" name="rekomend5" id="rekomend5" required="required"></textarea>
+          </div>
+
+
 </div> 
 </div>
 

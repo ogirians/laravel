@@ -95,6 +95,8 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 	//choice
 	Route::get('/calculator/choice/{location?}', 'CalculatorController@choice');
 
+	Route::get('/bowner/calculator/detail/{id}/{calcid}', 'CalculatorController@detail');
+
 
 
 	/*
@@ -242,19 +244,26 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	//input
 	Route::get('/outlet/inputdriver/{location}/{id?}', 'CalculatorController@inputdriver');
 	Route::get('/outlet/inputstaff/{location}/{id?}', 'CalculatorController@inputstaff');
+	Route::get('/outlet/inputhead/{location}/{id?}', 'CalculatorController@inputhead');
 
 	//store
 	Route::post('/outlet/storedrive', 'CalculatorController@calculatordriver');
 	Route::post('/outlet/storestaff', 'CalculatorController@calculatorstaff');
+	Route::post('/outlet/storehead', 'CalculatorController@calculator');
 
+	Route::get('/outlet/detail/{id}/{calcid}', 'CalculatorController@detail');
+
+
+		//update
+	
 	//edit
 	Route::get('/outlet/editstaff/{id}', 'CalculatorController@updatestaff');
 	Route::get('/outlet/editdriver/{id}', 'CalculatorController@updatedriver');
-
+	Route::get('/outlet/edithead/{id}', 'CalculatorController@edithead');
 	//update
 	Route::post('/outlet/storeeditdriver/{id}', 'CalculatorController@upddriver');
 	Route::post('/outlet/storeeditstaff/{id}', 'CalculatorController@updstaff');
-
+	Route::post('/outlet/storeedithead/{id}', 'CalculatorController@updhead');
 	//perfomance
 	Route::get('/outlet/choice/{location?}', 'CalculatorController@choice');
 
@@ -288,6 +297,7 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
 	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
 	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+	Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
 
 
 //DM route updated by trison

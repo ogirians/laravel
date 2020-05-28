@@ -120,6 +120,7 @@
 						 {!! Form::label('level', 'level:') !!}					 
 						 <select class="form-control" id="exampleFormControlSelect1" name="humans_level" required="required" value="{{ old('location') }}">
 						 	  <option>{{ $human-> humans_level }}</option>           
+						 	  <option>A</option>           
 				              <option>1</option>
 				              <option>2</option>
 				              <option>3</option>       
@@ -136,10 +137,9 @@
       			<input type="hidden" class="form-control" name="outlet" required="required" value="{{ Auth::user()-> name }}">
   			</div>
 			
-			 @if (Auth::user()->isOutlet() || Auth::user()->isHRD())
-			<div class="form-group">
-				<button onclick="return confirm('simpan perubahan?')" type="submit" class="btn btn-primary col-sm-2">save changes </button>
-			</div>
+
+			@if (Auth::user()->isOutlet() || Auth::user()->isHRD())
+
 			@endif
 			{!! Form::close() !!}
 			
@@ -162,6 +162,7 @@
 
 			<div class="alert alert-warning" style="max-width: 300px; float: right;">
 	  		<strong>Catatan :</strong>
+	  		<p>level A => Manajer / GA</p>
 			<p>level 1 => Kepala Outlet / Kepala Bagian</p>
 			<p>level 2 => Staff / Admin </p>
 			<p>level 3 => Driver / Helper </p>
@@ -218,8 +219,18 @@
 	  		<td style=" text-align: center;">
 	  		@if(auth::user() -> isHRD())
 	  		<a class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus penilaian" href="/HRD/calculator/delete/{{ $h -> id}}/{{ $h -> no }}" onclick="return confirm('Yakin ingin menghapus penilaian ini ?')"><span class="glyphicon glyphicon-remove"></span></a>
-	  		@endif
+
 	  		<a class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="lihat detail" href="/HRD/calculator/detail/{{ $h -> id}}/{{ $h -> no }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+	  		@endif
+
+	  		@if(auth::user() -> isOutlet())
+	  		<a class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="lihat detail" href="/outlet/detail/{{ $h -> id}}/{{ $h -> no }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+	  		@endif
+
+	  		@if(auth::user() -> isBowner())
+	  		<a class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="lihat detail" href="/bowner/calculator/detail/{{ $h -> id}}/{{ $h -> no }}"><span class="glyphicon glyphicon-list-alt"></span></a>
+	  		
+	  		@endif
 	  		</td>
 
 	  		

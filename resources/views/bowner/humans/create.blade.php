@@ -115,7 +115,8 @@
 		 {!! Form::label('Level', 'Level:') !!}
 		 
 		 <select class="form-control" id="exampleFormControlSelect1" name="humans_level" required="required" value="{{ old('location') }}">
-		 	  <option>pilih level</option>           
+		 	  <option>pilih level</option>
+		 	  <option>A</option>           
               <option>1</option>
               <option>2</option>
               <option>3</option>       
@@ -126,7 +127,8 @@
 
 	<div class="alert alert-warning" style="max-width: 300px; float: right;">
 	  		<strong>Catatan :</strong>
-			<p>level 1 => Kepala Outlet / Kepala Bagian</p>
+	  		<p>level A => Manajer / GA / Kepala Outlet</p>
+			<p>level 1 => Kepala Bagian</p>
 			<p>level 2 => Staff / Admin </p>
 			<p>level 3 => Driver / Helper </p>
 	</div>

@@ -24,7 +24,7 @@ class CalculatorController extends Controller
                     ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans_level')
                     ->groupBy('humans.id','humans.name','humans.job','humans.location','humans_level')
                     ->where('humans.location',$location)
-                    ->where('humans.job','not like',"%".$e."%")
+                    ->where('humans.humans_level','!=',"A")
                     ->where('humans.humans_status','1')
                     ->get();
         }
@@ -203,26 +203,39 @@ class CalculatorController extends Controller
 
         $inhuman = $request->id;     
 
+        $knowledge2 = $request->knowledge2;       
+        $wqual2 = $request->wqual2;     
+        $teamwork2 = $request->teamwork2;    
+        $communicate2 = $request->communicate2;   
+        $dicipline2 = $request->dicipline2;  
+        $initiative2 = $request->initiative2; 
+        $creativity2 = $request->creativity2;         
+        $honestly2 = $request->honestly2;
+        $obedience2 = $request->obedience2;   
+        $loyalty2 = $request->loyalty2;
+ 
+
         $knowledge = $request->knowledge;
-        $hasil1 = $knowledge*15/$b; 
+        $hasil1 = ( ($knowledge + $knowledge2)/2 )*15/$b; 
         $wqual = $request->wqual;
-        $hasil4 = $wqual*5/$b;
+        $hasil4 = ( ($wqual + $wqual2)/2) *5/$b;
         $teamwork = $request->teamwork;
-        $hasil6 = $teamwork*15/$b;
+        $hasil6 = (( $teamwork + $teamwork2)/2) *15/$b;
         $communicate = $request->communicate;
-        $hasil7 = $communicate*10/$b;
+        $hasil7 = (($communicate + $communicate2)/2)*10/$b;
         $dicipline = $request->dicipline;
-        $hasil10 = $dicipline*10/$b;
+        $hasil10 = (($dicipline + $communicate2)/2)*10/$b;
         $initiative = $request->initiative;
-        $hasil11 = $initiative*5/$b;
+        $hasil11 = (($initiative + $initiative2)/2)*5/$b;
         $creativity = $request->creativity;
-        $hasil12 = $creativity*10/$b;        
+        $hasil12 = (($creativity+ $creativity2)/2)*10/$b;        
         $honestly = $request->honestly;
-        $hasil13 = $honestly*10/$b;
+        $hasil13 = (($honestly + $honestly2)/2)*10/$b;
         $obedience = $request->obedience;
-        $hasil14 = $obedience*15/$b;
+        $hasil14 = (($obedience + $obedience2)/2)*15/$b;
         $loyalty = $request->loyalty;
-        $hasil15 = $loyalty*5/$b;
+        $hasil15 = (($loyalty + $loyalty2)/2)*5/$b;
+
         
         $hasil21 = $hasil1+$hasil4+$hasil6+$hasil7+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
         $total =number_format($hasil21, 1);
@@ -243,6 +256,8 @@ class CalculatorController extends Controller
             'obedience' => round($hasil14),
             'loyalty' => round($hasil15),
             'total' => round($total),
+            'rekomend1' => $request->rekomend1,
+            'rekomend2' => $request->rekomend2,
         ]);
 
         Session::flash('created_message', 'The score has been added');
@@ -320,6 +335,11 @@ class CalculatorController extends Controller
             'obedience' =>round($hasil14),
             'loyalty' => round($hasil15),
             'total' => round($total),
+            'rekomend1' => $request->rekomend1,
+            'rekomend2' => $request->rekomend2,
+            'rekomend3' => $request->rekomend3,
+            'rekomend4' => $request->rekomend4,
+            'rekomend5' => $request->rekomend4,
         ]);
 
         Session::flash('created_message', 'The score has been added');
@@ -517,6 +537,11 @@ class CalculatorController extends Controller
                 'obedience' =>round($hasil14),
                 'loyalty' => round($hasil15),
                 'total' => round($total),
+                'rekomend1' => $request->rekomend1,
+                'rekomend2' => $request->rekomend2,
+                'rekomend3' => $request->rekomend3,
+                'rekomend4' => $request->rekomend4,
+                'rekomend5' => $request->rekomend4,
             ]);
 
             if ($role == '3'){
@@ -553,29 +578,42 @@ class CalculatorController extends Controller
             $role = $request->user;
             $location = $request->location;
 
-            $inhuman = $request->id;     
+            $inhuman = $request->id;    
 
-            $knowledge = $request->knowledge;
-            $hasil1 = $knowledge*15/$b; 
-            $wqual = $request->wqual;
-            $hasil4 = $wqual*5/$b;
-            $teamwork = $request->teamwork;
-            $hasil6 = $teamwork*15/$b;
-            $communicate = $request->communicate;
-            $hasil7 = $communicate*10/$b;
-            $dicipline = $request->dicipline;
-            $hasil10 = $dicipline*10/$b;
-            $initiative = $request->initiative;
-            $hasil11 = $initiative*5/$b;
-            $creativity = $request->creativity;
-            $hasil12 = $creativity*10/$b;        
-            $honestly = $request->honestly;
-            $hasil13 = $honestly*10/$b;
-            $obedience = $request->obedience;
-            $hasil14 = $obedience*15/$b;
-            $loyalty = $request->loyalty;
-            $hasil15 = $loyalty*5/$b;
-            
+        $knowledge2 = $request->knowledge2;       
+        $wqual2 = $request->wqual2;     
+        $teamwork2 = $request->teamwork2;    
+        $communicate2 = $request->communicate2;   
+        $dicipline2 = $request->dicipline2;  
+        $initiative2 = $request->initiative2; 
+        $creativity2 = $request->creativity2;         
+        $honestly2 = $request->honestly2;
+        $obedience2 = $request->obedience2;   
+        $loyalty2 = $request->loyalty2;
+ 
+
+        $knowledge = $request->knowledge;
+        $hasil1 = ( ($knowledge + $knowledge2)/2 )*15/$b; 
+        $wqual = $request->wqual;
+        $hasil4 = ( ($wqual + $wqual2)/2) *5/$b;
+        $teamwork = $request->teamwork;
+        $hasil6 = (( $teamwork + $teamwork2)/2) *15/$b;
+        $communicate = $request->communicate;
+        $hasil7 = (($communicate + $communicate2)/2)*10/$b;
+        $dicipline = $request->dicipline;
+        $hasil10 = (($dicipline + $communicate2)/2)*10/$b;
+        $initiative = $request->initiative;
+        $hasil11 = (($initiative + $initiative2)/2)*5/$b;
+        $creativity = $request->creativity;
+        $hasil12 = (($creativity+ $creativity2)/2)*10/$b;        
+        $honestly = $request->honestly;
+        $hasil13 = (($honestly + $honestly2)/2)*10/$b;
+        $obedience = $request->obedience;
+        $hasil14 = (($obedience + $obedience2)/2)*15/$b;
+        $loyalty = $request->loyalty;
+        $hasil15 = (($loyalty + $loyalty2)/2)*5/$b;
+
+
             $hasil21 = $hasil1+$hasil4+$hasil6+$hasil7+$hasil10+$hasil11+$hasil12+$hasil13+$hasil14+$hasil15;
             $total =number_format($hasil21, 2);
 

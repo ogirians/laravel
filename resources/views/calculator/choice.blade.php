@@ -103,12 +103,15 @@
                   @if($q->humans_level == 2)
                        <a href="/outlet/inputstaff/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>               
                   @endif   
+                   @if($q->humans_level == 1)
+                       <a href="/outlet/inputhead/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>               
+                  @endif  
               </td>            
           @endif  
 
           @if (Auth::user()->isBowner())
             
-              @if($q->humans_level == 1)
+              @if($q->humans_level == 'A')
               <td style="text-align: center;">  
                       <a href="/bowner/inputhead/{{ Auth::user()->name }}/{{ $q -> id }}" class="btn btn-xs btn-primary">Buat penilaian</a>  
               </td>    
@@ -165,9 +168,12 @@
                                     @if ($q->humans_level == 2)
                                         <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>   
                                     @endif
+                                    @if ($q->humans_level == 1)
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>   
+                                    @endif
                               @endif
                               @if (Auth::user()->isBowner() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
-                                    @if ($q->humans_level == 1)
+                                    @if ($q->humans_level == 'A')
                                         <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/bowner/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" ><span class="glyphicon glyphicon-repeat"></span></a>
                                     @endif
                               @endif

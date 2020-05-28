@@ -19,14 +19,20 @@
 @foreach ($human as $h)
 
  @if (Auth::user()->isHRD())
-<a class="btn btn-success" href="/HRD/calculator/tampstaff/">Kembali</a>
+<a class="btn btn-success" href="{{route('HRD.humans.edit', $h->id)}}">Kembali</a>
 <form action="/HRD/calculator/storestaff" method="post" >
  @endif
 
- @if (Auth::user()->isOutlet())
-<a class="btn btn-success" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
+  @if (Auth::user()->isBowner())
+<a class="btn btn-success" href="{{route('bowner.humans.edit', $h->id)}}">Kembali</a>
 <form action="/outlet/storeeditstaff/{{ $h -> id }}" method="post" >
  @endif
+
+ @if (Auth::user()->isOutlet())
+<a class="btn btn-success" href="{{route('outlet.humans.edit', $h->id)}}">Kembali</a>
+<form action="/outlet/storeeditstaff/{{ $h -> id }}" method="post" >
+ @endif
+
 
 @if ($h -> humans_level == 1)
 <h2 class="font-weight-bold"> HASIL PENILAIAN KERJA KARYAWAN LEVEL KEPALA/KABAG</h2>
@@ -77,7 +83,7 @@
     </div>
   </div>
   
-   @if (Auth::user()->isBowner())
+   
   <div class="row">
     <div class="col col-lg-2" style="min-width: 100px;">
        <label for="exampleFormControlSelect1" style="margin-top: 5px;">LOKASI</label>
@@ -91,7 +97,7 @@
       <br>
     </div>
   </div>
-  @endif
+
 
 
 
@@ -261,6 +267,35 @@
             <td style="text-align: center;"><p style="font-size: 25px; color: red;" id="tkualitas"></p></td>
         </tr>     
     </table>
+
+
+<script type="text/javascript">
+ $(document).ready(function(){
+
+        var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
+        var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
+        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
+        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
+        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
+        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
+        var creativity   = JSON.parse("{{ json_encode ($c -> creativity ) }}");
+        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
+        var obedience  = JSON.parse("{{ json_encode ($c -> obedience) }}");
+        var loyalty   = JSON.parse("{{ json_encode ($c -> loyalty ) }}");
+
+        var rata2 = knowledge  +  wqual + teamwork + communicate + dicipline + initiative + creativity 
+        + honestly + obedience + loyalty;
+
+        var gtotal = rata2 ;
+        var tkuali = kualitas(gtotal);
+        
+        document.getElementById("gtotal").innerHTML = gtotal;
+        document.getElementById("tkualitas").innerHTML = tkuali;
+      });
+</script>
+
+
+
 @endforeach
 
 </div> 
@@ -618,36 +653,29 @@
    $(document).ready(function(){
 
  
-
         var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
         var wspeed  = JSON.parse("{{ json_encode ($c -> wspeed) }}");
         var wsoul  = JSON.parse("{{ json_encode ($c -> wsoul) }}");
         var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
         var wpress  = JSON.parse("{{ json_encode ($c -> wpress) }}");
 
+       
+
+        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
+        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
+        var responbility  = JSON.parse("{{ json_encode ($c -> responbility) }}");
+        var learning  = JSON.parse("{{ json_encode ($c -> learning) }}");
+        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
+        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
+        var creativity  = JSON.parse("{{ json_encode ($c -> creativity) }}");
+        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
+        var obedience  = JSON.parse("{{ json_encode ($c ->  obedience) }}");
+        var loyalty  = JSON.parse("{{ json_encode ($c -> loyalty) }}");
+
         var rata2 = knowledge  +  wspeed   +  wsoul  +  wqual  +  wpress ;
-
-        var teamwork = parseInt($("#teamwork").val());
-        var communicate = parseInt($("#communicate").val());
-        var responbility = parseInt($("#responbility").val());
-        var learning = parseInt($("#learning").val());
-        var dicipline = parseInt($("#dicipline").val());
-        var initiative = parseInt($("#initiative").val());
-        var creativity = parseInt($("#creativity").val());
-        var honestly = parseInt($("#honestly").val());
-        var obedience = parseInt($("#obedience").val());
-        var loyalty = parseInt($("#loyalty").val());
-
         var rata22 = teamwork + communicate  + responbility + learning + dicipline  + initiative  + creativity + honestly  + obedience  + loyalty;   
-        
         var gtotal = rata2 + rata22;
-
-        //bagian A
-
-        //bagian B
-   
         var tkuali = kualitas(gtotal);
-
         document.getElementById("rata2").innerHTML = rata2;
         document.getElementById("rata22").innerHTML = rata22;
         document.getElementById("gtotal").innerHTML = gtotal;
@@ -823,7 +851,7 @@
             <td></td>
             <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
            <td class="tengah">25%</td>
-            <td  style="text-align: center;"><p id="rata"></p></td>
+            <td  style="text-align: center;"><p id="rata2"></p></td>
             <td></td>
         </tr>
 
@@ -982,7 +1010,7 @@
             <td></td>
             <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
             <td class="tengah">50%</td>
-            <td style="text-align: center;"><p id="rata2"></p></td>
+            <td style="text-align: center;"><p id="rata22"></p></td>
             <td></td>
         </tr>
 
@@ -1071,7 +1099,7 @@
             <td></td>
             <td style="text-align: center;">TOTAL (BOBOT X RATA-RATA)</td>
            <td class="tengah">25%</td>
-            <td style="text-align: center;"><p id="rata3"></p></td>
+            <td style="text-align: center;"><p id="rata222"></p></td>
             <td></td>
         </tr>
 
@@ -1091,6 +1119,51 @@
 
 </div> 
 </div>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+
+ 
+        var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
+        var wspeed  = JSON.parse("{{ json_encode ($c -> wspeed) }}");
+        var wsoul  = JSON.parse("{{ json_encode ($c -> wsoul) }}");
+        var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
+        var wpress  = JSON.parse("{{ json_encode ($c -> wpress) }}");
+
+       
+
+        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
+        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
+        var responbility  = JSON.parse("{{ json_encode ($c -> responbility) }}");
+        var learning  = JSON.parse("{{ json_encode ($c -> learning) }}");
+        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
+        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
+        var creativity  = JSON.parse("{{ json_encode ($c -> creativity) }}");
+        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
+        var obedience  = JSON.parse("{{ json_encode ($c ->  obedience) }}");
+        var loyalty  = JSON.parse("{{ json_encode ($c -> loyalty) }}");
+
+
+        var organate  = JSON.parse("{{ json_encode ($c -> organate) }}");
+        var coaching  = JSON.parse("{{ json_encode ($c -> coaching) }}");
+        var controling  = JSON.parse("{{ json_encode ($c -> controling) }}");
+        var planing  = JSON.parse("{{ json_encode ($c -> planing) }}");
+        var delegate  = JSON.parse("{{ json_encode ($c -> delegate) }}");
+        
+
+        var rata2 = knowledge  +  wspeed   +  wsoul  +  wqual  +  wpress ;
+        var rata22 = teamwork + communicate  + responbility + learning + dicipline  + initiative  + creativity + honestly  + obedience  + loyalty; 
+        var rata222 = organate  +  coaching   +  controling  +  planing  +  delegate ; 
+        
+        var gtotal = rata2 + rata22 + rata222;
+        var tkuali = kualitas(gtotal);
+        document.getElementById("rata2").innerHTML = rata2;
+        document.getElementById("rata22").innerHTML = rata22;
+        document.getElementById("rata222").innerHTML = rata222;
+        document.getElementById("gtotal").innerHTML = gtotal;
+        document.getElementById("tkualitas").innerHTML = tkuali;
+      });
+</script>
 @endforeach
 
 @endif
