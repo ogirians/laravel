@@ -2,52 +2,14 @@
 
 @section('content')
 <body class="align-content-center">
-<!--
-<h2 class="font-weight-bold"><font size="7">Menu Input Performances</font></h2>
-  
-    @if (Auth::user()->isOutlet()) 
-    <font size="4">Select One:</font>
-    <ul class="list-inline">
-    <li>
-    <form action="/outlet/inputstaff/{{ Auth::user()->name }}" method=" " class=" "> 
-    <button type="submit" class="btn btn-primary btn-lg" name="multiplication" value="*">Input Staff Performance</button>
-    </form>
-    </li>
-    <li>
-    <form action="/outlet/inputdriver" method=" " class=" ">
-    <button type="submit" class="btn btn-primary btn-lg" name="multiplication" value="*">Input Driver/Helper Performance</button>
-    </form>
-    </li>
-     @endif
 
-    
-    @if (Auth::user()->isBowner())
-    <li>
-    <form action="/outlet/tamp" method=" " class=" ">
-    <form action="/HRD/calculator/tamp" method=" " class=" ">  
-    <button type="submit" class="btn btn-primary btn-lg" name="multiplication" value="*">Input Head 
-    </form>
-    </li>
-    Division/Office Performance</button>
-    @endif 
-
-    </ul>
-    
-<br>
-<br>
--->
 @include('includes.message')
 
 <h1> Perfomance Board </h1>
 
 
 <div class="table-responsive">
-        
-        <!-- <p>Cari Nilai karyawan:</p>
-           <form action="/calculator/caristaff" method="GET">
-               <input type="text" name="cari" placeholder="Cari Masalah .." value="{{ old('cari') }}">
-               <input type="submit" value="CARI">
-           </form>-->
+
 
   <table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0" >
       <thead>
@@ -146,56 +108,109 @@
             <div class="container">
                          
                               @if (Auth::user()->isOutlet())
-                              <a href="{{route('outlet.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
-                                <span class="glyphicon glyphicon-user"></span>
+                              <a href="{{route('outlet.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view" style="margin-top: 3px;">
+                                <span class="glyphicon glyphicon-user" ></span>
                               </a>
                               @endif
+
                               @if (Auth::user()->isHRD())
-                              <a href="{{route('HRD.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
+                              <a href="{{route('HRD.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view" style="margin-top: 3px;">
                                 <span class="glyphicon glyphicon-user"></span>
                               </a>
                               @endif
+
                               @if (Auth::user()->isBowner())
-                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view">
+                               <a href="{{route('bowner.humans.edit', $q -> id)}}" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat profil" id="view" style="margin-top: 3px;">
                                 <span class="glyphicon glyphicon-user" ></span>
                                </a>
                               @endif
 
+
+
+                                @if ($now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
+
+                                   @if ($q->humans_level == 3)
+                                        <a href="/drivernilaipdf/{{ $q -> id }}/{{ $q->no }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>
+                                         
+                                    @endif
+
+                                    @if ($q->humans_level == 2)
+                                        <a href="/staffnilaipdf/{{ $q -> id }}/{{ $q->no }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>          
+                                           
+                                    @endif
+
+                                    @if ($q->humans_level == 1 || $q->humans_level == 'A' )
+                                        <a href="/headnilaipdf/{{ $q -> id }}/{{ $q->no }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;"><span class="glyphicon glyphicon-download"></span></a>  
+                                   
+                                    @endif
+
+
+
+                                  @endif
+ 
+
+
                               @if (Auth::user()->isOutlet() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
                                     @if ($q->humans_level == 3)
-                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>
+                                       
+
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editdriver/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="ulang penilaian" id="ulang" style="margin-top: 3px;"><span class="glyphicon glyphicon-repeat"></span></a>
+
+                                         
                                     @endif
                                     @if ($q->humans_level == 2)
-                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>   
+                                      
+
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/editstaff/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" style="margin-top: 3px;"><span class="glyphicon glyphicon-repeat"></span></a>
+
+                                           
                                     @endif
                                     @if ($q->humans_level == 1)
-                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang"><span class="glyphicon glyphicon-repeat"></span></a>   
-                                    @endif
-                              @endif
-                              @if (Auth::user()->isBowner() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
-                                    @if ($q->humans_level == 'A')
-                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/bowner/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" ><span class="glyphicon glyphicon-repeat"></span></a>
+                                      
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/outlet/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" style="margin-top: 3px;"><span class="glyphicon glyphicon-repeat"></span></a> 
+
+                                   
                                     @endif
                               @endif
 
-                          
+
+                              @if (Auth::user()->isBowner() && $now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
+                                    @if ($q->humans_level == 'A')
+                                        <a onclick="return confirm('Yakin ingin menilai ulang -{{ $q->name }}- untuk penilaian bulan ini? ?')" href="/bowner/edithead/{{ $q -> id }}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ulang penilaian" id="ulang" style="margin-top: 3px;"><span class="glyphicon glyphicon-repeat"></span>
+                                        </a>
+                                    @endif
+                              @endif
+
+
+
+            
+                            
             </div>
         </td>
         </tr>
-
+  @endforeach
         
-     @endforeach
+     
       </tbody>
       </table>
   </div>
 
+@if (Auth::user()->isOutlet())
+ <a class="btn btn-info" href="/listnilaipdf/{{ Auth::user()->name }}">Download PDF</a>
+@endif
 
+@if (Auth::user()->isHRD())
+ <a class="btn btn-info" href="/listnilaipdf">Download PDF</a>
+@endif
 
+@if (Auth::user()->isBowner())
+ <a class="btn btn-info" href="/listnilaipdf">Download PDF</a>
+@endif
 </body>
  <script type="text/javascript">
   $(document).ready(function() {
     $('#dataTable').DataTable( {
-        "order": [[ 0, "desc" ]]
+        "order": [[ 2, "desc" ]]
     } );
 } );
 </script>

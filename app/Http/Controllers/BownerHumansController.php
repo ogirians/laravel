@@ -40,7 +40,9 @@ class BownerHumansController extends Controller
     public function create()
     {
         //
-		return view('bowner.humans.create');
+        $location = Human::select('location')->groupBy('location')->get();
+
+		return view('bowner.humans.create', compact('location'));
     }
 
     /**
@@ -118,6 +120,7 @@ class BownerHumansController extends Controller
 		$day = date("d-m-Y", strtotime($human->start_day));
         $day_birth = date("d-m-Y", strtotime($human->birth));
 
+        $location = Human::select('location')->groupBy('location')->get();
 
         $nilai = DB::Table('humans')
                 ->join('calc','humans.id','=','calc.humans_id')
@@ -125,7 +128,7 @@ class BownerHumansController extends Controller
                 ->where('humans.id', $id)
                 ->get();
 		
-		return view('bowner.humans.edit', compact('human', 'day', 'day_birth','nilai'));
+		return view('bowner.humans.edit', compact('human', 'day', 'day_birth','nilai','location'));
     }
 
     /**
@@ -192,14 +195,16 @@ class BownerHumansController extends Controller
 
 
      
-    public function resign($id)
+    public function resign(request $request)
     {   
+
+
         $start = DB::Table('humans')
         ->select('start_day')
-        ->where('id', $id)
+        ->where('id', $request->id)
         ->first();
 
-        $end = Carbon::now();
+        $end = $request->waktu;
 
  
         $datetime1 = new DateTime($start->start_day);
@@ -208,12 +213,12 @@ class BownerHumansController extends Controller
         //$interval->format('%Y-%m-%d %H:%i:%s');
        
         leave::create([
-            'human_id' => $id,
+            'human_id' => $request->id,
             'leave_date' => $end,
             'days' =>  $interval->format('%D days, %m months, %Y years'),          
         ]);
 
-        Human::where('id',$id)
+        Human::where('id',$request->id)
             ->update(['humans_Status' => 0]);
 
 

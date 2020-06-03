@@ -12,6 +12,10 @@
   .tengah {
       text-align: center
   }
+
+  .Rekomendasi textarea {
+min-width: 400px;
+  }
 </style>
 
 <body class="align-content-center">
@@ -267,6 +271,28 @@
             <td style="text-align: center;"><p style="font-size: 25px; color: red;" id="tkualitas"></p></td>
         </tr>     
     </table>
+</div> 
+<div class="Rekomendasi">
+<label> Rekomendasi hasil penilaian</label>
+<div class="row">
+  <div class="col-lg-6">
+          <div class="form-group">
+          <label>Penilai 1 </label>
+              <textarea class="form-control" name="rekomend1" id="rekomend1" required="required" disabled>{{ $c -> rekomend1}}</textarea>
+          </div>
+   </div>  
+   <div class="col-lg-6">     
+            <div class="form-group">
+              <label>Penilai 2</label>
+              <textarea class="form-control" name="rekomend2" id="rekomend2" required="required" disabled>{{ $c -> rekomend2 }}</textarea>
+          </div>
+    </div>
+</div>
+</div>
+
+
+<a class="btn btn-info" href="/drivernilaipdf/{{$h -> id}}/{{ $c ->no }}">Download PDF</a>
+
 
 
 <script type="text/javascript">
@@ -298,7 +324,7 @@
 
 @endforeach
 
-</div> 
+
 </div> 
 
 
@@ -449,7 +475,7 @@
             <td>
              <label for="wpress">5. Prestasi kerja dibawah tekanan</label>
             </td>
-             <td class="tengah">10%</td>
+             <td class="tengah">5%</td>
              <td class="tengah">
           
               <p id="wpress"> {{ $c -> wpress}}</p>
@@ -647,6 +673,48 @@
          
     </table>
 </div> 
+<div class="Rekomendasi">
+<label> Rekomendasi hasil penilaian :</label>
+<div class="row">
+    <div class="col-lg-6">
+          <div class="form-group">
+          <label>1. Wawasan Pekerjaan </label>
+              <textarea class="form-control" name="rekomend1" id="rekomend1" required="required" disabled>{{ $c -> rekomend1}}</textarea>
+          </div>
+      </div>
+      <div class="col-lg-6">
+            <div class="form-group">
+              <label>2. Kemampuan dan kualitas hasil kerja</label>
+              <textarea class="form-control" name="rekomend2" id="rekomend2" required="required" disabled>{{ $c -> rekomend2 }}</textarea>
+          </div>
+        </div>
+</div>
+<div class="row">
+     <div class="col-lg-6">
+          <div class="form-group">
+              <label>3. Tanggung jawab</label>
+              <textarea class="form-control" name="rekomend3" id="rekomend3" required="required" disabled>{{ $c -> rekomend3 }}</textarea>
+          </div>
+    </div>
+     <div class="col-lg-6">
+           <div class="form-group">
+              <label>4. Ketaatan</label>
+              <textarea class="form-control" name="rekomend4" id="rekomend4" required="required" disabled>{{ $c -> rekomend4 }}</textarea>
+          </div>
+      </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+          <div class="form-group">
+              <label>5. disiplin</label>
+              <textarea class="form-control" name="rekomend5" id="rekomend5" required="required" disabled>{{ $c -> rekomend5 }}</textarea>
+          </div>
+    </div>
+</div>
+</div>
+
+<a class="btn btn-info" href="/staffnilaipdf/{{ $h -> id }}/{{ $c ->no }}">Download PDF</a>
+
 </div>
 
 <script type="text/javascript">
@@ -1022,7 +1090,7 @@
             <td></td>
         </tr>
 
-            <tr>
+        <tr>
             <td></td>
             <td>
               <label for="initiative">1. Pengorganisasian</label>
@@ -1119,6 +1187,8 @@
 
 </div> 
 </div>
+
+<a class="btn btn-info" href="/headnilaipdf/{{ $h -> id }}/{{ $c->no }}">Download PDF</a>
 
 <script type="text/javascript">
    $(document).ready(function(){

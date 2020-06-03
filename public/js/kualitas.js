@@ -24,7 +24,7 @@ function kualitas(angka) {
         }
 
         if (angka >= 20  && angka <= 29 ) {
-            var str = "D" ;
+            var str = "E" ;
             var clr = str.fontcolor("#660000");
             return clr;
         }

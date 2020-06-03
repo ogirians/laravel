@@ -40,6 +40,7 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 
 	// Human Resource route
 	Route::get('/bowner/humans/print', 'BownerHumansController@print');
+	Route::get('/bowner/export_excel/excelkaryawan', 'ExportEmployeeController@excelkaryawan')->name('bowner.export_excel.excelkaryawan');
 	Route::resource('/bowner/humans', 'BownerHumansController');
 	
 
@@ -60,6 +61,10 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 	]);
 
 	// Customer route
+	//Route import used by bowner
+	Route::get('bowner/import_excel', 'ImportExcelController@index');	//update import by trison
+	Route::post('bowner/import_excel/import', 'ImportExcelController@import');	//update import by trison
+	Route::get('bowner/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
 	Route::resource('bowner/customer', 'CustomerController', ['except'=>['store']]);
 
 	// Order route
@@ -278,9 +283,10 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 			return view('bowner.index');
 		});	
 	//humans route
-	Route::get('/HRD/humans/resign/{id}', 'BownerHumansController@resign');
+	Route::post('/HRD/humans/resign', 'BownerHumansController@resign');
 	Route::resource('/HRD/humans', 'BownerHumansController');
 	Route::resource('/HRD/leaves', 'LeavesController');
+	Route::get('/HRD/export_excel/excelkaryawan', 'ExportEmployeeController@excelkaryawan')->name('bowner.export_excel.excelkaryawan');
 
 	//perfomances
 	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
@@ -288,16 +294,21 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 
 	//see detail
 	Route::get('/HRD/calculator/detail/{id}/{calcid}', 'CalculatorController@detail');
+	Route::get('/HRD/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
 	
 });
 
 
 
-	//Route import used by bowner
-	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
-	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
-	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+	
 	Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
+
+	//export choice
+	Route::get('/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
+	Route::get('/staffnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@staffcetak_pdf');
+	Route::get('/drivernilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@drivercetak_pdf');
+	Route::get('/headnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@headcetak_pdf');
+	
 
 
 //DM route updated by trison
@@ -308,6 +319,6 @@ Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){
 	Route::get('/DM/edit/{id}', 'CustomerController@edit');
 	Route::patch('/DM/update/{id}', 'CustomerController@update');
 	Route::delete('/DM/delete/{id}', 'CustomerController@destroy');
-	Route::get('/import_excel', 'ImportExcelController@index');
+	Route::get('DM/import_excel', 'ImportExcelController@index');
 });
 

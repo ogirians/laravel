@@ -181,7 +181,7 @@
             <td>
              <label for="wpress">5. Prestasi kerja dibawah tekanan</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
                <div class="form-group">
                  <input type="number" class="form-control" name="wpress" id="wpress" required="required"  min="0" max="100">

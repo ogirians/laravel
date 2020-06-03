@@ -5,7 +5,7 @@
   @include('includes.message')
   
   <div class="container">
-   <h3 align="center">Import & Export Data Customer</h3>
+   <h3 align="center">Import & Export Data Karyawan</h3>
     <br />
    @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -24,30 +24,9 @@
            <strong>{{ $message }}</strong>
    </div>
    @endif
-   <form method="post" enctype="multipart/form-data" action="{{ url('/import_excel/import') }}">
-    {{ csrf_field() }}
-    <div class="form-group">
-     <table class="table">
-      <tr>
-       <td width="40%" align="right"><label>Select File for Upload</label></td>
-       <td width="30">
-        <input type="file" name="select_file" />
-       </td>
-       <td width="30%" align="left">
-        <input type="submit" name="upload" class="btn btn-primary" value="Upload">
-       </td>
-      </tr>
-      <tr>
-       <td width="40%" align="right"></td>
-       <td width="30"><span class="text-muted">.xls, .xslx</span></td>
-       <td width="30%" align="left"></td>
-      </tr>
-     </table>
-    </div>
-   </form>
    
    <div align="center">
-    <a href="{{ route('bowner.export_excel.excel') }}" class="btn btn-success">Export to Excel</a>
+    <a href="{{ route('export_excel.excelkaryawan') }}" class="btn btn-success">Export to Excel</a>
    </div>
    
    <br />

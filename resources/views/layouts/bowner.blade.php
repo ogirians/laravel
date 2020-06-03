@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Business Owner Panel</title>
+    <title>Indoberks Investama Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 
@@ -113,7 +113,7 @@ $p = 0;
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.customer.index') }}">All Customers</a></li>
                                     <li><a href="{{ route('bowner.customer.create') }}">Create Customer</a></li>
-                                    <li><a href="http://localhost:8000/import_excel">Import & Export</a> </li>
+                                    <li><a href="http://localhost:8000/bowner/import_excel">Import & Export</a> </li>
                                 </ul>
                             </li>
 							
@@ -199,7 +199,7 @@ $p = 0;
                                    
                                     <li><a href="http://localhost:8000/DM">All Customers</a></li>
                                     <li><a href="http://localhost:8000/DM/create">Create Customers</a></li>
-                                    <li><a href="http://localhost:8000/import_excel">Import</a> </li>
+                                    <li><a href="http://localhost:8000/DM/import_excel">Import & Export</a> </li>
                                        
                                     </li>
                                 </ul>
@@ -348,7 +348,7 @@ $p = 0;
 
 <script src= "/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script src="/js/cek.js"></script>
 </body>
 </html>

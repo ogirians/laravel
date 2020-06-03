@@ -4,7 +4,6 @@
 
 	@include('includes.message')
 
-
 	<h1>Employees Data</h1>
 	<div class="table-responsive">
 		<table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
@@ -75,17 +74,17 @@
 
 	 @if (Auth::user()->isHRD())
 	<a class="btn btn-info" href="{{ url('/HRD/humans/create') }}">Add Employee</a>
-	<a class="btn btn-info" href="{{ url('/HRD/humans/print') }}">Add Employee</a>
-	 @endif
+	<a href="{{ url('/HRD/export_excel/excelkaryawan') }}" class="btn btn-success">Export to Excel</a>
+   	 @endif
 
 	 @if (Auth::user()->isBowner())
 	<a class="btn btn-info" href="{{ url('/bowner/humans/create') }}">Add Employee</a>
-	<a class="btn btn-info" href="{{ route('generate-pdf',['download'=>'pdf']) }}">Download PDF</a>
-	 @endif
+	<a href="{{ url('/bowner/export_excel/excelkaryawan') }}" class="btn btn-success">Export to Excel</a>
+   	 @endif
 
 	 @if (Auth::user()->isOutlet())
-	 <a class="btn btn-info" href="{{ url('/outlet/humans/create') }}">Add Employee</a>
-	 <a class="btn btn-info" href="{{ route('generate-pdf',['download'=>'pdf']) }}">Download PDF</a>
+
+	 
 	 @endif
 </div>
 

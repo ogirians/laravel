@@ -21,8 +21,8 @@ class CalculatorController extends Controller
 
             $karyawan3 = DB::table('humans')
                     ->leftjoin('calc','humans.id','=','calc.humans_id')
-                    ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans_level')
-                    ->groupBy('humans.id','humans.name','humans.job','humans.location','humans_level')
+                    ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level','calc.no')
+                    ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level', 'calc.no')
                     ->where('humans.location',$location)
                     ->where('humans.humans_level','!=',"A")
                     ->where('humans.humans_status','1')
@@ -33,8 +33,8 @@ class CalculatorController extends Controller
 
                 $karyawan3 = DB::table('humans')
                       ->leftjoin('calc','humans.id','=','calc.humans_id')
-                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans_level')
-                      ->groupBy('humans.id','humans.name','humans.job','humans.location','humans_level')
+                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level','calc.no')
+                      ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level', 'calc.no')
                       ->where('humans.humans_status','1')
                       ->get();
                
