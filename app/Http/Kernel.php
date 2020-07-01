@@ -59,6 +59,8 @@ class Kernel extends HttpKernel
         'HRD' => \App\Http\Middleware\HRD::class,
         'outlet' => \App\Http\Middleware\outlet::class,
         'DM' => \App\Http\Middleware\DM::class,
+        'EDP' => \App\Http\Middleware\EDP::class,
+        'FM' => \App\Http\Middleware\FM::class,
 
     ];
 }

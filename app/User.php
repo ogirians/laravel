@@ -102,5 +102,19 @@ class User extends Authenticatable
         return false;
     }
   
-    
+    public function isEDP()
+    {
+        if($this->role->name == "EDP" && $this->is_active == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function isFM()
+    {
+        if($this->role->name == "FM" && $this->is_active == 1){
+            return true;
+        }
+        return false;
+    }
 }

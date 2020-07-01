@@ -24,7 +24,7 @@
            <strong>{{ $message }}</strong>
    </div>
    @endif
-   <form method="post" enctype="multipart/form-data" action="{{ url('/import_excel/import') }}">
+   <form method="post" enctype="multipart/form-data" action="{{ url('/DM/import_excel/import') }}">
     {{ csrf_field() }}
     <div class="form-group">
      <table class="table">

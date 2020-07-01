@@ -16,6 +16,13 @@ Route::get('/', function () {
 
 });
 
+Route::get('/register', function () {
+    return redirect('/register');
+
+});
+
+
+
 
 //Route::auth();
 
@@ -320,5 +327,27 @@ Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){
 	Route::patch('/DM/update/{id}', 'CustomerController@update');
 	Route::delete('/DM/delete/{id}', 'CustomerController@destroy');
 	Route::get('DM/import_excel', 'ImportExcelController@index');
+	Route::post('DM/import_excel/import', 'ImportExcelController@import');
 });
 
+Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
+	Route::get('/FM', 'CustomerController@index');
+	Route::get('/FM/create', 'CustomerController@create');
+	Route::post('/FM/create/store', 'CustomerController@store');
+	Route::get('/FM/edit/{id}', 'CustomerController@edit');
+	Route::patch('/FM/update/{id}', 'CustomerController@update');
+	Route::delete('/FM/delete/{id}', 'CustomerController@destroy');
+	Route::get('FM/import_excel', 'ImportExcelController@index');
+	Route::post('FM/import_excel/import', 'ImportExcelController@import');
+});
+
+//route roofcalc
+Route::get('/roofcalc', 'RoofingController@index');
+Route::get('/roofcalc/custom', 'RoofingController@custom');
+Route::get('/roofcalc/perisai', 'RoofingController@perisai');
+Route::get('/roofcalc/limas', 'RoofingController@limas');
+Route::get('/roofcalc/jurai', 'RoofingController@jurai');
+Route::post('/roofcalc/perisaipost', 'RoofingController@perisaipost');
+Route::post('/roofcalc/limaspost', 'RoofingController@limaspost');
+Route::post('/roofcalc/juraipost', 'RoofingController@juraipost');
+Route::get('/roofcalc/hasil', 'RoofingController@hasil');

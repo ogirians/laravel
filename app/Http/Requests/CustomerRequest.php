@@ -26,8 +26,8 @@ class CustomerRequest extends FormRequest
         $customerId = $this->route('customer');
 
         return [
-            'phone' => 'required|digits_between:9,11|unique:customers,phone,'.$customerId,
-            'tax_num' => 'required|numeric|unique:customers,tax_num,'.$customerId,
+            'phone' => 'required|digits_between:9,12|unique:customers,phone,'.$customerId,
+            'tax_num' => 'numeric|unique:customers,tax_num,'.$customerId,
         ];
     }
 
