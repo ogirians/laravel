@@ -23,15 +23,15 @@ function kualitas(angka) {
             return clr;
         }
 
-        if (angka >= 20  && angka <= 29 ) {
-            var str = "D" ;
+        if (angka >= 1  && angka <= 29 ) {
+            var str = "E" ;
             var clr = str.fontcolor("#660000");
             return clr;
         }
 
 
-        if (angka <= 19  ) {
-            return "parah sih parah";
+        if (angka <= 1 ) {
+            return "Z-Z";
         }
 
     };

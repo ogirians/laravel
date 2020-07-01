@@ -42,6 +42,25 @@
 	
 	<div class="row">
 		<div class="form-group col-sm-6">
+			{!! Form::label('is_head', 'akun_kepala (*):') !!}
+			{!! Form::select('is_head', array(0 => 'tidak', 1 => 'ya'), 0, ['class'=>'form-control']) !!}
+		</div>
+
+		
+		 <div class="form-group col-sm-6">
+		 {!! Form::label('kepala', 'kepala :') !!}
+		 
+		 <select class="form-control" id="exampleFormControlSelect1" name="head" required="required" value="{{ old('location') }}">
+              <option>-</option>
+              @foreach ($head as $h)
+              <option>{{ $h -> name }}</option>
+              @endforeach
+              </select>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-sm-6">
 			{!! Form::label('photo_id', 'Photo:') !!}
 			{!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
 		</div>

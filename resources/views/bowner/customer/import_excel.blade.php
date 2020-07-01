@@ -24,7 +24,7 @@
            <strong>{{ $message }}</strong>
    </div>
    @endif
-   <form method="post" enctype="multipart/form-data" action="{{ url('/import_excel/import') }}">
+   <form method="post" enctype="multipart/form-data" action="{{ url('/DM/import_excel/import') }}">
     {{ csrf_field() }}
     <div class="form-group">
      <table class="table">
@@ -47,7 +47,7 @@
    </form>
    
    <div align="center">
-    <a href="{{ route('export_excel.excel') }}" class="btn btn-success">Export to Excel</a>
+    <a href="{{ route('DM.export_excel.excel') }}" class="btn btn-success">Export to Excel</a>
    </div>
    
    <br />
@@ -61,7 +61,7 @@
           <th>City</th>
           <th>Province</th>
           <th>Phone</th>
-          <th>Tax Code</th>
+          <!--<th>Tax Code</th>-->
         </tr>
       </thead>
       <tbody>
@@ -75,7 +75,7 @@
         <td>{{$customer->city}}</td>
         <td>{{$customer->province}}</td>
         <td>{{$customer->phone}}</td>
-        <td>{{$customer->tax_num}}</td>
+        <!--<td>{{$customer->tax_num}}</td>-->
         </tr>
       @endforeach
     @endif  

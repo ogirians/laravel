@@ -43,8 +43,14 @@ class HomeController extends Controller
                      elseif (Auth::user()->isDM()) {
                         return redirect('/DM');
                      }
-                  } else {
-                      return view('home');
-                    } 
+                     elseif (Auth::user()->isFM()) {
+                        return redirect('/FM');
+                     }
+                     elseif (Auth::user()->isEDP()) {
+                        return redirect('/EDP');
+                     }
+            } else {
+                 return view('home');
+            } 
         } 
     }

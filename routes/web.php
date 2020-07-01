@@ -37,10 +37,16 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 	Route::get('/bowner', function(){
 		return view('bowner.index');
 	});
+	
+	
 
 	// Human Resource route
 	Route::get('/bowner/humans/print', 'BownerHumansController@print');
+	Route::get('/bowner/export_excel/excelkaryawan', 'ExportEmployeeController@excelkaryawan')->name('bowner.export_excel.excelkaryawan');
 	Route::resource('/bowner/humans', 'BownerHumansController');
+	
+	//update password
+	Route::resource('/bowner/users', 'PasswordController', ['only'=>['edit', 'update']]);
 	
 
 	// Salary route
@@ -60,6 +66,10 @@ Route::group(['middleware'=>'bowner', 'as' => 'bowner.'], function(){
 	]);
 
 	// Customer route
+	//Route import used by bowner
+	Route::get('bowner/import_excel', 'ImportExcelController@index');	//update import by trison
+	Route::post('bowner/import_excel/import', 'ImportExcelController@import');	//update import by trison
+	Route::get('bowner/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
 	Route::resource('bowner/customer', 'CustomerController', ['except'=>['store']]);
 
 	// Order route
@@ -268,6 +278,9 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet/choice/{location?}', 'CalculatorController@choice');
 
 	Route::post('/import_excel/import', 'CustomerController@import');
+	
+	//update password
+	Route::resource('/outlet/users', 'OPassController', ['only'=>['edit', 'update']]);
 
 });
 
@@ -278,9 +291,10 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 			return view('bowner.index');
 		});	
 	//humans route
-	Route::get('/HRD/humans/resign/{id}', 'BownerHumansController@resign');
+	Route::post('/HRD/humans/resign', 'BownerHumansController@resign');
 	Route::resource('/HRD/humans', 'BownerHumansController');
 	Route::resource('/HRD/leaves', 'LeavesController');
+	Route::get('/HRD/export_excel/excelkaryawan', 'ExportEmployeeController@excelkaryawan')->name('bowner.export_excel.excelkaryawan');
 
 	//perfomances
 	Route::get('/HRD/calculator/choice/{location?}', 'CalculatorController@choice');
@@ -288,16 +302,25 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 
 	//see detail
 	Route::get('/HRD/calculator/detail/{id}/{calcid}', 'CalculatorController@detail');
+	Route::get('/HRD/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
+	
+	//update password
+	Route::resource('/HRD/users', 'HPassController', ['only'=>['edit', 'update']]);
 	
 });
 
 
 
-	//Route import used by bowner
-	Route::get('/import_excel', 'ImportExcelController@index');	//update import by trison
-	Route::post('/import_excel/import', 'ImportExcelController@import');	//update import by trison
-	Route::get('/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');	//update import by trison
+	
 	Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
+
+	//export choice
+	Route::get('/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
+	
+	Route::get('/staffnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@staffcetak_pdf');
+	Route::get('/drivernilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@drivercetak_pdf');
+	Route::get('/headnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@headcetak_pdf');
+	
 
 
 //DM route updated by trison
@@ -308,6 +331,102 @@ Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){
 	Route::get('/DM/edit/{id}', 'CustomerController@edit');
 	Route::patch('/DM/update/{id}', 'CustomerController@update');
 	Route::delete('/DM/delete/{id}', 'CustomerController@destroy');
-	Route::get('/import_excel', 'ImportExcelController@index');
+	Route::get('DM/import_excel', 'ImportExcelController@index');
+	Route::post('DM/import_excel/import', 'ImportExcelController@import');
+	Route::get('DM/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');
+	
+	//update password
+	Route::resource('/DM/users', 'DPassController', ['only'=>['edit', 'update']]);
 });
+
+
+//punya bambang intan
+Route::get('/BFM', 'MasalahController@frontindex');
+Route::get('/detail/{no}', 'MasalahController@detail');
+
+//punya emil
+
+Route::get('/berita', 'Sheet1Controller@frontindex');
+Route::get('/berita/{outlet}','Sheet1Controller@pelaku2');
+
+Route::get('/beritanp','NpController@frontindexnp');
+Route::get('/beritanp/{outlet}','NpController@pelakunp2');
+Route::get('/all','Sheet1Controller@beritaall');
+
+
+//BFM migrate route
+
+Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
+    //Pajak
+    
+	Route::get('/FM','Sheet1Controller@dashboard');
+	
+    Route::get('/dosa', 'Sheet1Controller@index');
+    Route::get('/master', 'Sheet1Controller@master');
+    Route::get('/dosa/tambah','Sheet1Controller@tambah');
+    Route::post('/dosa/store','Sheet1Controller@store');
+    Route::get('/dosa/edit/{no}','Sheet1Controller@edit');
+    Route::post('/dosa/update','Sheet1Controller@update');
+    Route::get('/dosa/delete/{no}','Sheet1Controller@delete');
+    Route::get('/dosa/cari', 'Sheet1Controller@cari');
+    
+    Route::get('/dosa/stats', 'Sheet1Controller@instats');
+    Route::get('/dosa/storedate','Sheet1Controller@storedate');
+    
+    Route::get('/dosa/filter', 'Sheet1Controller@parah');
+    Route::get('/dosa/filter/{start?}/{end?}/{pos?}','Sheet1Controller@filter');
+    Route::get('/dosa/{outlet}','Sheet1Controller@pelaku');
+    
+    
+    
+    //nonPajak
+     Route::get('/dosanp', 'NpController@index');
+    Route::get('/master', 'NpController@master');
+    Route::get('/dosanp/tambah','NpController@tambah');
+    Route::post('/dosanp/store','NpController@store');
+    Route::get('/dosanp/edit/{no}','NpController@edit');
+    Route::post('/dosanp/update','NpController@update');
+    
+    Route::get('/dosanp/delete/{no}','NpController@delete');
+    Route::get('/dosanp/filter','NpController@parah');
+    Route::get('/dosanp/filter/{start?}/{end?}/{pos?}','NpController@filter');
+    
+    Route::get('/dosanp/statsnp', 'NpController@instatsnp');
+    Route::get('/dosanp/{outlet}','NpController@pelakunp');
+    
+     //SO
+    Route::get('/master', 'SoController@master');
+    Route::get('/so', 'SoController@index');
+    Route::get('/so/tambah','SoController@tambah');
+    Route::post('/so/store','SoController@store');
+    Route::get('/so/edit/{no}','SoController@edit');
+    Route::post('/so/update','SoController@update');
+    
+    Route::get('/so/delete/{no}','SoController@delete');
+    Route::get('/so/filter','SoController@parah');
+    Route::get('/so/filter/{start?}/{end?}/{pos?}','SoController@filter');
+    
+    Route::get('/so/statsnp', 'SoController@instatsnp');
+    Route::get('/so/{outlet}','SoController@pelakunp');
+    
+	
+
+});
+
+
+Route::group(['middleware'=>'EDP', 'as' => 'EDP.'], function(){
+    
+    
+    Route::get('/detailin/{no}', 'MasalahController@detailin');
+    Route::get('/EDP', 'MasalahController@index');
+    Route::get('/master', 'MasalahController@master');
+    Route::get('/bfm/tambah','MasalahController@tambah');
+    Route::post('/bfm/store','MasalahController@store');
+    Route::get('/bfm/edit/{no}','MasalahController@edit');
+    Route::post('/bfm/update','MasalahController@update');
+    Route::get('/bfm/delete/{no}','MasalahController@delete');
+    Route::get('/bfm/cari', 'MasalahController@cari');
+
+});
+
 

@@ -16,7 +16,7 @@
 	        <th>City</th>
 	        <th>Province</th>
 	        <th>Phone</th>
-	        <th>Tax Code</th>
+	        <!--<th>Tax Code</th>-->
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -30,7 +30,7 @@
 				<td>{{$customer->city}}</td>
 				<td>{{$customer->province}}</td>
 				<td>{{$customer->phone}}</td>
-				<td>{{$customer->tax_num}}</td>
+				<!--<td>{{$customer->tax_num}}</td>-->
 			  </tr>
 			@endforeach
 		@endif  

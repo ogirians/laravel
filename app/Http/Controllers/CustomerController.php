@@ -48,8 +48,8 @@ class CustomerController extends Controller
 
         /*
         $this->validate($request, [
-            'phone' => 'required|max:11|unique:customers',
-            'tax_num' => 'required|unique:customers',
+            'phone' => 'required|max:12|unique:customers',
+            'tax_num' => 'unique:customers',
         ]);
         */
 
@@ -64,7 +64,7 @@ class CustomerController extends Controller
         $customer->buy = $request->buy; //update by trison
         $customer->city = $request->city; //update by trison
         $customer->province = $request->province; //update by trison
-        $customer->tax_num = $request->tax_num;
+        //$customer->tax_num = $request->tax_num;
 
         $customer->save();
 
@@ -112,8 +112,8 @@ class CustomerController extends Controller
 
         /*
         $this->validate($request, [
-            'phone' => 'required|max:11|unique:customers,phone,'.$customer->id,
-            'tax_num' => 'required|unique:customers,tax_num,'.$customer->id,
+            'phone' => 'required|max:12|unique:customers,phone,'.$customer->id,
+            'tax_num' => 'unique:customers,tax_num,'.$customer->id,
         ]);
         */
 
@@ -128,7 +128,7 @@ class CustomerController extends Controller
         $customer->buy = $request->buy; //update by trison
         $customer->city = $request->city; //update by trison
         $customer->province = $request->province; //update by trison
-        $customer->tax_num = $request->tax_num;
+        //$customer->tax_num = $request->tax_num;
 
         $customer->save();
 

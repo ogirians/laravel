@@ -4,10 +4,15 @@
 
 <body class="align-content-center">
 
-
+@if (Auth::user()->isBowner())
 <a class="btn btn-success" href="/calculator/choice">Kembali</a>
 <form action="/bowner/storehead" method="post" >
+@endif
 
+@if (Auth::user()->isOutlet())
+<a class="btn btn-success" href="/outlet/choice/{{ Auth::user()->name }}">Kembali</a>
+<form action="/outlet/storehead" method="post" >
+@endif
 
 <h2 class="font-weight-bold">PENILAIAN PELAKSANAAN HASIL KERJA KARYAWAN LEVEL KEPALA/KABAG</h2>
 

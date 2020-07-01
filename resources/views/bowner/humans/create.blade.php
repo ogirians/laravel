@@ -99,14 +99,12 @@
 		 	  @endif
               
               @if (Auth::user()->isHRD())
+
               <option>-not selected-</option>
-              <option>Tania Tidar</option>
-              <option>Manna</option>
-              <option>BKJ</option>
-              <option>ABM</option>
-              <option>Kania710</option>
-              <option>Menggala</option>
-              <option>Tritan</option>
+              @foreach ($location as $l)
+              <option>{{ $l -> location }}</option>
+              @endforeach
+              
               @endif
               </select>
 		</div>

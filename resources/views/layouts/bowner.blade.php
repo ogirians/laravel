@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Business Owner Panel</title>
+    <title>Indoberks Investama Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
@@ -18,10 +18,7 @@
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/js/kualitas.js"></script>
    
-
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 
@@ -55,7 +52,21 @@ $p = 0;
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{ Auth::user()->name }}</h2>
+                        @if(Auth::user()->isBowner())
+                        <h2><a href="{{route('bowner.users.edit', Auth::user()->id)}}">{{ Auth::user()->name }}</a></h2>
+                        @endif
+
+                        @if(Auth::user()->isHRD())
+                        <h2><a href="{{route('HRD.users.edit', Auth::user()->id)}}">{{ Auth::user()->name }}</a></h2>
+                        @endif
+
+                        @if(Auth::user()->isOutlet())
+                        <h2><a href="{{route('outlet.users.edit', Auth::user()->id)}}">{{ Auth::user()->name }}</a></h2>
+                        @endif
+
+                        @if(Auth::user()->isDM())
+                        <h2><a href="{{route('DM.users.edit', Auth::user()->id)}}">{{ Auth::user()->name }}</a></h2>
+                        @endif
 						<br>
                     </div>
                 </div>
@@ -69,16 +80,16 @@ $p = 0;
                     <div class="menu_section">
                         <h3>{{ Auth::user()->role->name }}</h3>
                         <ul class="nav side-menu">
-                            @if (Auth::user()->role_id == '3' || Auth::user()->role_id == '4')
+                            <!--@if (Auth::user()->role_id == '3' || Auth::user()->role_id == '4')
                             <li><a><i class="fa fa-opencart"></i> Sale <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('orders.index') }}">Orders</a></li>
                                 </ul>
                             </li>
-                            @endif
+                            @endif-->
                             
-							<!--@if(Auth::user()->isBowner())
-                            <li><a><i class="fa fa-hourglass-1"></i> Production <span class="fa fa-chevron-down"></span></a>
+							@if(Auth::user()->isBowner())
+                            <!--<li><a><i class="fa fa-hourglass-1"></i> Production <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.production.index') }}">All Productions</a></li>
                                 </ul>
@@ -103,7 +114,7 @@ $p = 0;
                                     <!--<li><a href="{{ route('bowner.humans.create') }}">Add Employee</a></li>-->
                                     <!--<li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li>-->
                                     <li><a href="{{ route('bowner.leaves.index') }}">resign</a></li>
-                                    <li><a href="http://localhost:8000/calculator/choice">Performance</a>
+                                    <li><a href="/calculator/choice">Performance</a>
                                        
                                     </li>
                                 </ul>
@@ -113,7 +124,7 @@ $p = 0;
                                 <ul class="nav child_menu">
                                     <li><a href="{{ route('bowner.customer.index') }}">All Customers</a></li>
                                     <li><a href="{{ route('bowner.customer.create') }}">Create Customer</a></li>
-                                    <li><a href="http://localhost:8000/import_excel">Import & Export</a> </li>
+                                    <li><a href="/bowner/import_excel">Import & Export</a> </li>
                                 </ul>
                             </li>
 							
@@ -186,20 +197,29 @@ $p = 0;
                                     <li><a href="{{route('outlet.humans.show', Auth::user()->name)}}">All Employees</a></li>
                                     <!--<li><a href="{{ route('outlet.humans.create') }}">Add Employee</a></li>
                                     <li><a href="{{ route('outlet.leaves.show', Auth::user()->name)}}">Resign</a>-->
-                                    <li><a href="/outlet/choice/{{ Auth::user()->name }}">Performance</a>      
-                                    </li>
+                                     <li><a href="/outlet/choice/{{ Auth::user()->name }}">Performance</a></li>
                                 </ul>
                             </li> 
-
                             @endif
 
-                              @if (Auth::user()->isDM())
+                            @if (Auth::user()->isDM())
                             <li><a><i class="fa fa-users"></i> Digital Marketing <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                    
-                                    <li><a href="http://localhost:8000/DM">All Customers</a></li>
-                                    <li><a href="http://localhost:8000/DM/create">Create Customers</a></li>
-                                    <li><a href="http://localhost:8000/import_excel">Import</a> </li>
+                                    <li><a href="/DM">All Customers</a></li>
+                                    <li><a href="/DM/create">Create Customers</a></li>
+                                    <li><a href="/DM/import_excel">Import & Export</a> </li>
+                                       
+                                    </li>
+                                </ul>
+                            </li>        
+                            @endif
+                            
+                            @if (Auth::user()->isFM())
+                            <li><a><i class="fa fa-users"></i> Fault Management <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                   
+                                   coming soon
                                        
                                     </li>
                                 </ul>
@@ -348,7 +368,7 @@ $p = 0;
 
 <script src= "/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script src="/js/cek.js"></script>
 </body>
 </html>

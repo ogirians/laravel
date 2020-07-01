@@ -181,7 +181,7 @@
             <td>
              <label for="wpress">5. Prestasi kerja dibawah tekanan</label>
             </td>
-            <td>10%</td>
+            <td>5%</td>
             <td>
                <div class="form-group">
                  <input type="number" class="form-control" name="wpress" id="wpress" required="required"  min="0" max="100">
@@ -383,7 +383,7 @@
          
          
     </table>
-  
+  </div> 
 
 
     <label>Rekomendasi hasil penilaian </label>
@@ -419,7 +419,7 @@
     <a class="btn btn-success" id="Cek" onclick="showstaff()">cek</a>
     <button onclick="return confirm('Simpan penilaian?')" type="submit" class="btn btn-warning" name="multiplication" value="*">Simpan</button>
     </center>
-</div> 
+
 </div>
 
 

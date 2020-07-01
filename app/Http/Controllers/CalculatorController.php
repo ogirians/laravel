@@ -12,29 +12,41 @@ use Carbon\Carbon;
 
 class CalculatorController extends Controller
 {
-    public function choice($location = null){
+    public function choice($location = null, $head = null){
         $e = "kepala";
         //$karyawan = calc::select('name')->distinct()->get();
         //$date = $users->addSelect('pdate')->get();
         if ($location != null) {
-
+            $loc  = DB::table('users')
+                        ->select('name')
+                        ->where('head','=',$location)
+                        ->get();
+                        
+              $all = DB::table('humans')
+                      ->leftjoin('calc','humans.id','=','calc.humans_id')
+                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level','calc.no')
+                      ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level', 'calc.no')
+                      ->where('humans.humans_status','1')
+                      ->get();
 
             $karyawan3 = DB::table('humans')
                     ->leftjoin('calc','humans.id','=','calc.humans_id')
-                    ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans_level')
-                    ->groupBy('humans.id','humans.name','humans.job','humans.location','humans_level')
+                    ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level','calc.no')
+                    ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level', 'calc.no')
                     ->where('humans.location',$location)
                     ->where('humans.humans_level','!=',"A")
                     ->where('humans.humans_status','1')
                     ->get();
         }
-
+        
         else {
-
+            
+                $loc= null ;
+                $all = null ;
                 $karyawan3 = DB::table('humans')
                       ->leftjoin('calc','humans.id','=','calc.humans_id')
-                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans_level')
-                      ->groupBy('humans.id','humans.name','humans.job','humans.location','humans_level')
+                      ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level','calc.no')
+                      ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level', 'calc.no')
                       ->where('humans.humans_status','1')
                       ->get();
                
@@ -44,8 +56,10 @@ class CalculatorController extends Controller
 
 
         return view('calculator.choice', array(
+        'loc'  => $loc,    
         'karyawan3' => $karyawan3,
-        'now' => $now,   
+        'now' => $now,
+        'all' => $all,
         ));
 }
 

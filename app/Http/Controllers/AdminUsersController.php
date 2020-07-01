@@ -32,7 +32,9 @@ class AdminUsersController extends Controller
     {
         //
 		$roles = Role::pluck('name','id')->all();
-		return view('admin.users.create', compact('roles'));
+		$head = user::where('is_head',1)->get();
+		return view('admin.users.create', compact('roles','head'));
+		
     }
 
     /**
@@ -100,8 +102,9 @@ class AdminUsersController extends Controller
         //
 		$user = User::findOrFail($id);
 		$roles = Role::pluck('name', 'id')->all();
+		$head = user::where('is_head',1)->get();
 		
-		return view('admin.users.edit', compact('user', 'roles'));
+		return view('admin.users.edit', compact('user','roles','head'));
     }
 
     /**

@@ -12,6 +12,10 @@
   .tengah {
       text-align: center
   }
+
+  .Rekomendasi textarea {
+min-width: 400px;
+  }
 </style>
 
 <body class="align-content-center">
@@ -267,21 +271,43 @@
             <td style="text-align: center;"><p style="font-size: 25px; color: red;" id="tkualitas"></p></td>
         </tr>     
     </table>
+</div> 
+<div class="Rekomendasi">
+<label> Rekomendasi hasil penilaian</label>
+<div class="row">
+  <div class="col-lg-6">
+          <div class="form-group">
+          <label>Penilai 1 </label>
+              <textarea class="form-control" name="rekomend1" id="rekomend1" required="required" disabled>{{ $c -> rekomend1}}</textarea>
+          </div>
+   </div>  
+   <div class="col-lg-6">     
+            <div class="form-group">
+              <label>Penilai 2</label>
+              <textarea class="form-control" name="rekomend2" id="rekomend2" required="required" disabled>{{ $c -> rekomend2 }}</textarea>
+          </div>
+    </div>
+</div>
+</div>
+
+
+<a class="btn btn-info" href="/drivernilaipdf/{{$h -> id}}/{{ $c ->no }}">Download PDF</a>
+
 
 
 <script type="text/javascript">
  $(document).ready(function(){
 
-        var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
-        var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
-        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
-        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
-        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
-        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
-        var creativity   = JSON.parse("{{ json_encode ($c -> creativity ) }}");
-        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
-        var obedience  = JSON.parse("{{ json_encode ($c -> obedience) }}");
-        var loyalty   = JSON.parse("{{ json_encode ($c -> loyalty ) }}");
+        var knowledge  = {{ $c -> knowledge }};
+        var wqual  = {{ $c -> wqual }};
+        var teamwork  = {{ $c -> teamwork }};
+        var communicate  = {{ $c -> communicate}};
+        var dicipline  = {{ $c -> dicipline }};
+        var initiative  = {{ $c -> initiative }};
+        var creativity   = {{ $c -> creativity  }};
+        var honestly  = {{ $c -> honestly }};
+        var obedience  = {{ $c -> obedience }};
+        var loyalty   = {{ $c -> loyalty  }};
 
         var rata2 = knowledge  +  wqual + teamwork + communicate + dicipline + initiative + creativity 
         + honestly + obedience + loyalty;
@@ -298,7 +324,7 @@
 
 @endforeach
 
-</div> 
+
 </div> 
 
 
@@ -449,7 +475,7 @@
             <td>
              <label for="wpress">5. Prestasi kerja dibawah tekanan</label>
             </td>
-             <td class="tengah">10%</td>
+             <td class="tengah">5%</td>
              <td class="tengah">
           
               <p id="wpress"> {{ $c -> wpress}}</p>
@@ -647,30 +673,72 @@
          
     </table>
 </div> 
+<div class="Rekomendasi">
+<label> Rekomendasi hasil penilaian :</label>
+<div class="row">
+    <div class="col-lg-6">
+          <div class="form-group">
+          <label>1. Wawasan Pekerjaan </label>
+              <textarea class="form-control" name="rekomend1" id="rekomend1" required="required" disabled>{{ $c -> rekomend1}}</textarea>
+          </div>
+      </div>
+      <div class="col-lg-6">
+            <div class="form-group">
+              <label>2. Kemampuan dan kualitas hasil kerja</label>
+              <textarea class="form-control" name="rekomend2" id="rekomend2" required="required" disabled>{{ $c -> rekomend2 }}</textarea>
+          </div>
+        </div>
+</div>
+<div class="row">
+     <div class="col-lg-6">
+          <div class="form-group">
+              <label>3. Tanggung jawab</label>
+              <textarea class="form-control" name="rekomend3" id="rekomend3" required="required" disabled>{{ $c -> rekomend3 }}</textarea>
+          </div>
+    </div>
+     <div class="col-lg-6">
+           <div class="form-group">
+              <label>4. Ketaatan</label>
+              <textarea class="form-control" name="rekomend4" id="rekomend4" required="required" disabled>{{ $c -> rekomend4 }}</textarea>
+          </div>
+      </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+          <div class="form-group">
+              <label>5. disiplin</label>
+              <textarea class="form-control" name="rekomend5" id="rekomend5" required="required" disabled>{{ $c -> rekomend5 }}</textarea>
+          </div>
+    </div>
+</div>
+</div>
+
+<a class="btn btn-info" href="/staffnilaipdf/{{ $h -> id }}/{{ $c ->no }}">Download PDF</a>
+
 </div>
 
 <script type="text/javascript">
    $(document).ready(function(){
 
  
-        var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
-        var wspeed  = JSON.parse("{{ json_encode ($c -> wspeed) }}");
-        var wsoul  = JSON.parse("{{ json_encode ($c -> wsoul) }}");
-        var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
-        var wpress  = JSON.parse("{{ json_encode ($c -> wpress) }}");
+        var knowledge  = {{  $c -> knowledge }};
+        var wspeed  = {{  $c -> wspeed }};
+        var wsoul  = {{  $c -> wsoul }};
+        var wqual  = {{  $c -> wqual }};
+        var wpress  = {{  $c -> wpress }};
 
        
 
-        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
-        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
-        var responbility  = JSON.parse("{{ json_encode ($c -> responbility) }}");
-        var learning  = JSON.parse("{{ json_encode ($c -> learning) }}");
-        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
-        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
-        var creativity  = JSON.parse("{{ json_encode ($c -> creativity) }}");
-        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
-        var obedience  = JSON.parse("{{ json_encode ($c ->  obedience) }}");
-        var loyalty  = JSON.parse("{{ json_encode ($c -> loyalty) }}");
+        var teamwork  = {{  $c -> teamwork }};
+        var communicate  =  {{  $c -> communicate }};
+        var responbility  =  {{  $c -> responbility }};
+        var learning  =   {{  $c -> learning }};
+        var dicipline  =   {{  $c -> dicipline }};
+        var initiative  =   {{  $c -> initiative }};
+        var creativity  =   {{  $c -> creativity }};
+        var honestly  =   {{  $c -> honestly }};
+        var obedience  =   {{  $c ->  obedience }};
+        var loyalty  =   {{  $c -> loyalty }};
 
         var rata2 = knowledge  +  wspeed   +  wsoul  +  wqual  +  wpress ;
         var rata22 = teamwork + communicate  + responbility + learning + dicipline  + initiative  + creativity + honestly  + obedience  + loyalty;   
@@ -1022,7 +1090,7 @@
             <td></td>
         </tr>
 
-            <tr>
+        <tr>
             <td></td>
             <td>
               <label for="initiative">1. Pengorganisasian</label>
@@ -1120,35 +1188,37 @@
 </div> 
 </div>
 
+<a class="btn btn-info" href="/headnilaipdf/{{ $h -> id }}/{{ $c->no }}">Download PDF</a>
+
 <script type="text/javascript">
    $(document).ready(function(){
 
  
-        var knowledge  = JSON.parse("{{ json_encode ($c -> knowledge) }}");
-        var wspeed  = JSON.parse("{{ json_encode ($c -> wspeed) }}");
-        var wsoul  = JSON.parse("{{ json_encode ($c -> wsoul) }}");
-        var wqual  = JSON.parse("{{ json_encode ($c -> wqual) }}");
-        var wpress  = JSON.parse("{{ json_encode ($c -> wpress) }}");
+        var knowledge  =   {{ $c -> knowledge }};
+        var wspeed  =   {{ $c -> wspeed }};
+        var wsoul  =   {{ $c -> wsoul }};
+        var wqual  =   {{  $c -> wqual }};
+        var wpress  =   {{  $c -> wpress }};
 
        
 
-        var teamwork  = JSON.parse("{{ json_encode ($c -> teamwork) }}");
-        var communicate  = JSON.parse("{{ json_encode ($c -> communicate) }}");
-        var responbility  = JSON.parse("{{ json_encode ($c -> responbility) }}");
-        var learning  = JSON.parse("{{ json_encode ($c -> learning) }}");
-        var dicipline  = JSON.parse("{{ json_encode ($c -> dicipline) }}");
-        var initiative  = JSON.parse("{{ json_encode ($c -> initiative) }}");
-        var creativity  = JSON.parse("{{ json_encode ($c -> creativity) }}");
-        var honestly  = JSON.parse("{{ json_encode ($c -> honestly) }}");
-        var obedience  = JSON.parse("{{ json_encode ($c ->  obedience) }}");
-        var loyalty  = JSON.parse("{{ json_encode ($c -> loyalty) }}");
+        var teamwork  =   {{  $c -> teamwork }};
+        var communicate  =   {{  $c -> communicate }};
+        var responbility  =   {{  $c -> responbility }};
+        var learning  =   {{  $c -> learning }} ;
+        var dicipline  =   {{  $c -> dicipline }} ;
+        var initiative  =   {{  $c -> initiative }} ;
+        var creativity  =   {{  $c -> creativity }} ;
+        var honestly  =   {{  $c -> honestly }} ;
+        var obedience  =   {{  $c ->  obedience }} ;
+        var loyalty  =   {{  $c -> loyalty }} ;
 
 
-        var organate  = JSON.parse("{{ json_encode ($c -> organate) }}");
-        var coaching  = JSON.parse("{{ json_encode ($c -> coaching) }}");
-        var controling  = JSON.parse("{{ json_encode ($c -> controling) }}");
-        var planing  = JSON.parse("{{ json_encode ($c -> planing) }}");
-        var delegate  = JSON.parse("{{ json_encode ($c -> delegate) }}");
+        var organate  =   {{  $c -> organate }} ;
+        var coaching  =   {{  $c -> coaching }} ;
+        var controling  =   {{  $c -> controling }} ;
+        var planing  =   {{  $c -> planing }} ;
+        var delegate  =   {{  $c -> delegate }} ;
         
 
         var rata2 = knowledge  +  wspeed   +  wsoul  +  wqual  +  wpress ;

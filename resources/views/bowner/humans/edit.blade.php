@@ -104,14 +104,10 @@
 					 	  @endif
 			              
 			              @if (Auth::user()->isHRD())
-			              <option>{{ $human -> location }}</option>
-			              <option>Tania Tidar</option>
-			              <option>Manna</option>
-			              <option>BKJ</option>
-			              <option>ABM</option>
-			              <option>Kania710</option>
-			              <option>Menggala</option>
-			              <option>Tritan</option>
+			              	<option>{{ $human -> location }}</option>
+			               	@foreach ($location as $l)
+             					<option>{{ $l -> name }}</option>
+              				@endforeach
 			              @endif
 			              </select>
 					</div>
@@ -138,19 +134,57 @@
   			</div>
 			
 
-			@if (Auth::user()->isOutlet() || Auth::user()->isHRD())
-
+			@if (Auth::user()->isHRD())
+			<div class="form-group">
+				<button onclick="return confirm('simpan perubahan?')" type="submit" class="btn btn-primary col-sm-2">save changes </button>
+			</div>
 			@endif
+			
 			{!! Form::close() !!}
 			
 			<div class="row">
+
 			@if(auth::user() -> isHRD())
 
-			{!! Form::open(['method'=>'GET', 'action'=>['BownerHumansController@resign', $human->id]]) !!}
+			
 				<div class="form-group" style="margin-top:-50px; margin-left: 50px;">
-					<button onclick="return confirm('status {{ $human->name }} akan berubah jadi resign, apa ingin melanjutkan?')" type="submit" class="btn btn-warning col-sm-2">resign </button>
-				</div>
-			{!! Form::close() !!}
+					<button href="#" class="btn btn-warning col-sm-2" data-toggle="modal" data-target="#terserah_{{ $human->id}}">
+						resign
+					</button>
+
+					   <div class="modal fade" id="terserah_{{ $human->id }}" role="dialog">
+                           <div class="modal-dialog">
+                               <div class="modal-content">
+
+                                         <div class="modal-header">
+                                         		<button type="button" class="close" data-dismiss="modal">&times;</button>
+                                               <h4 class="modal-title"></h4>
+                                                <h2>Masukkan Tanggal Resign</h2>
+                                                
+                                         </div>
+                                         {!! Form::open(['method'=>'POST', 'action'=>['BownerHumansController@resign']]) !!}
+		                                 <div class="modal-body">   
+		                                       <label for="exampleFormControlInput1">tanggal</label>
+		                                       <input class="form-control" id="exampleFormControlInput1" placeholder="tanggal" type="date" name="waktu" required="required" >
+		                                        <button class="btn btn-success" type="submit" style="margin-top: 20px;">Kirim</button>
+		                                 
+		                                 </div>
+
+		                                 <div class="form-group">          
+      											<input type="hidden" class="form-control" name="id" required="required" value="{{ $human->id }}">
+  										</div>
+
+		                                 {!! Form::close() !!}
+		                                <div class="modal-footer">
+		                                     <button type="button" class="btn btn-primary m-t-10" data-dismiss="modal" > Tutup
+		                                     </button>
+		                                </div>
+                               </div>
+                           </div>
+                       </div>
+
+			</div>
+			
 			
 		
 			{!! Form::open(['method'=>'DELETE', 'action'=>['BownerHumansController@destroy', $human->id]]) !!}
@@ -158,6 +192,8 @@
 					<button onclick="return confirm('data yang telah dihapus tidak dapat dikembalikan, apa ingin melanjutkan?')" type="submit" class="btn btn-danger col-sm-2">delete data</button>
 				</div>
 			{!! Form::close() !!}
+
+
 			@endif
 
 			<div class="alert alert-warning" style="max-width: 300px; float: right;">

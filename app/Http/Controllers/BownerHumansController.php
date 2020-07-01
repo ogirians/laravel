@@ -14,6 +14,7 @@ use DB;
 use Carbon\Carbon;
 use DateTime;
 use PDF;
+use App\User;
 
 class BownerHumansController extends Controller
 {
@@ -40,7 +41,9 @@ class BownerHumansController extends Controller
     public function create()
     {
         //
-		return view('bowner.humans.create');
+        $location = Human::select('location')->groupBy('location')->get();
+
+		return view('bowner.humans.create', compact('location'));
     }
 
     /**
@@ -56,6 +59,7 @@ class BownerHumansController extends Controller
         $role = $request->role;
         $location = $request->outlet;
         
+        
 
         $input['start_day'] = date("Y-m-d", strtotime($input['start_day']));
 		$input['birth'] = date("Y-m-d", strtotime($input['birth']));
@@ -67,8 +71,15 @@ class BownerHumansController extends Controller
 			$input['photo'] = $name;
           }
           else {
+              
+            if ($request -> gender == 'Perempuan') {
+            $input['photo'] = 'person-girl-flat.png';
+            }
+            else {
             $input['photo'] = 'person-flat.png';
-		  } 
+            }
+                
+         }		   
 
         $human = Human::create($input);
         
@@ -95,14 +106,20 @@ class BownerHumansController extends Controller
      */
     public function show($location)
     {
-         
+            $loc  = DB::table('users')
+                        ->select('name')
+                        ->where('head','=',$location)
+                        ->get();      
+            
+            $all = Human::where('humans_Status', 1)->get();
+                        
             $humans = DB::table('humans')
             ->where('location',$location)
             ->where('humans_Status', 1)
             ->get();
        
 
-        return view('bowner.humans.index', compact('humans'));
+        return view('bowner.humans.index', compact('humans','loc','all'));
      }
 
     /**
@@ -117,7 +134,9 @@ class BownerHumansController extends Controller
 		$human = Human::findOrFail($id);
 		$day = date("d-m-Y", strtotime($human->start_day));
         $day_birth = date("d-m-Y", strtotime($human->birth));
-
+        
+        $head = user::where('is_head',1)->get();
+        $location = user::where('role_id', 7)->get();
 
         $nilai = DB::Table('humans')
                 ->join('calc','humans.id','=','calc.humans_id')
@@ -125,7 +144,7 @@ class BownerHumansController extends Controller
                 ->where('humans.id', $id)
                 ->get();
 		
-		return view('bowner.humans.edit', compact('human', 'day', 'day_birth','nilai'));
+		return view('bowner.humans.edit', compact('human', 'day', 'day_birth','nilai','location'));
     }
 
     /**
@@ -151,7 +170,19 @@ class BownerHumansController extends Controller
 			$name = time() . $file->getClientOriginalName();
 			$file->move('images', $name);
 			$input['photo'] = $name;
-		}
+		}  
+		
+		else {
+              
+            if ($request -> gender == 'Perempuan') {
+            $input['photo'] = 'person-girl-flat.png';
+            }
+            else {
+            $input['photo'] = 'person-flat.png';
+            }
+                
+         }		   
+		
 		
 		$human->update($input);
 
@@ -192,14 +223,16 @@ class BownerHumansController extends Controller
 
 
      
-    public function resign($id)
+    public function resign(request $request)
     {   
+
+
         $start = DB::Table('humans')
         ->select('start_day')
-        ->where('id', $id)
+        ->where('id', $request->id)
         ->first();
 
-        $end = Carbon::now();
+        $end = $request->waktu;
 
  
         $datetime1 = new DateTime($start->start_day);
@@ -208,12 +241,12 @@ class BownerHumansController extends Controller
         //$interval->format('%Y-%m-%d %H:%i:%s');
        
         leave::create([
-            'human_id' => $id,
+            'human_id' => $request->id,
             'leave_date' => $end,
             'days' =>  $interval->format('%D days, %m months, %Y years'),          
         ]);
 
-        Human::where('id',$id)
+        Human::where('id',$request->id)
             ->update(['humans_Status' => 0]);
 
 

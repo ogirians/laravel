@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'is_active', 'photo_id', 'username'
+        'name', 'email', 'password', 'role_id', 'is_active','is_head','head', 'photo_id', 'username'
     ];
 
     /**
@@ -97,6 +97,22 @@ class User extends Authenticatable
      public function isDM()
     {
         if($this->role->name == "DM" && $this->is_active == 1){
+            return true;
+        }
+        return false;
+    }
+    
+     public function isFM()
+    {
+        if($this->role->name == "FM" && $this->is_active == 1){
+            return true;
+        }
+        return false;
+    }
+    
+     public function isEDP()
+    {
+        if($this->role->name == "EDP" && $this->is_active == 1){
             return true;
         }
         return false;

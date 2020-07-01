@@ -70,10 +70,10 @@
 	</div>
 	
 	<div class="row">
-		<div class="form-group col-sm-6">
+		<!--<div class="form-group col-sm-6">
 			{!! Form::label('tax_num', 'Tax Code:') !!}
 			{!! Form::text('tax_num', null, ['class'=>'form-control']) !!}
-		</div>
+		</div>-->
 
 		<div class="form-group col-sm-6">
 			{!! Form::label('buy', 'Product:') !!}
