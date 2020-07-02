@@ -71,7 +71,7 @@
 			<div class="row">
 				<div class="form-group col-sm-6">
 					{!! Form::label('idnum', 'ID# (*):') !!}
-					{!! Form::text('idnum', null, ['class'=>'form-control', 'required']) !!}
+					{!! Form::text('idnum', null, ['class'=>'form-control']) !!}
 				</div>
 				
 				<div class="form-group col-sm-6">

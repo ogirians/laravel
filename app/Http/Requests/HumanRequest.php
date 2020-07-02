@@ -32,7 +32,7 @@ class HumanRequest extends FormRequest
             'gender' => 'required',
             'address1' => 'required',
             'phone' => 'required|unique:humans,phone,'.$humanId,
-            'idnum' => 'required|unique:humans,idnum,'.$humanId,
+            //'idnum' => 'required|unique:humans,idnum,'.$humanId,
             'job' => 'required',
             //'location' => 'required',
             'photo' => 'mimes:jpeg,png,bmp',
