@@ -7,7 +7,7 @@
 	<h1>Customers</h1>
 	
 	<div class="table-responsive">
-		<table class="table table-hover table-bordered table-striped">
+		<table  class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0" >
 	    <thead>
 	      <tr>
 	        <th>Id</th>
@@ -19,6 +19,17 @@
 	        <!--<th>Tax Code</th>-->
 	      </tr>
 	    </thead>
+	    <tfoot>
+	      <tr>
+	        <th>Id</th>
+	        <th>Name</th>
+	        <th>Address</th>
+	        <th>City</th>
+	        <th>Province</th>
+	        <th>Phone</th>
+	        <!--<th>Tax Code</th>-->
+	      </tr>
+	    </tfoot>
 	    <tbody>
 		
 		@if($customers)
@@ -39,10 +50,15 @@
 	  	</table>
   </div>
 	
-@stop
 
-@section('scripts')
-<script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#dataTable').DataTable( {
+        "order": [[ 1, "asc" ]]
+    } );
+} );
 </script>
-@stop
 
+
+@endsection
