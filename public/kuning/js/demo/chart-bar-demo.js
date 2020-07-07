@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 function number_format(number, decimals, dec_point, thousands_sep) {
   // *     example: number_format(1234.56, 2, ',', ' ');
-  // *     jumlturn: '1 234,56'
+  // *     return: '1 234,56'
   number = (number + '').replace(',', '').replace(' ', '');
   var n = !isFinite(+number) ? 0 : +number,
     prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
@@ -28,13 +28,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Bar Chart Example
-var ctx = document.getElementById("umm");
-var umm = new Chart(ctx, {
+var ctx = document.getElementById("myBarChart");
+var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Kania", "Tidar", "evata", "tania", "manado", "ibi1"],
+    labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [{
-      label: "Jumlah",
+      label: "Revenue",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
@@ -73,7 +73,7 @@ var umm = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return number_format(value);
+            return '$' + number_format(value);
           }
         },
         gridLines: {
@@ -103,7 +103,7 @@ var umm = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ' : ' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
         }
       }
     },

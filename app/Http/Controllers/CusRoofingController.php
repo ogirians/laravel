@@ -96,7 +96,7 @@ class CusRoofingController extends Controller
     public function edit($id)
     {
         //
-        $rc = DB::table('roofcalc')->where('id',$id)->select('id', 'nama', 'alamat', 'HP')->get();
+        $rc = DB::table('roofcalc')->where('id',$id)->select('id', 'nama', 'alamat', 'HP', 'kanal', 'hargakan')->get();
         
         return view('bowner.roofcalc.edit',['rc' => $rc]);
     }
