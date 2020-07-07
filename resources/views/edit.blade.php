@@ -102,8 +102,8 @@
 
 
 
-{{ $tipe = $m->tipe }}   
-{{ $penyelesaian = $m->penyelesaian }} 
+<!--{{ $tipe = $m->tipe }}   
+{{ $penyelesaian = $m->penyelesaian }} -->
 
 @endforeach
 @endsection
