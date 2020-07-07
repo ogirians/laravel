@@ -192,7 +192,7 @@ $p = 0;
                             @endif
 
                             @if (Auth::user()->isOutlet()) 
-                            <li><a><i class="fa fa-users"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-users1"></i> Human Resource <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">                                 
                                     <li><a href="{{route('outlet.humans.show', Auth::user()->name)}}">All Employees</a></li>
                                     <!--<li><a href="{{ route('outlet.humans.create') }}">Add Employee</a></li>
@@ -212,7 +212,18 @@ $p = 0;
                                        
                                     </li>
                                 </ul>
-                            </li>        
+                            </li>
+
+                             <li><a><i class="fa fa-users"></i> Roofing Calculator <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                   
+                                    <li><a href="/DM/rc">Surat Penawaran</a></li>
+                                    <li><a href="/DM/create">Sales Contract</a></li>
+                                    <li><a href="/DM/rc">Penagihan Pelunasan</a></li>
+                                                                       
+                                    </li>
+                                </ul>
+                            </li>         
                             @endif
                             
                             @if (Auth::user()->isFM())

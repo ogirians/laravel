@@ -1,4 +1,4 @@
-@extends('master')
+@extends('master2')
 
 @section('edit')
 
@@ -32,10 +32,10 @@
 <p>masalah terjadi pada {{ $m->tproblem }}, dan telah diselesaikan pada {{ $m->tgl }}.</p>
 <br>
 <p>detail permasalahan:</p>
-<p>{{ $m->tipe }}</p>
+<p>{!! $m->tipe !!}</p>
 <br>
 <p>penyelesaian :</p>
-<p>{{ $m->penyelesaian }}</p>
+<p>{!! $m->penyelesaian !!}</p>
 
 
   
@@ -49,7 +49,8 @@
 
 
 
-
+{{ $tipe = null }}
+{{ $penyelesaian = null }} 
 
   </div>
   </div>

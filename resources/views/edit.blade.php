@@ -1,4 +1,4 @@
-@extends('master')
+@extends('master2')
 
 @section('edit')
   <link href="kuning/css/jquery.steps.css" rel="stylesheet">
@@ -17,7 +17,9 @@
   <br/>
   <br/>
 
+
  @foreach($fault as $m)      
+
 
     <form action="/bfm/update" method="post">
                 {{ csrf_field() }}
@@ -63,17 +65,20 @@
 
 
           <!--Judul masalah <input type="text" name="tipe" required="required"> <br/>-->
-          <div class="form-group">
-            <b>detail masalah</b>
-            <textarea class="form-control" name="tipe" value="{{ $m->tipe }}">{{ $m->tipe }}</textarea>
+        <div class="form-group">
+            <b>Judul masalah</b>
+            <textarea name="tipe" class="summernote" id="code"></textarea>
           </div>
 
 
           <!--Penyelesaian <input type="text" name="penyelesaian" required="required"> <br/>-->
           <div class="form-group">
             <b>Penyelesaian</b>
-            <textarea class="form-control" name="penyelesaian" value="{{ $m->penyelesaian }}">{{ $m->penyelesaian }}</textarea>
+            <textarea name="penyelesaian" class="summernote2" id="code"></textarea>
           </div>
+
+  
+
           <!--Tanggal Penyelesaian <input type="date" name="tgl" required="required"> <br/>-->
           <label>tanggal penyelesaian</label>
           <input class="form-control" id="exampleFormControlInput1" placeholder="tanggal Kejadian" type="date" name="tgl" required="required" value="{{ $m->tgl }}" style="max-width: 300px;">  <br/>
@@ -97,8 +102,8 @@
 
 
 
-
-  
+{{ $tipe = $m->tipe }}   
+{{ $penyelesaian = $m->penyelesaian }} 
 
 @endforeach
-@stop
+@endsection

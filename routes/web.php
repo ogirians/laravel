@@ -334,6 +334,12 @@ Route::group(['middleware'=>'DM', 'as' => 'DM.'], function(){
 	Route::get('DM/import_excel', 'ImportExcelController@index');
 	Route::post('DM/import_excel/import', 'ImportExcelController@import');
 	Route::get('DM/export_excel/excel', 'ExportController@excel')->name('export_excel.excel');
+
+	//route roofcalc
+	Route::get('/DM/rc', 'CusRoofingController@index');
+	Route::get('/DM/rc/sc/{id}', 'CusRoofingController@edit');
+	Route::post('/DM/rc/sc/update', 'CusRoofingController@update');
+
 	
 	//update password
 	Route::resource('/DM/users', 'DPassController', ['only'=>['edit', 'update']]);

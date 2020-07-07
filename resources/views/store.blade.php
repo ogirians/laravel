@@ -1,4 +1,4 @@
-@extends('master')
+@extends('master2')
 
 @section('edit')
           <!-- Content Row (INI YANG DIRUBAH) -->
@@ -50,17 +50,17 @@
 					<!--Judul masalah <input type="text" name="tipe" required="required"> <br/>-->
 					
 					<div class="form-group">
-						<b>detail masalah</b>
-						<textarea class="form-control" name="tipe"></textarea>
-						<!--<textarea name="tipe" class="summernote"></textarea>-->
+						<b>Judul masalah</b>
+						<!--<textarea class="form-control" name="tipe"></textarea>-->
+						<textarea name="tipe" class="summernote"></textarea>
 					</div>
 
 
 					<!--Penyelesaian <input type="text" name="penyelesaian" required="required"> <br/>-->
 					<div class="form-group">
 						<b>Penyelesaian</b>
-						<textarea class="form-control" name="penyelesaian"></textarea>
-						<!--<textarea name="penyelesaian" class="summernote"></textarea>-->
+						<textarea name="penyelesaian" class="summernote"></textarea>
+
 					</div>
 					<!--Tanggal Penyelesaian <input type="date" name="tgl" required="required"> <br/>-->
 					<label>tanggal penyelesaian</label>
@@ -76,6 +76,9 @@
 					<button class="btn btn-success" type="submit" >Simpan</button>
     
 
+
+{{ $tipe = null }}
+{{ $penyelesaian = null }} 
 
     
 </form>

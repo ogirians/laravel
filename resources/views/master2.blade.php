@@ -17,19 +17,15 @@
 
 
   <!-- Custom styles for this template-->
-  <link href="{{ asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <!-- Custom fonts for this template-->
   <link rel="stylesheet" type="text/css" href="/kuning/vendor/fontawesome-free/css/all.min.css" >
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link rel="stylesheet" type="text/css" href="/kuning/css/sb-admin-2.css" >
+
   <link rel="stylesheet" type="text/css" href="/kuning/css/sb-admin-2.min.css" >
 
-  <script src="/kuning/vendor/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-  <link href="/kuning/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 
  <link href="{{asset('dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -58,7 +54,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost:8000/bfm">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/BFM">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -70,7 +66,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/bfm">
+        <a class="nav-link" href="/EDP">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Problem Book</span></a>
       </li>
@@ -92,7 +88,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-            <a class="collapse-item" href="/bfm">Masukkan Data</a>
+            <a class="collapse-item" href="/EDP">Masukkan Data</a>
           </div>
         </div>
       </li>
@@ -267,11 +263,10 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <!--<script src="/kuning/vendor/jquery/jquery.min.js"></script>
-  <script src="/kuning/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
 
   <!-- Core plugin JavaScript-->
-  <script src="/kuning/vendor/jquery-easing/jquery.easing.min.js"></script>
+
 
   <!-- Custom scripts for all pages-->
   <script src="/kuning/js/sb-admin-2.min.js"></script>
@@ -291,16 +286,18 @@
 
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="{{asset("dist/js/bootstrap.min.js")}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{asset('assets/js/ie10-viewport-bug-workaround.js')}}"></script>
-<!-- include libraries(jQuery, bootstrap) -->
 
-<!-- include summernote css/js-->
- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
   <script>
 
@@ -308,7 +305,29 @@
   $('.summernote').summernote();
   });
 
-</script>
+ </script>
+
+
+   <script type="text/javascript">
+      $(document).ready(function() {
+            //initialize summernote
+            //assign the variable passed from controller to a JavaScript variable.
+            var content = {!! json_encode($tipe) !!};
+            //set the content to summernote using `code` attribute.
+            $('.summernote').summernote('code', content);
+        });
+  </script>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+            //initialize summernote
+            //assign the variable passed from controller to a JavaScript variable.
+            var content = {!! json_encode($penyelesaian) !!};
+            //set the content to summernote using `code` attribute.
+            $('.summernote2').summernote('code', content);
+        });
+  </script>
+
 
 </body>
 

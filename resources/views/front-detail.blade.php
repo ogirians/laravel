@@ -31,11 +31,11 @@
 <br>
 
 <p>detail permasalahan:</p>
-<p>{{ $m->tipe }}</p>
+<p>{!! $m->tipe !!}</p>
 <br>
 
 <p>penyelesaian:</p>
-<p>{{ $m->penyelesaian }}</p>
+<p>{!! $m->penyelesaian !!}</p>
 
 
   
