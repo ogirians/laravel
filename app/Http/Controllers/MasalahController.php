@@ -47,6 +47,14 @@ public function store(Request $request)
 
 		$images = $dom->getelementsbytagname('img');
 		$images2 = $dom2->getelementsbytagname('img');
+		
+		if ($request->tgl = null)
+		{
+		    $dndate = null;
+		}
+		else {
+		    $dndate = $request->tgl;
+		}
 
 
 		foreach($images as $k => $img){
@@ -97,7 +105,7 @@ public function store(Request $request)
 		'lawan' => $request->lawan,
 		'masalah' => $request->masalah,
 		'penyelesaian' => $fix,
-		'tgl' => $request->tgl,
+		'tgl' => $dndate,
 		'tipe' => $detail,
 		'inti' => $request->inti,
 	]);
@@ -133,6 +141,14 @@ public function update(Request $request)
 
 		$images = $dom3->getelementsbytagname('img');
 		$images2 = $dom4->getelementsbytagname('img');
+		
+	    if ($request->tgl == null)
+		{
+		    $dndate = null;
+		}
+		else {
+		    $dndate = $request->tgl;
+		}
 
 
 		foreach($images as $k => $img){
@@ -207,8 +223,8 @@ public function update(Request $request)
 		'lawan' => $request->lawan,
 		'masalah' => $request->masalah,
 		'penyelesaian' => $fix,
-		'tgl' => $request->tgl,
-		'tipe' => $detail,
+		'tgl' => $dndate,
+		'tipe' => $request->tipe,
 		'inti' => $request->inti,
 	]);
 

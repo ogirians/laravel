@@ -54,7 +54,11 @@
       <td>{{ $m->inti }}</td> 
       <td>{{ $m->masalah }}</td>
       <td><a href="detail/{{ $m->no }}">see detail</td>
+      @if ($m->tgl == null)
+      <td>not yet</td>
+      @else
       <td>{{ Carbon\Carbon::parse($m->tgl)->format('d-m-Y') }}</td>
+      @endif
          
     </tr>
     @endforeach

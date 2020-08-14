@@ -58,27 +58,30 @@ class choicePdfGenerateController extends Controller
     }
 
 
-     public function staffcetak_pdf($id, $calcid)
+     public function staffcetak_pdf($id, $last)
     {  
+        
         $name = DB::table('humans')
                 ->where('id',$id)
                 ->value('name');
 
         $date = DB::Table('calc')
-                ->where('no',$calcid)
+                ->where('humans_id',$id)
+                ->whereDate('pdate', $last)
                 ->value('pdate');
+        
         $day = date("d-M-Y", strtotime($date));
-
-
+        
         $human = DB::Table('humans')
                 ->where('id', $id)
                 ->get();
 
-        $calc = DB::table('calc')->where('no',$calcid)->get();
+        $calc = DB::table('calc')->where('humans_id',$id)
+                                ->whereDate('pdate', $last)
+                                ->get();
 
 
         $now = Carbon::now()->format('d-M-Y');
-
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true], set_time_limit(300))->loadview('calculator.staff-print',['human'=> $human, 'now' => $now,  'calc' => $calc])->setPaper('legal');  
 
        
@@ -90,7 +93,7 @@ class choicePdfGenerateController extends Controller
     }
 
 
-    public function drivercetak_pdf($id, $calcid)
+    public function drivercetak_pdf($id,  $last)
     {  
 
 
@@ -99,9 +102,11 @@ class choicePdfGenerateController extends Controller
                 ->where('id',$id)
                 ->value('name');
 
-        $date = DB::Table('calc')
-                ->where('no',$calcid)
+         $date = DB::Table('calc')
+                ->where('humans_id',$id)
+                ->whereDate('pdate', $last)
                 ->value('pdate');
+                
         $day = date("d-M-Y", strtotime($date));
 
 
@@ -110,7 +115,9 @@ class choicePdfGenerateController extends Controller
                 ->where('id', $id)
                 ->get();
 
-        $calc = DB::table('calc')->where('no',$calcid)->get();
+        $calc = DB::table('calc')->where('humans_id',$id)
+                                ->whereDate('pdate', $last)
+                                ->get();
 
         $now = Carbon::now()->format('d-M-Y');
 
@@ -125,7 +132,7 @@ class choicePdfGenerateController extends Controller
     }
 
 
-      public function headcetak_pdf($id, $calcid)
+      public function headcetak_pdf($id, $last)
     {  
 
        $name = DB::table('humans')
@@ -133,15 +140,19 @@ class choicePdfGenerateController extends Controller
                 ->value('name');
 
         $date = DB::Table('calc')
-                ->where('no',$calcid)
+                ->where('humans_id',$id)
+                ->whereDate('pdate', $last)
                 ->value('pdate');
+                
         $day = date("d-M-Y", strtotime($date));
 
         $human = DB::Table('humans')
                 ->where('id', $id)
                 ->get();
 
-        $calc = DB::table('calc')->where('no',$calcid)->get();
+        $calc = DB::table('calc')->where('humans_id',$id)
+                                ->whereDate('pdate', $last)
+                                ->get();
 
         $now = Carbon::now()->format('d-M-Y');
 

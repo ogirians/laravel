@@ -27,7 +27,13 @@
 </table> 
 <p></p>
 <p></p>  
-<p>masalah terjadi pada {{ $m->tproblem }}, dan telah diselesaikan pada {{ $m->tgl }}.</p>
+<p>masalah terjadi pada {{ $m->tproblem }},
+@if ($m->tgl == null)
+dan masalah belum dislesaikan.
+@else
+dan telah diselesaikan pada {{ $m->tgl }}.
+@endif
+</p> 
 <br>
 
 <p>detail permasalahan:</p>

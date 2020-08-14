@@ -81,7 +81,7 @@
 
           <!--Tanggal Penyelesaian <input type="date" name="tgl" required="required"> <br/>-->
           <label>tanggal penyelesaian</label>
-          <input class="form-control" id="exampleFormControlInput1" placeholder="tanggal Kejadian" type="date" name="tgl" required="required" value="{{ $m->tgl }}" style="max-width: 300px;">  <br/>
+          <input class="form-control" id="exampleFormControlInput1" placeholder="tanggal Kejadian" type="date" name="tgl" value="{{ $m->tgl }}" style="max-width: 300px;">  <br/>
           
 
           <!--<div class="form-group">

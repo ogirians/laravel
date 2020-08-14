@@ -7,7 +7,7 @@
     .mySlides {display:none;}
     </style>
  
-<link href="{{ asset('/kuning/css/slide_bukti.css')}}" rel="stylesheet">
+
 <a href="/all" class="btn btn-success btn" style="margin-bottom: 20px;">Kembali</a>
 
       <div class="row">
@@ -267,12 +267,6 @@
   
   $(document).ready(function() {
     $('#dataTable1').DataTable( {
-        "order": [[ 0, "desc" ]]
-    } );
-} );
-
-  $(document).ready(function() {
-    $('#dataTable2').DataTable( {
         "order": [[ 0, "desc" ]]
     } );
 } );

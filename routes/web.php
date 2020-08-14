@@ -317,9 +317,9 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	//export choice
 	Route::get('/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
 	
-	Route::get('/staffnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@staffcetak_pdf');
-	Route::get('/drivernilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@drivercetak_pdf');
-	Route::get('/headnilaipdf/{id?}/{calcid?}', 'choicePdfGenerateController@headcetak_pdf');
+	Route::get('/staffnilaipdf/{id?}/{last?}', 'choicePdfGenerateController@staffcetak_pdf');
+	Route::get('/drivernilaipdf/{id?}/{last?}', 'choicePdfGenerateController@drivercetak_pdf');
+	Route::get('/headnilaipdf/{id?}/{last?}', 'choicePdfGenerateController@headcetak_pdf');
 	
 
 
