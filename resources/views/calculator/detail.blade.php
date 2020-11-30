@@ -291,7 +291,7 @@ min-width: 400px;
 </div>
 
 
-<a class="btn btn-info" href="/drivernilaipdf/{{$h -> id}}/{{ $c ->no }}">Download PDF</a>
+<a class="btn btn-info" href="/drivernilaipdf/{{$h -> id}}/null/{{ $c ->no }}">Download PDF</a>
 
 
 
@@ -713,7 +713,7 @@ min-width: 400px;
 </div>
 </div>
 
-<a class="btn btn-info" href="/staffnilaipdf/{{ $h -> id }}/{{ $c ->no }}">Download PDF</a>
+<a class="btn btn-info" href="/staffnilaipdf/{{ $h -> id }}/null/{{ $c ->no }}">Download PDF</a>
 
 </div>
 
@@ -1188,7 +1188,7 @@ min-width: 400px;
 </div> 
 </div>
 
-<a class="btn btn-info" href="/headnilaipdf/{{ $h -> id }}/{{ $c->no }}">Download PDF</a>
+<a class="btn btn-info" href="/headnilaipdf/{{ $h -> id }}/null/{{ $c->no }}">Download PDF</a>
 
 <script type="text/javascript">
    $(document).ready(function(){

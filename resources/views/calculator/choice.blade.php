@@ -130,17 +130,17 @@
                                 @if ($now == Carbon\Carbon::parse($q->last_test)->format('M') && $q -> last_test !== null)
 
                                    @if ($q->humans_level == 3)
-                                        <a href="/drivernilaipdf/{{ $q -> id }}/{{$q->last_test}}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>
+                                        <a href="/drivernilaipdf/{{ $q -> id }}/{{$q->last_test}}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>
                                          
                                     @endif
 
                                     @if ($q->humans_level == 2)
-                                        <a href="/staffnilaipdf/{{ $q -> id }}/{{$q->last_test}}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>          
+                                        <a href="/staffnilaipdf/{{ $q -> id }}/{{$q->last_test}}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>          
                                            
                                     @endif
 
                                     @if ($q->humans_level == 1 || $q->humans_level == 'A' )
-                                        <a href="/headnilaipdf/{{ $q -> id }}/{{$q->last_test}}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;"><span class="glyphicon glyphicon-download"></span></a>  
+                                        <a href="/headnilaipdf/{{ $q -> id }}/{{$q->last_test}}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;"><span class="glyphicon glyphicon-download"></span></a>  
                                    
                                     @endif
 
@@ -232,17 +232,17 @@
                                 @if ($now == Carbon\Carbon::parse($oll->last_test)->format('M') && $oll -> last_test !== null)
 
                                    @if ($oll->humans_level == 3)
-                                        <a href="/drivernilaipdf/{{ $oll -> id }}/{{ $oll->last_test}}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>
+                                        <a href="/drivernilaipdf/{{ $oll -> id }}/{{ $oll->last_test}}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>
                                          
                                     @endif
 
                                     @if ($oll->humans_level == 2)
-                                        <a href="/staffnilaipdf/{{ $oll -> id }}/{{ $oll->last_test }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>          
+                                        <a href="/staffnilaipdf/{{ $oll -> id }}/{{ $oll->last_test }}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;" ><span class="glyphicon glyphicon-download"></span></a>          
                                            
                                     @endif
 
                                     @if ($oll->humans_level == 1 || $oll->humans_level == 'A' )
-                                        <a href="/headnilaipdf/{{ $oll -> id }}/{{ $oll->last_test }}" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;"><span class="glyphicon glyphicon-download"></span></a>  
+                                        <a href="/headnilaipdf/{{ $oll -> id }}/{{ $oll->last_test }}/null" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download penilaian bulan ini" id="download" style="margin-top: 3px;"><span class="glyphicon glyphicon-download"></span></a>  
                                    
                                     @endif
 

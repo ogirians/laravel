@@ -18,3 +18,5 @@
 [03-Jun-2020 04:25:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 12288 bytes) in /home/indoberk/public_html/office/vendor/dompdf/dompdf/lib/Cpdf.php on line 4931
 [03-Jun-2020 04:29:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24108840 bytes) in /home/indoberk/public_html/office/vendor/dompdf/dompdf/lib/Cpdf.php on line 4794
 [03-Jun-2020 04:33:23 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 12288 bytes) in /home/indoberk/public_html/office/vendor/dompdf/dompdf/lib/Cpdf.php on line 4931
+[02-Oct-2020 07:12:07 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/indoberk/public_html/office/app/Http/Controllers/Sheet1Controller.php on line 3
+[02-Oct-2020 07:12:19 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/indoberk/public_html/office/app/Http/Controllers/Sheet1Controller.php on line 3

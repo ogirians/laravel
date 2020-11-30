@@ -10,6 +10,7 @@ use App\Pelamar;
 use File;
 use App\Mail\RegistrasiEmail;
 use Illuminate\Support\Facades\Mail;
+use Excel;
 
 
 
@@ -165,7 +166,10 @@ public function delete($no)
 
     	return view('np.crud', array(
         'masalahnp' => $masalah,
-        'outlet' => $outlet
+        'outlet' => $outlet,
+        'mulai' => null,
+        'selesai' => null,
+        'loc' => null,
         ));
     }
 
@@ -252,22 +256,28 @@ public function delete($no)
 		};
 
 
-		$start2 = date('2019-12-03');
-		$end2 = date('2019-12-05');
-
 		//$filter = $pelamar->where('created_at',[$start2,$end2]);
 
-		return redirect("dosa/filter/{$start}/{$end}/{$pos}");
+		return redirect("dosanp/filter/{$start}/{$end}/{$pos}");
 	}
 
 
     public function filter($start,$end,$pos)
     	{
-    
+        
+        
     	if ($pos == 'none')
     	{
-    		$pos = '';
-    	};
+    		$posn = '';
+    	}
+    	else
+        {
+            $posn=$pos;
+        };
+    	
+    	$mulai = $start;
+        $selesai = $end;
+        $loc = $posn;
     	
     	 $outlet = DB::table('np2')
         ->select('outlet')
@@ -277,7 +287,7 @@ public function delete($no)
     		$pelamar = DB::table('np2')															
     		->whereDate('np2.tanggal', '>=', $start)
     		->whereDate('np2.tanggal', '<=', $end)
-    		->where('np2.outlet', 'like', "%".$pos."%")
+    		->where('np2.outlet', 'like', "%".$posn."%")
     		->get();
     
     		//$filter = $pelamar->where('created_at',[$start2,$end2]);
@@ -285,9 +295,68 @@ public function delete($no)
    
     		return view('np.crud', array(
             'masalahnp' => $pelamar,
-            'outlet' => $outlet
+            'outlet' => $outlet,
+            'mulai' => $mulai,
+            'selesai' => $selesai,
+            'loc' => $pos,
             ));
     	}
+    	
+    	
+function excel_np($start,$end,$pos)
+    {
+        if ($pos == 'none')
+    	{
+    		$posn = '';
+    	}
+    	 else
+            {
+                $posn=$pos;
+            };
+        
+        
+        if ($start == "null") {
+             
+        $masalah= DB::table('np2')															
+    		->get()
+    		->toArray();
+            
+        }
+        else {
+        $masalah= DB::table('np2')															
+    		->whereDate('np2.tanggal', '>=', $start)
+    		->whereDate('np2.tanggal', '<=', $end)
+    		->where('np2.outlet', 'like', "%".$posn."%")
+    		->get()
+    		->toArray();
+        };
+    
+         $masalah_array[] = array('tanggal','nama_outlet','nama_editor','status','no_transaksi', 'keterangan', 'no_berita', 'toleransi');
+         
+         foreach($masalah as $m)
+         {
+          $masalah_array[] = array(
+           'tanggal'  => $m->tanggal,
+           'nama_outlet'   => $m->outlet,
+           'nama_editor'   => $m->editor,
+           'status'    => $m->status,
+           'no_transaksi'    => $m->transaksi,
+           'keterangan'    => $m->keterangan,
+           'no_berita'    => $m->berita,
+           'toleransi'  => $m->toleransi,
+          );
+         }
+         
+         Excel::create('Masalah Data', function($excel_np) use ($masalah_array){
+          $excel_np->setTitle('Masalah Data');
+          
+          $excel_np->sheet('Masalah Data', function($sheet) use ($masalah_array){
+           $sheet->fromArray($masalah_array, null, 'A1', false, false);
+          });
+         })->download('xlsx');
+    }
+    
+    
     	
 
 
@@ -357,6 +426,7 @@ public function delete($no)
     $skore = DB::table('np2')->select('outlet', DB::raw('count(outlet) as outlet_count'))
                                ->whereDate('np2.tanggal', '>=', $start)
 		                       ->whereDate('np2.tanggal', '<=', $end)
+		                       ->where('np2.toleransi', '=', 'tidak')
                                ->groupBy('outlet')
                                ->get();
           

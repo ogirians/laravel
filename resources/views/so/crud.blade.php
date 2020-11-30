@@ -99,6 +99,11 @@
    <div class="card-header py-3">
     <h3>Buku Rekapan SO Bulanan</h3>  
     <a class="btn btn-success" href="/so/tambah">  Tambah data</a>
+    @if ($mulai !== null && $selesai !== null && $loc !== null)
+    <a class="btn btn-info" href="/so/excel/{{ $mulai }}/{{ $selesai }}/{{ $loc }}"> + Export to Excell</a>
+    @else
+    <a class="btn btn-info" href="/so/excel/null/null/null"> + Export to Excell</a>
+    @endif
    </div>
 
 

@@ -10,6 +10,7 @@ use App\Pelamar;
 use File;
 use App\Mail\RegistrasiEmail;
 use Illuminate\Support\Facades\Mail;
+use Excel;
 
 
 
@@ -53,6 +54,7 @@ public function instats()
     $skore = DB::table('sheet1')->select('outlet', DB::raw('count(outlet) as outlet_count'))
                                ->whereDate('sheet1.tanggal', '>=', $start)
 		                       ->whereDate('sheet1.tanggal', '<=', $end)
+		                       ->where('sheet1.toleransi', '=', 'tidak')
                                ->groupBy('outlet')
                                ->get();
           
@@ -208,8 +210,16 @@ public function filter($start,$end,$pos)
 
 	if ($pos == 'none')
 	{
-		$pos = '';
-	};
+		$posn = '';
+	}
+	 else
+    {
+        $posn=$pos;
+    };
+	
+		$mulai = $start;
+        $selesai = $end;
+        $loc = $posn;
 	
 	  $outlet = DB::table('sheet1')
         ->select('outlet')
@@ -219,7 +229,7 @@ public function filter($start,$end,$pos)
 		$pelamar = DB::table('sheet1')															
 		->whereDate('sheet1.tanggal', '>=', $start)
 		->whereDate('sheet1.tanggal', '<=', $end)
-		->where('sheet1.outlet', 'like', "%".$pos."%")
+		->where('sheet1.outlet', 'like', "%".$posn."%")
 		->get();
 
 		//$filter = $pelamar->where('created_at',[$start2,$end2]);
@@ -227,9 +237,67 @@ public function filter($start,$end,$pos)
 	
 	    return view('pd.crud', array(
         'masalah' => $pelamar,
-        'outlet' => $outlet
+        'outlet' => $outlet,
+        'mulai' => $mulai,
+        'selesai' => $selesai,
+        'loc' => $pos,
         ));
 	}
+	
+	
+function excel_p($start,$end,$pos)
+    {
+        if ($pos == 'none')
+        	{
+        		$posn = '';
+        	}
+        else
+            {
+                $posn=$pos;
+            }
+        	
+        
+        
+        if ($start == "null") {
+             
+        $masalah= DB::table('sheet1')															
+    		->get()
+    		->toArray();
+            
+        }
+        else {
+        $masalah= DB::table('sheet1')															
+    		->whereDate('sheet1.tanggal', '>=', $start)
+    		->whereDate('sheet1.tanggal', '<=', $end)
+    		->where('sheet1.outlet', 'like', "%".$posn."%")
+    		->get()
+    		->toArray();
+        };
+    
+         $masalah_array[] = array('tanggal','nama_outlet','nama_editor','status','no_transaksi', 'keterangan', 'no_berita', 'toleransi');
+         
+         foreach($masalah as $m)
+         {
+          $masalah_array[] = array(
+           'tanggal'  => $m->tanggal,
+           'nama_outlet'   => $m->outlet,
+           'nama_editor'   => $m->editor,
+           'status'    => $m->status,
+           'no_transaksi'    => $m->transaksi,
+           'keterangan'    => $m->keterangan,
+           'no_berita'    => $m->berita,
+           'toleransi'  => $m->toleransi,
+          );
+         }
+         
+         Excel::create('Masalah Data', function($excel_p) use ($masalah_array){
+          $excel_p->setTitle('Masalah Data');
+          
+          $excel_p->sheet('Masalah Data', function($sheet) use ($masalah_array){
+           $sheet->fromArray($masalah_array, null, 'A1', false, false);
+          });
+         })->download('xlsx');
+    }
 
 
 public function storedate(Request $request)
@@ -392,7 +460,10 @@ public function delete($no)
     	
     	 return view('pd.crud', array(
         'masalah' => $masalah,
-        'outlet' => $outlet
+        'outlet' => $outlet,
+         'mulai' => null,
+        'selesai' => null,
+        'loc' => null,
         ));
     }
 

@@ -10,6 +10,7 @@ use App\Pelamar;
 use File;
 use App\Mail\RegistrasiEmail;
 use Illuminate\Support\Facades\Mail;
+use Excel;
 
 
 
@@ -160,7 +161,11 @@ public function delete($no)
 
     	return view('so.crud', array(
         'masalahnp' => $masalah,
-        'outlet' => $outlet
+        'outlet' => $outlet,
+        'mulai' => null,
+        'selesai' => null,
+        'loc' => null,
+        
         ));
     }
 
@@ -233,7 +238,7 @@ public function delete($no)
 
 		//$filter = $pelamar->where('created_at',[$start2,$end2]);
 
-		return redirect("dosa/filter/{$start}/{$end}/{$pos}");
+		return redirect("so/filter/{$start}/{$end}/{$pos}");
 	}
 
 
@@ -247,7 +252,15 @@ public function delete($no)
     	if ($pos == 'none')
     	{
     		$pos = '';
-    	};
+    	}
+    	else
+        {
+            $posn=$pos;
+        };
+    	
+    	$mulai = $start;
+        $selesai = $end;
+        $loc = $posn;
     	
     		$pelamar = DB::table('so')															
     		->whereDate('so.tanggal', '>=', $start)
@@ -259,10 +272,67 @@ public function delete($no)
     
     
     			return view('so.crud', array(
-                'masalahnp' => $pelamar,
-                'outlet' => $outlet
+                     'masalahnp' => $pelamar,
+                    'outlet' => $outlet,
+                    'mulai' => $mulai,
+                    'selesai' => $selesai,
+                    'loc' => $pos,
         ));
     	}
+    	
+function excel_so($start,$end,$pos)
+    {
+        if ($pos == 'none')
+    	{
+    		$posn = '';
+    	}
+    	 else
+            {
+                $posn=$pos;
+            };
+        
+        
+        if ($start == "null") {
+             
+        $masalah= DB::table('so')															
+    		->get()
+    		->toArray();
+        }
+        
+        else {
+        $masalah= DB::table('so')															
+    		->whereDate('so.tanggal', '>=', $start)
+    		->whereDate('so.tanggal', '<=', $end)
+    		->where('so.outlet', 'like', "%".$posn."%")
+    		->get()
+    		->toArray();
+        };
+    
+         $masalah_array[] = array('tanggal','nama_outlet','nama_editor','status','no_transaksi', 'keterangan', 'no_berita');
+         
+         foreach($masalah as $m)
+         {
+          $masalah_array[] = array(
+           'tanggal'  => $m->tanggal,
+           'nama_outlet'   => $m->outlet,
+           'nama_editor'   => $m->editor,
+           'status'    => $m->status,
+           'no_transaksi'    => $m->transaksi,
+           'keterangan'    => $m->keterangan,
+           'no_berita'    => $m->berita,
+          );
+         }
+         
+         Excel::create('Masalah Data', function($excel_np) use ($masalah_array){
+          $excel_np->setTitle('Masalah Data');
+          
+          $excel_np->sheet('Masalah Data', function($sheet) use ($masalah_array){
+           $sheet->fromArray($masalah_array, null, 'A1', false, false);
+          });
+         })->download('xlsx');
+    }
+    
+    	
     	
 
 

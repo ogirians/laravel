@@ -294,6 +294,7 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	Route::post('/HRD/humans/resign', 'BownerHumansController@resign');
 	Route::resource('/HRD/humans', 'BownerHumansController');
 	Route::resource('/HRD/leaves', 'LeavesController');
+	
 	Route::get('/HRD/export_excel/excelkaryawan', 'ExportEmployeeController@excelkaryawan')->name('bowner.export_excel.excelkaryawan');
 
 	//perfomances
@@ -317,9 +318,9 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	//export choice
 	Route::get('/listnilaipdf/{location?}', 'choicePdfGenerateController@cetak_pdf');
 	
-	Route::get('/staffnilaipdf/{id?}/{last?}', 'choicePdfGenerateController@staffcetak_pdf');
-	Route::get('/drivernilaipdf/{id?}/{last?}', 'choicePdfGenerateController@drivercetak_pdf');
-	Route::get('/headnilaipdf/{id?}/{last?}', 'choicePdfGenerateController@headcetak_pdf');
+	Route::get('/staffnilaipdf/{id?}/{last?}/{no?}', 'choicePdfGenerateController@staffcetak_pdf');
+	Route::get('/drivernilaipdf/{id?}/{last?}/{no?}', 'choicePdfGenerateController@drivercetak_pdf');
+	Route::get('/headnilaipdf/{id?}/{last?}/{no?}', 'choicePdfGenerateController@headcetak_pdf');
 	
 
 
@@ -360,6 +361,8 @@ Route::get('/beritanp/{outlet}','NpController@pelakunp2');
 Route::get('/all','Sheet1Controller@beritaall');
 
 
+
+
 //BFM migrate route
 
 Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
@@ -381,6 +384,8 @@ Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
     
     Route::get('/dosa/filter', 'Sheet1Controller@parah');
     Route::get('/dosa/filter/{start?}/{end?}/{pos?}','Sheet1Controller@filter');
+    Route::get('/dosap/excel/{start?}/{end?}/{pos?}','Sheet1Controller@excel_p');
+    
     Route::get('/dosa/{outlet}','Sheet1Controller@pelaku');
     
     
@@ -396,9 +401,11 @@ Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
     Route::get('/dosanp/delete/{no}','NpController@delete');
     Route::get('/dosanp/filter','NpController@parah');
     Route::get('/dosanp/filter/{start?}/{end?}/{pos?}','NpController@filter');
+    Route::get('/dosanp/excel/{start?}/{end?}/{pos?}','NpController@excel_np');
     
     Route::get('/dosanp/statsnp', 'NpController@instatsnp');
     Route::get('/dosanp/{outlet}','NpController@pelakunp');
+    
     
      //SO
     Route::get('/master', 'SoController@master');
@@ -411,6 +418,7 @@ Route::group(['middleware'=>'FM', 'as' => 'FM.'], function(){
     Route::get('/so/delete/{no}','SoController@delete');
     Route::get('/so/filter','SoController@parah');
     Route::get('/so/filter/{start?}/{end?}/{pos?}','SoController@filter');
+    Route::get('/so/excel/{start?}/{end?}/{pos?}','SoController@excel_so');
     
     Route::get('/so/statsnp', 'SoController@instatsnp');
     Route::get('/so/{outlet}','SoController@pelakunp');

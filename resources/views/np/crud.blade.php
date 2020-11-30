@@ -56,7 +56,7 @@
                      	<div class="col">
                         <a style="padding-bottom: 10px;">Outlet: </a> 
                         <div class="input-group">
-                           <select class="form-control" id="exampleFormControlSelect1" name="pos" required="required" value="{{ old('pos') }}">
+                           <select class="form-control" id="exampleFormControlSelect1" name="pos" value="{{ old('pos') }}">
                               <option></option>
                            @foreach ($outlet as $o)
                               <option>{{ $o -> outlet }}</option>
@@ -82,23 +82,23 @@
               </div>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+ 
 <div class="card shadow mb-4" >
+
+
    <div class="card-header py-3">
     <h3>Buku Berita Acara (non-pajak)</h3>  
     <a class="btn btn-success" href="/dosanp/tambah"> + Tambah Berita Acara</a>
- </div>
+    
+    @if ($mulai !== null && $selesai !== null && $loc !== null)
+    <a class="btn btn-info" href="/dosanp/excel/{{ $mulai }}/{{ $selesai }}/{{ $loc }}"> + Export to Excell</a>
+    @else
+    <a class="btn btn-info" href="/dosanp/excel/null/null/null"> + Export to Excell</a>
+    @endif
+    
+    </div>
+
+
 
 
  <div class="card-body" style="margin-bottom: 15px;">  
@@ -143,7 +143,7 @@
     @foreach($masalahnp as $m)
     <tr>
       <td>{{ $m->no }}</td>
-      <td>{{ Carbon\Carbon::parse($m->tanggal)->format('d-m-Y') }}</td>
+      <td>{{ Carbon\Carbon::parse($m->tanggal)->format('m-d-Y') }}</td>
       <td>{{ $m->outlet }}</td>
       <td>{{ $m->editor }}</td> 
       <td>{{ $m->status }}</td>

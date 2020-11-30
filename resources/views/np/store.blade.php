@@ -64,7 +64,6 @@
 					 <div class="form-group" col-sm-6>
 				        <b>Toleransi</b>
 				        <select class="form-control" id="exampleFormControlSelect1" name="toleransi" required="required" value="{{ old('toleransi') }}">
-                        <option>-</option>
                             <option>Tidak</option>
                             <option>Ya</option>
                         </select> 
