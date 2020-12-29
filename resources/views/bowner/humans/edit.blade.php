@@ -45,16 +45,29 @@
 			<div class="row">
 				<div class="form-group col-sm-6 has-feedback">
 					{!! Form::label('start_day', 'Start Day (*):') !!}
-					{!! Form::text('start_day', $value=$day, ['class'=>'form-control', 'required']) !!}
+					{!! Form::text('start_day',null, ['class'=>'form-control', 'required', 'readonly']) !!}
 					<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
 				</div>
 				
 				<div class="form-group col-sm-6 has-feedback">
 					{!! Form::label('birth', 'Date of Birth (*):') !!}
-					{!! Form::text('birth', $day_birth, ['class'=>'form-control', 'required']) !!}
+					{!! Form::text('birth', null, ['class'=>'form-control', 'required', 'readonly']) !!}
 					<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
 				</div>
 			</div>
+			
+			<div class="row">
+				<div class="form-group col-sm-6 has-feedback">
+					{!! Form::label('NIK', 'NIK (*):') !!}
+					{!! Form::text('nik',null, ['class'=>'form-control', 'required']) !!}
+				</div>
+				
+				<div class="form-group col-sm-6 has-feedback">
+					{!! Form::label('status', 'status (*):') !!}
+					{!! Form::text('status', null, ['class'=>'form-control', 'required']) !!}
+				</div>
+			</div>
+			
 			
 			<div class="row">
 				<div class="form-group col-sm-6">
@@ -90,6 +103,13 @@
 				<div class="form-group col-sm-6">
 					{!! Form::label('photo', 'Photo:') !!}
 					{!! Form::file('photo', null, ['class'=>'form-control']) !!}
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-sm-6 has-feedback">
+					{!! Form::label('agama', 'agama (*):') !!}
+					{!! Form::text('agama', null, ['class'=>'form-control', 'required']) !!}
 				</div>
 			</div>
 

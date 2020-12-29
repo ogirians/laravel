@@ -33,21 +33,32 @@
 	<div class="row">
 		<div class="form-group col-sm-6 has-feedback">
 			{!! Form::label('start_day', 'Start Day (*):') !!}
-			{!! Form::text('start_day', null, ['class'=>'form-control', 'required']) !!}
+			{!! Form::text('start_day', null, ['class'=>'form-control', 'required', 'readonly']) !!}
 			<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
 		</div>
 
 		<div class="form-group col-sm-6 has-feedback">
 			{!! Form::label('birth', 'Date of Birth (*):') !!}
-			{!! Form::text('birth', null, ['class'=>'form-control', 'required']) !!}
+			{!! Form::text('birth', null, ['class'=>'form-control', 'required', 'readonly']) !!}
 			<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
+		</div>
+	</div>
+	
+	<div class="row">
+	    <div class="form-group col-sm-6 has-feedback">
+			{!! Form::label('agama', 'agama (*):') !!}
+			{!! Form::text('agama', null, ['class'=>'form-control', 'required']) !!}
+		</div>
+		<div class="form-group col-sm-6 has-feedback">
+			{!! Form::label('status', 'status (*):') !!}
+			{!! Form::text('status', null, ['class'=>'form-control', 'required']) !!}
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="form-group col-sm-6">
 			{!! Form::label('gender', 'Gender (*):') !!}
-			{!! Form::select('gender', [''=>'Choose Option', 'Laki - laki'=>'Laki - laki', 'Perempuan'=>'Perempuan'], null, ['class'=>'form-control', 'required']) !!}
+			{!! Form::select('gender', [''=>'Choose Option', 'Laki – laki'=>'Laki – laki', 'Perempuan'=>'Perempuan'], null, ['class'=>'form-control', 'required']) !!}
 		</div>
 		
 		<div class="form-group col-sm-6">
@@ -75,11 +86,11 @@
 		</div>
 	
 		<div class="form-group col-sm-6">
-				{!! Form::label('photo', 'Photo:') !!}
-				{!! Form::file('photo', null, ['class'=>'form-control']) !!}
+			{!! Form::label('photo', 'Photo:') !!}
+			{!! Form::file('photo', null, ['class'=>'form-control']) !!}
 		</div>
 		 
-		 <input type="hidden" class="form-control" name="humans_status" required="required" value="1">
+		  <input type="hidden" class="form-control" name="humans_status" required="required" value="1">
 		 <div class="form-group">          
       		<input type="hidden" class="form-control" name="role" required="required" value="{{ Auth::user()-> role_id }}">
   		</div>
@@ -87,6 +98,8 @@
       		<input type="hidden" class="form-control" name="outlet" required="required" value="{{ Auth::user()-> name }}">
   		</div>
 	</div>
+	
+
 
 	<div class="row">
 
@@ -113,7 +126,7 @@
 		 {!! Form::label('Level', 'Level:') !!}
 		 
 		 <select class="form-control" id="exampleFormControlSelect1" name="humans_level" required="required" value="{{ old('location') }}">
-		 	  <option>pilih level</option>
+		 	  <option selected="true" disabled="disabled">pilih level</option>
 		 	  <option>A</option>           
               <option>1</option>
               <option>2</option>

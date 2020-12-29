@@ -20,7 +20,7 @@
 	       	@if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
 	        <th>Location</th>
 	        @endif
-	        <th>ID#</th>
+	        <th>NIK</th>
 	      </tr>
 	    </thead>
 	     <tfoot>
@@ -29,14 +29,14 @@
 	        <th>Name</th>
 	        <th>Job Title</th>
 	        <th>Start Day</th>
-	        <th>Date of Birth</th>
+	         <th>Date of Birth</th>
 	        <th>Gender</th>
 	        <th>Address</th>
 	        <th>Phone</th>
 	        @if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
 	        <th>Location</th>
 	        @endif
-	        <th>ID#</th>
+	        <th>NIK</th>
 	      </tr>
 	    </tfoot>
 	    <tbody>
@@ -63,7 +63,7 @@
 				 @if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
 	        	<td>{{$human->location}}</td>
 	        	@endif
-				<td>{{$human->idnum}}</td>
+				<td>{{$human->nik}}</td>
 			  </tr>
 			@endforeach
 		@endif  
@@ -84,7 +84,7 @@
         				 @if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
         	        	<td>{{$human->location}}</td>
         	        	@endif
-        				<td>{{$human->idnum}}</td>
+        				<td>{{$human->nik}}</td>
         			 </tr>
                         
                     @endif
