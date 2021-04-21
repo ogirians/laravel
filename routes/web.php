@@ -264,7 +264,7 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	Route::get('/outlet/detail/{id}/{calcid}', 'CalculatorController@detail');
 
 
-		//update
+	//update
 	
 	//edit
 	Route::get('/outlet/editstaff/{id}', 'CalculatorController@updatestaff');
@@ -281,6 +281,9 @@ Route::group(['middleware'=>'outlet', 'as' => 'outlet.'], function(){
 	
 	//update password
 	Route::resource('/outlet/users', 'OPassController', ['only'=>['edit', 'update']]);
+	
+	//absensi
+	Route::get('/outlet/absensi/{location?}', 'CalculatorController@absensi');
 
 });
 
@@ -310,7 +313,8 @@ Route::group(['middleware'=>'HRD', 'as' => 'HRD.'], function(){
 	
 });
 
-
+    //absensi
+	Route::get('/download/absensi/{location?}', 'CalculatorController@absensi');
 
 	
 	Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');

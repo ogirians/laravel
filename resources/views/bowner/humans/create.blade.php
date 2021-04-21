@@ -65,6 +65,10 @@
 			{!! Form::label('phone', 'Phone (*):') !!}
 			{!! Form::text('phone', null, ['class'=>'form-control', 'required']) !!}
 		</div>
+		<div class="form-group col-sm-6">
+			{!! Form::label('phone_fam', 'Phone family (*):') !!}
+			{!! Form::text('phone_fam', null, ['class'=>'form-control', 'required']) !!}
+		</div>
 	</div>
 
 	<div class="row">
@@ -104,7 +108,7 @@
 	<div class="row">
 
 		<div class="form-group col-sm-6">
-		 {!! Form::label('location', 'location:') !!}
+		 {!! Form::label('location', 'Location/Group Perfomance:') !!}
 		 
 		 <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
 		 	  @if (Auth::user()->isOutlet())

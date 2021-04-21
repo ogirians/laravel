@@ -18,7 +18,7 @@
 	        <th>Address</th>
 	        <th>Phone</th>
 	       	@if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
-	        <th>Location</th>
+	        <th>Location/Group Perfomance</th>
 	        @endif
 	        <th>NIK</th>
 	      </tr>
@@ -34,7 +34,7 @@
 	        <th>Address</th>
 	        <th>Phone</th>
 	        @if (Auth::user()->isHRD() || Auth::user()->is_head == '1')
-	        <th>Location</th>
+	        <th>Location/Group Perfomance</th>
 	        @endif
 	        <th>NIK</th>
 	      </tr>

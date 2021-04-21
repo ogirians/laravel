@@ -54,7 +54,7 @@ class CalculatorController extends Controller
 
         $now = Carbon::now()->format('M');
 
-
+        
         return view('calculator.choice', array(
         'loc'  => $loc,    
         'karyawan3' => $karyawan3,
@@ -64,6 +64,51 @@ class CalculatorController extends Controller
 }
 
 
+
+  /////////////////ABSENSSI CONTROLLER /////////////////////////////
+  
+   public function absensi($location = null){
+        
+         if ($location != null) {
+             
+         $loc  = DB::table('users')
+                        ->select('name')
+                        ->where('head','=',$location)
+                        ->get();     
+        
+         $all = DB::table('humans')
+        ->select('nik','location')
+        ->where('humans.humans_status','1')
+        ->get();
+         
+             
+         $nik = DB::table('humans')
+        ->select('nik','location')
+        ->where('location',$location)
+        ->where('humans.humans_status','1')
+        ->get();
+         }
+         
+         else {
+        
+         $loc= null ;
+         $all = null ;     
+         
+         $nik = DB::table('humans')
+        ->select('nik','location')
+        ->where('humans.humans_status','1')
+        ->get();
+         }
+        
+        return view('calculator.absensi',array(
+        'nik' => $nik,
+        'loc' => $loc,
+        'all' => $all,
+        ));
+
+    }
+    
+    
     ///////////////INPUT CONTROLLER/////////////////////////////////
 
 
@@ -107,11 +152,6 @@ class CalculatorController extends Controller
         ));
     }
 
-
-    
-
-
-    
 
     ///////////////STORE CONTROLLER/////////////////////////////////
 

@@ -16,7 +16,7 @@ class ExportEmployeeController extends Controller
 
      function excelkaryawan()
     {
-     $humans_data = DB::table('humans')->get()->toArray();
+     $humans_data = DB::table('humans')->where('humans_status','1')->get()->toArray();
      $humans_array[] = array('name','job', 'start_day','birth', 'gender', 'address1', 'address2', 'phone', 'idnum', 'location');
      foreach($humans_data as $humans)
      {
@@ -36,7 +36,7 @@ class ExportEmployeeController extends Controller
      Excel::create('Employee Data', function($excelkaryawan) use ($humans_array){
       $excelkaryawan->setTitle('Employee Data');
       $excelkaryawan->sheet('Employee Data', function($sheet) use ($humans_array){
-       $sheet->fromArray($humans_array, null, 'A1', false, false);
+      $sheet->fromArray($humans_array, null, 'A1', false, false);
       });
      })->download('xlsx');
     }

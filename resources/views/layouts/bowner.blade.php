@@ -115,6 +115,7 @@ $p = 0;
                                     <!--<li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li>-->
                                     <li><a href="{{ route('bowner.leaves.index') }}">resign</a></li>
                                     <li><a href="/calculator/choice">Performance</a>
+                                    <li><a href="/download/absensi/{{ Auth::user()->name }}">download absensi</a></li>
                                        
                                     </li>
                                 </ul>
@@ -185,7 +186,8 @@ $p = 0;
                                     <li><a href="{{ route('HRD.humans.create') }}">Add Employee</a></li>
                                     <li><a href="{{ route('HRD.leaves.index') }}">Resign</a>
                                     <!--<li><a href="{{ route('bowner.salaries.index') }}">Salary</a></li></li>-->
-                                    <li><a href="/HRD/calculator/choice">Performance</a>    
+                                    <li><a href="/HRD/calculator/choice">Performance</a>
+                                    <li><a href="/download/absensi/">download absensi</a></li>
                                     </li>
                                 </ul>
                             </li>        
@@ -198,6 +200,7 @@ $p = 0;
                                     <!--<li><a href="{{ route('outlet.humans.create') }}">Add Employee</a></li>
                                     <li><a href="{{ route('outlet.leaves.show', Auth::user()->name)}}">Resign</a>-->
                                      <li><a href="/outlet/choice/{{ Auth::user()->name }}">Performance</a></li>
+                                     <li><a href="/outlet/absensi/{{ Auth::user()->name }}">download absensi</a></li>
                                 </ul>
                             </li> 
                             @endif

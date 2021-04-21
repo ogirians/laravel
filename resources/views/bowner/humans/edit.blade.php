@@ -45,13 +45,13 @@
 			<div class="row">
 				<div class="form-group col-sm-6 has-feedback">
 					{!! Form::label('start_day', 'Start Day (*):') !!}
-					{!! Form::text('start_day',null, ['class'=>'form-control', 'required', 'readonly']) !!}
+					{!! Form::text('start_day', $value=$day, ['class'=>'form-control', 'required']) !!}
 					<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
 				</div>
 				
 				<div class="form-group col-sm-6 has-feedback">
 					{!! Form::label('birth', 'Date of Birth (*):') !!}
-					{!! Form::text('birth', null, ['class'=>'form-control', 'required', 'readonly']) !!}
+					{!! Form::text('birth', $day_birth, ['class'=>'form-control', 'required']) !!}
 					<span class="glyphicon glyphicon-calendar form-control-feedback" style="right: 10px; top: 22px;"></span>
 				</div>
 			</div>
@@ -78,6 +78,10 @@
 				<div class="form-group col-sm-6">
 					{!! Form::label('phone', 'Phone (*):') !!}
 					{!! Form::text('phone', null, ['class'=>'form-control', 'required']) !!}
+				</div>
+				<div class="form-group col-sm-6">
+					{!! Form::label('phone_fam', 'Phone_family (*):') !!}
+					{!! Form::text('phone_fam', null, ['class'=>'form-control', 'required']) !!}
 				</div>
 			</div>
 			
@@ -116,7 +120,7 @@
 
 			<div class="row">
 					<div class="form-group col-sm-6">
-					 {!! Form::label('location', 'location:') !!}
+					 {!! Form::label('location', 'location/Group Perfomance:') !!}
 					 
 					 <select class="form-control" id="exampleFormControlSelect1" name="location" required="required" value="{{ old('location') }}">
 					 	  @if (Auth::user()->isOutlet() || Auth::user()->isBowner())

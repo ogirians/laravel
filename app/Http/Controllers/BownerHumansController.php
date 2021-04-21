@@ -60,7 +60,6 @@ class BownerHumansController extends Controller
         $location = $request->outlet;
         
         
-
         $input['start_day'] = date("Y-m-d", strtotime($input['start_day']));
 		$input['birth'] = date("Y-m-d", strtotime($input['birth']));
 		
@@ -171,26 +170,29 @@ class BownerHumansController extends Controller
 		$input = $request->all();
         $role = $request->role;
         $location = $request->outlet;
-
+        
+        $getphoto = DB::table('humans')->select('photo')->where('id', $id)->first();
+        $photo = $getphoto->photo;
 		$input['start_day'] = date("Y-m-d", strtotime($input['start_day']));
         $input['birth'] = date("Y-m-d", strtotime($input['birth']));
 		
-		if($file = $request->file('photo')){
-			$name = time() . $file->getClientOriginalName();
-			$file->move('images', $name);
-			$input['photo'] = $name;
-		}  
-		
-		else {
-              
-            if ($request -> gender == 'Perempuan') {
-            $input['photo'] = 'person-girl-flat.png';
-            }
-            else {
-            $input['photo'] = 'person-flat.png';
-            }
-                
-         }		   
+    		if($file = $request->file('photo')){
+    			$name = time() . $file->getClientOriginalName();
+    			$file->move('images', $name);
+    			$input['photo'] = $name;
+    		}  
+    		elseif($photo !== null) {
+    		    $input['photo'] = $photo;
+    		}
+    		else {
+                if ($request -> gender == 'Perempuan') {
+                $input['photo'] = 'person-girl-flat.png';
+                }
+                else {
+                $input['photo'] = 'person-flat.png';
+                }
+             }
+
 		
 		
 		$human->update($input);

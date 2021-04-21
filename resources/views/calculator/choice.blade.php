@@ -20,7 +20,7 @@
           <th>nilai total rata-rata</th>
           <th>Kualitas</th>
           @if (Auth::user()->isHRD() || Auth::user()->isBowner() || Auth::user()->is_head == '1')
-          <th>lokasi</th>
+          <th>lokasi/Group Perfomance</th>
           @endif
           <th>opsi</th>
 
@@ -34,7 +34,7 @@
           <th>nilai total rata-rata</th>
           <th>Kualitas</th>
           @if (Auth::user()->isHRD() || Auth::user()->isBowner() || Auth::user()->is_head == '1')
-          <th>lokasi</th>
+          <th>lokasi/Group Perfomance</th>
           @endif
           <th>opsi</th>
         </tr> 
