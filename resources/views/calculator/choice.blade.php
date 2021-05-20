@@ -45,7 +45,6 @@
 
 <!-- update 04 mei,,, gausahh panjang2 diinisialisasi dulu-->
 
-  
     @foreach($karyawan3 as $q)
       
         <tr>

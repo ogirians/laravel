@@ -28,7 +28,19 @@ class CalculatorController extends Controller
                       ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level')
                       ->where('humans.humans_status','1')
                       ->get();
-
+            
+            $latest = DB::table('calc')
+                ->select( DB::raw('MAX(pdate) as last_test'),'humans_id', DB::raw('MAX(no) as terbaru'))
+                ->groupBy('humans_id')
+                ->get(); 
+                
+            $plucked = $latest->pluck('terbaru');
+            
+            $karyawan32 = DB::table('humans')
+                      ->leftjoin('calc','humans.id','=','calc.humans_id')
+                      ->whereIn('calc.no', $plucked)
+                      ->get();
+           
             $karyawan3 = DB::table('humans')
                     ->leftjoin('calc','humans.id','=','calc.humans_id')
                     ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level')
@@ -37,19 +49,35 @@ class CalculatorController extends Controller
                     ->where('humans.humans_level','!=',"A")
                     ->where('humans.humans_status','1')
                     ->get();
+          
         }
         
         else {
             
                 $loc= null ;
                 $all = null ;
+                
                 $karyawan3 = DB::table('humans')
                       ->leftjoin('calc','humans.id','=','calc.humans_id')
                       ->select('humans.id','humans.name', DB::raw('MAX(calc.pdate) as last_test'),DB::raw('ROUND(AVG(calc.total),1) as skore'),'humans.job','humans.location','humans.humans_level')
                       ->groupBy('humans.id','humans.name','humans.job','humans.location','humans.humans_level')
                       ->where('humans.humans_status','1')
                       ->get();
-               
+                    
+                
+                $latest = DB::table('calc')
+                ->select( DB::raw('MAX(pdate) as last_test'),'humans_id', DB::raw('MAX(no) as terbaru'))
+                ->groupBy('humans_id')
+                ->get(); 
+                
+                $plucked = $latest->pluck('terbaru');
+                
+                $karyawan32 = DB::table('humans')
+                      ->leftjoin('calc','humans.id','=','calc.humans_id')
+                      ->whereIn('calc.no', $plucked)
+                      ->orWhere('calc.humans_id', null)
+                      ->where('humans.humans_status','1')
+                      ->get();
         }
 
         $now = Carbon::now()->format('M');
